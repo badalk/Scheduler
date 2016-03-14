@@ -17,6 +17,8 @@ namespace Sitecore.QuartzScheduler.Models
             get { return base.Id; }
         }
 
+        public string ParentItemId { get; set; }
+
         /// <summary>
         /// User friendly name to identify the trigger name. For example: EveryHrReportingSchedule
         /// </summary>

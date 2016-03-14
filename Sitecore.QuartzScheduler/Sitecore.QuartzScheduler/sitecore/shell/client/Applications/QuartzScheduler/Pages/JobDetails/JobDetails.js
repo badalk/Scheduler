@@ -133,24 +133,12 @@ define(["sitecore", "jquery", "underscore", "entityService" ], function (Sitecor
         },
 
         GetJobDataMapJson: function (jobDataMap) {
-
-            //var jsonObjectStream = "";
             var jsonJobDataMap = [];
             var arrKeyValue = jobDataMap.split("&");
-            console.log('Array splitted');
+
             if (arrKeyValue != null && arrKeyValue.length > 0) {
                 for (i = 0; i < arrKeyValue.length; i++) {
-                    //TODO: Need to change the implementation to use JSON Object
                     var arrKeyValuePair = arrKeyValue[i].split("=");
-                    //if (i == 0)
-                    //    jsonObjectStream = jsonObjectStream + "[";
-                    //jsonObjectStream = jsonObjectStream + "{\"itemId\":\"" + arrKeyValuePair[0] + "\",  \"Key\":\"" + arrKeyValuePair[0] + "\", \"Value\": \"" + arrKeyValuePair[1] + "\"}";
-
-                    //if (i < arrKeyValue.length - 1)
-                    //    jsonObjectStream = jsonObjectStream + ", ";
-
-                    //if (i == arrKeyValue.length - 1)
-                    //    jsonObjectStream = jsonObjectStream + "]";
 
                     var newJobDataMap = {
                         "itemId": arrKeyValuePair[0],

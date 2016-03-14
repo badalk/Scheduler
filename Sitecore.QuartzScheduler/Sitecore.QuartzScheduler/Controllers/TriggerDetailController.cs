@@ -1,4 +1,5 @@
 ﻿using Sitecore.QuartzScheduler.Models;
+using Sitecore.QuartzScheduler.Repository;
 using Sitecore.Services.Core;
 using Sitecore.Services.Infrastructure.Sitecore.Services;
 using System;
@@ -9,6 +10,7 @@ using System.Web.Mvc;
 
 namespace Sitecore.QuartzScheduler.Controllers
 {
+    [ServicesController]
     public class TriggerDetailController : EntityService<TriggerDetail>
     {
 

@@ -30,7 +30,7 @@ namespace Sitecore.QuartzScheduler.Repository
                 {
                     Database masterDB = Sitecore.Configuration.Factory.GetDatabase("master");
                     Item parentItem = masterDB.GetItem(sitecoreJobDefinitionLocation);
-                    TemplateItem jdTemplate = masterDB.GetTemplate(ID.Parse("{C57D9C9A-BA63-4C3E-BFD5-4823B20BB5AE}"));
+                    TemplateItem jdTemplate = masterDB.GetTemplate(ID.Parse(Templates.JobDetailTemplate));
                     //"/sitecore/templates/modules/quartzscheduler/jobdetail");
                     Item jdItem = parentItem.Add(entity.JobKey, jdTemplate);
                     jdItem.Editing.BeginEdit();

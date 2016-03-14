@@ -46,7 +46,7 @@
 
                     // get the selected raw item
                     var rawItem = listControl.get("selectedItem").get("$fields")[0].item;
-                    var jsonJobDataMap = GetJobDataMapJson(rawItem["Job Data Map"]);
+                    var jsonJobDataMap = this.GetJobDataMapJson(rawItem["Job Data Map"]);
                     console.log('Job Data Map : ' + jsonJobDataMap);
 
                     that.txtLastRunDateValue.set("text", Date.now().toString());
@@ -58,30 +58,28 @@
                     smartPanel.set("isOpen", false);
                 }
             }
+        },
 
-            function GetJobDataMapJson(jobDataMap) {
+        GetJobDataMapJson: function (jobDataMap) {
+            var jsonJobDataMap = [];
+            var arrKeyValue = jobDataMap.split("&");
 
-                var jsonObjectStream = "";
-                var arrKeyValue = jobDataMap.split("&");
-                if (arrKeyValue != null && arrKeyValue.length > 0) {
-                    for (i = 0; i < arrKeyValue.length; i++) {
-                        var arrKeyValuePair = arrKeyValue[i].split("=");
-                        if (i == 0)
-                            jsonObjectStream = jsonObjectStream + "[";
-                        jsonObjectStream = jsonObjectStream + "{\"Key\":\"" + arrKeyValuePair[0] + "\", \"Value\": \"" + arrKeyValuePair[1] + "\"}";
+            if (arrKeyValue != null && arrKeyValue.length > 0) {
+                for (i = 0; i < arrKeyValue.length; i++) {
+                    var arrKeyValuePair = arrKeyValue[i].split("=");
 
-                        if (i < arrKeyValue.length - 1)
-                            jsonObjectStream = jsonObjectStream + ", ";
+                    var newJobDataMap = {
+                        "itemId": arrKeyValuePair[0],
+                        "Key": arrKeyValuePair[0],
+                        "Value": arrKeyValuePair[1]
+                    };
 
-                        if (i == arrKeyValue.length - 1)
-                            jsonObjectStream = jsonObjectStream + "]";
-                    }
+                    jsonJobDataMap.push(newJobDataMap);
                 }
-
-                console.log('Json Job Data Map as string : ' + jsonObjectStream);
-                return JSON.parse(jsonObjectStream);
             }
 
+            console.log('Json Job Data Map as string : ' + JSON.stringify(jsonJobDataMap));
+            return jsonJobDataMap;
         },
 
         onEditJobDetails: function () {

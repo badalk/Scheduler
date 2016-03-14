@@ -1,4 +1,5 @@
 ﻿using Sitecore.Data;
+using Sitecore.Data.Fields;
 using Sitecore.Data.Items;
 using Sitecore.Diagnostics;
 using Sitecore.QuartzScheduler.Models;
@@ -14,7 +15,30 @@ namespace Sitecore.QuartzScheduler.Repository
     {
         public void Add(TriggerDetail entity)
         {
-            throw new NotImplementedException();
+            using (new SecurityDisabler())
+            {
+                Database masterDB = Sitecore.Configuration.Factory.GetDatabase("master");
+                Item parentItem = masterDB.GetItem(entity.ParentItemId);
+                TemplateItem triggerTemplate = masterDB.GetTemplate(ID.Parse("{822F8EF2-16CE-4B31-AD36-4F2132D81A39}"));
+                //"/sitecore/templates/modules/quartzscheduler/jobdetail");
+                Item triggerItem = parentItem.Add(entity.TriggerKey, triggerTemplate);
+                triggerItem.Editing.BeginEdit();
+                try
+                {
+                    UpdateFields(entity, triggerItem);
+                }
+                catch (Exception ex)
+                {
+                    Sitecore.Diagnostics.Log.Info(String.Format("Error adding Trigger information for {0}", String.IsNullOrEmpty(entity.TriggerKey)), this);
+                    Sitecore.Diagnostics.Log.Error(ex.Message + Environment.NewLine + ex.StackTrace, this);
+                }
+                finally
+                {
+                    triggerItem.Editing.EndEdit();
+                }
+
+
+            }
         }
 
         public void Delete(TriggerDetail entity)
@@ -49,28 +73,46 @@ namespace Sitecore.QuartzScheduler.Repository
                 TriggerDetail trigger = new TriggerDetail()
                 {
                     Id = triggerDetail.ID.ToString(),
-                    TriggerKey = triggerDetail["Trigger Key"],
-                    StartTime = triggerDetail["Start Time"],
-                    EndTime = triggerDetail["End Time"],
-                    ScheduleType = triggerDetail["Schedule Type"],
-                    DaysOfWeeks = triggerDetail["Days of Week"],
-                    DayOfMonth = triggerDetail["Day of Month"],
-                    RepeatCount = triggerDetail["Repeat Count"],
-                    RepeatInterval = triggerDetail["Repeat Interval"],
-                    CronExpression = triggerDetail["Cron Expression"]
+                    TriggerKey = triggerDetail["Trigger Key"]
                 };
+                trigger.StartTime = ((DateField) triggerDetail.Fields["Start Time"]).DateTime;
+                trigger.EndTime = ((DateField)triggerDetail.Fields["End Time"]).DateTime;
 
-                ////Get Job Data Map
-                //NameValueCollection jobData = Sitecore.Web.WebUtil.ParseUrlParameters(jobDetail["Job Data Map"]);
+                //ScheduleType
+                ReferenceField scheduleType = triggerDetail.Fields["Schedule Type"];
+                if (scheduleType != null && scheduleType.TargetItem != null)
+                {
+                    trigger.ScheduleType = scheduleType.TargetItem.ID.ToString();
+                }
 
-                //if (jobData != null)
-                //{
-                //    jd.JobData = new JobDataMap();
-                //    foreach (string key in jobData.Keys)
-                //    {
-                //        jd.JobData.Add(key, jobData[key]);
-                //    }
-                //}
+                //DaysofWeek
+                MultilistField daysOfWeeks = triggerDetail.Fields["Days of Week"];
+                if (daysOfWeeks != null)
+                {
+                    Item[] items = daysOfWeeks.GetItems();
+                    if (items != null && items.Length > 0)
+                    {
+                        List<DaysOfWeek> lstDaysOfWeek = new List<DaysOfWeek>();
+
+                        for (int i = 0; i < items.Length; i++)
+                        {
+                            lstDaysOfWeek.Add((DaysOfWeek) Enum.Parse(typeof(DaysOfWeek), items[i].Name, true));
+                        }
+                        trigger.DaysOfWeeks = lstDaysOfWeek;
+                    }
+                }
+
+                //DayofMonth
+                if (!string.IsNullOrEmpty(triggerDetail.Fields["Day of Month"].Value))
+                    trigger.DayOfMonth = int.Parse(triggerDetail.Fields["Day of Month"].Value);
+
+                //Repeat Interval
+                if (!string.IsNullOrEmpty(triggerDetail.Fields["Repeat Interval"].Value))
+                    trigger.RepeatInterval = int.Parse(triggerDetail.Fields["Repeat Interval"].Value);
+
+                //Cron Expression
+                trigger.CronExpression = triggerDetail.Fields["Cron Expression"].Value;
+
 
                 return trigger;
             }
@@ -90,7 +132,7 @@ namespace Sitecore.QuartzScheduler.Repository
             using (new SecurityDisabler())
             {
                 Database masterDB = Sitecore.Configuration.Factory.GetDatabase("master");
-                TemplateItem triggerTemplate = masterDB.GetTemplate(ID.Parse("{822F8EF2-16CE-4B31-AD36-4F2132D81A39}"));
+                TemplateItem triggerTemplate = masterDB.GetTemplate(ID.Parse(Templates.TriggerDetailTempalte));
                 //"/sitecore/templates/modules/quartzscheduler/TriggerDetail");
                 Item triggerItem = masterDB.GetItem(new ID(entity.itemId));
                 triggerItem.Editing.BeginEdit();
@@ -100,7 +142,7 @@ namespace Sitecore.QuartzScheduler.Repository
                 }
                 catch (Exception ex)
                 {
-                    Sitecore.Diagnostics.Log.Info(String.Format("Error updating Job information for {0}", String.IsNullOrEmpty(entity.JobKey)), this);
+                    Sitecore.Diagnostics.Log.Info(String.Format("Error updating Trigger information for {0}", String.IsNullOrEmpty(entity.TriggerKey)), this);
                     Sitecore.Diagnostics.Log.Error(ex.Message + Environment.NewLine + ex.StackTrace, this);
 
                 }
@@ -117,13 +159,26 @@ namespace Sitecore.QuartzScheduler.Repository
         private void UpdateFields(TriggerDetail entity, Item triggerItem)
         {
             triggerItem.Fields["Trigger Key"].Value = entity.TriggerKey;
-            triggerItem.Fields["Start Time"].Value = entity.StartTime;
-            triggerItem.Fields["End Time"].Value = entity.EndTime;
+            DateField startTimeField = triggerItem.Fields["Start Time"];
+            if (startTimeField != null)
+            {
+                startTimeField.Value = Sitecore.DateUtil.ToIsoDate(entity.StartTime);
+            }
+            triggerItem.Fields["Start Time"].Value = entity.StartTime.ToString();
+            triggerItem.Fields["End Time"].Value = entity.EndTime.ToString();
             triggerItem.Fields["Schedule Type"].Value = entity.ScheduleType;
-            triggerItem.Fields["Days of Week"].Value = entity.DaysOfWeeks;
-            triggerItem.Fields["Day of Month"].Value = entity.DayOfMonth;
-            triggerItem.Fields["Repeat Count"].Value = entity.RepeatCount;
-            triggerItem.Fields["Repeat Interval"].Value = entity.RepeatInterval;
+            //triggerItem.Fields["Days of Week"].Value = entity.DaysOfWeeks;
+            MultilistField daysOfWeekField =  triggerItem.Fields["Days of Week"];
+            foreach(DaysOfWeek dow in entity.DaysOfWeeks)
+            {
+                if (!daysOfWeekField.Contains((dow.ToString())))
+                {
+                    daysOfWeekField.Add(dow.ToString());
+                }
+            }
+            triggerItem.Fields["Day of Month"].Value = entity.DayOfMonth.ToString();
+            triggerItem.Fields["Repeat Count"].Value = entity.RepeatCount.ToString();
+            triggerItem.Fields["Repeat Interval"].Value = entity.RepeatInterval.ToString();
             triggerItem.Fields["Cron Expression"].Value = entity.CronExpression;
         }
     }
