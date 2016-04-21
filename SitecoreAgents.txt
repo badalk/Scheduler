@@ -1,0 +1,23 @@
+18760 19:26:01 INFO  Scheduler - Adding agent: Sitecore.Tasks.UrlAgent (interval: 00:15:00)
+18760 19:26:01 INFO  Scheduler - Adding agent: Sitecore.Tasks.TaskDatabaseAgent (interval: 00:10:00)
+18760 19:26:01 INFO  Scheduler - Adding agent: Sitecore.Tasks.CompactClientDataAgent (interval: 04:00:00)
+18760 19:26:01 INFO  Scheduler - Adding agent: Sitecore.Tasks.CleanupHistory (interval: 04:00:00)
+18760 19:26:01 INFO  Scheduler - Adding agent: Sitecore.Tasks.CleanupPublishQueue (interval: 04:00:00)
+18760 19:26:01 INFO  Scheduler - Adding agent: Sitecore.Tasks.CleanupEventQueue (interval: 04:00:00)
+18760 19:26:01 INFO  Scheduler - Skipping inactive agent: Sitecore.Tasks.HtmlCacheClearAgent
+18760 19:26:01 INFO  Scheduler - Adding agent: Sitecore.Tasks.CleanupAuthenticationTicketsAgent (interval: 04:00:00)
+18760 19:26:01 INFO  Scheduler - Skipping inactive agent: Sitecore.Tasks.PublishAgent
+18760 19:26:01 INFO  Scheduler - Adding agent: Sitecore.Tasks.CleanupAgent (interval: 06:00:00)
+18760 19:26:01 INFO  Scheduler - Adding agent: Sitecore.Tasks.CounterDumpAgent (interval: 01:00:00)
+18760 19:26:01 INFO  Scheduler - Adding agent: Sitecore.Tasks.CloneNotificationsCleanupAgent (interval: 1.00:00:00)
+18760 19:26:01 INFO  Scheduler - Adding agent: Sitecore.Analytics.Tasks.EmailReportsTask (interval: 01:00:00)
+18760 19:26:01 INFO  Scheduler - Adding agent: Sitecore.ContentSearch.Tasks.Optimize (interval: 01:00:00)
+18760 19:26:01 INFO  Scheduler - Adding agent: Core_Database_Agent (interval: 00:10:00)
+18760 19:26:01 INFO  Scheduler - Adding agent: Master_Database_Agent (interval: 00:10:00)
+18760 19:26:01 INFO  Scheduler - Adding agent: Sitecore.Tasks.CleanupFDAObsoleteMediaData (interval: 1.00:00:00)
+18760 19:26:01 INFO  Scheduler - Adding agent: Sitecore.Tasks.WebDAVOptionsCleanupAgent (interval: 1.00:00:00)
+18760 19:26:01 INFO  Scheduler - Adding agent: Sitecore.ListManagement.Analytics.UnlockContactListsAgent (interval: 00:00:10)
+18760 19:26:01 INFO  Scheduler - Skipping inactive agent: Sitecore.Social.Client.Tasks.ManagePreExpiredAccounts
+18760 19:26:01 INFO  Scheduler - Skipping inactive agent: Sitecore.Social.Client.Tasks.SynchronizeSocialMediaInfo
+18760 19:26:01 INFO  Scheduler - Adding agent: Sitecore.Social.Client.Tasks.PostFlaggedMessages (interval: 01:00:00)
+18760 19:26:01 INFO  Scheduler - Adding agent: Sitecore.Social.Client.Tasks.UpdateMessagesStatistics (interval: 01:00:00)
