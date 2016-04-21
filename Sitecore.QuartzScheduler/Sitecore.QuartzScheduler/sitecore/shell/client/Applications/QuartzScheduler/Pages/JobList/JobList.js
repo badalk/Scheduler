@@ -46,7 +46,7 @@
 
                     // get the selected raw item
                     var rawItem = listControl.get("selectedItem").get("$fields")[0].item;
-                    var jsonJobDataMap = this.GetJobDataMapJson(rawItem["Job Data Map"]);
+                    var jsonJobDataMap = that.GetJobDataMapJson(rawItem["Job Data Map"]);
                     console.log('Job Data Map : ' + jsonJobDataMap);
 
                     that.txtLastRunDateValue.set("text", Date.now().toString());

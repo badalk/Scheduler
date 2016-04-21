@@ -1,6 +1,8 @@
-﻿using Sitecore.Services.Core.Model;
+﻿using Sitecore.QuartzScheduler.Validators;
+using Sitecore.Services.Core.Model;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,11 +24,13 @@ namespace Sitecore.QuartzScheduler.Models
         /// <summary>
         /// User friendly name to identify the trigger name. For example: EveryHrReportingSchedule
         /// </summary>
+        [Required(ErrorMessage = "Trigger Key is required")]
         public string TriggerKey { get; set; }
 
         /// <summary>
         /// At what time the schedule should start
         /// </summary>
+        [Required(ErrorMessage = "Start Date Time is required")]
         public DateTime StartTime { get; set; }
 
         /// <summary>
@@ -37,6 +41,7 @@ namespace Sitecore.QuartzScheduler.Models
         /// <summary>
         /// To indicate if this is Daily, Weekly Or Monthly schedule
         /// </summary>
+        [Required(ErrorMessage = "Schedule Type is required. Please select valid Schedule Type.")]
         public string ScheduleType { get; set; }
 
         /// <summary>
@@ -56,7 +61,7 @@ namespace Sitecore.QuartzScheduler.Models
         }
 
         /// <summary>
-        /// If schedule Type is Monthlym then on which day of the month should this schedule run. Keep February Month in mind
+        /// If schedule Type is Monthly then on which day of the month should this schedule run. Keep February Month in mind
         /// </summary>
         /// <seealso cref="SchedulerType"/>
         public int DayOfMonth { get; set; }
@@ -76,6 +81,7 @@ namespace Sitecore.QuartzScheduler.Models
         /// <summary>
         /// A custom cron expression instead of UI based schedule. Cron expression can be defined based on Quartz Cron expression guidelines.
         /// </summary>
+        [CronExpression(ErrorMessage = "{0} is not a valid Cron Expression.")]
         public string CronExpression { get; set; }
 
     }

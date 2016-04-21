@@ -1,4 +1,5 @@
-﻿using Sitecore.Data;
+﻿using Quartz;
+using Sitecore.Data;
 using Sitecore.Data.Fields;
 using Sitecore.Data.Items;
 using Sitecore.Diagnostics;
@@ -180,6 +181,11 @@ namespace Sitecore.QuartzScheduler.Repository
             triggerItem.Fields["Repeat Count"].Value = entity.RepeatCount.ToString();
             triggerItem.Fields["Repeat Interval"].Value = entity.RepeatInterval.ToString();
             triggerItem.Fields["Cron Expression"].Value = entity.CronExpression;
+        }
+
+        public bool IsValidCronExpression(string cronExpression)
+        {
+            return CronExpression.IsValidExpression(cronExpression);
         }
     }
 }

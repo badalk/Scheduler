@@ -1,4 +1,11 @@
-﻿define(["sitecore"], function (Sitecore) {
+﻿require.config(
+    {
+        paths: {
+            entityService: '/sitecore/shell/client/Services/Assets/lib/entityservice'
+        }
+    });
+    
+define(["sitecore"], function (Sitecore) {
     var TriggerDetailDialog = Sitecore.Definitions.App.extend({
         initialized: function () {
             var app = this;
@@ -53,7 +60,20 @@
             app.weeklyExpander.set('isVisible', false);
             app.monthlyExpander.set('isVisible', false);
             app.customExpander.set('isVisible', false);
-        }
+        },
+
+        PopulateTriggerDetails: function (app) {
+
+            //To check mark the week selected
+            app.lcDaysOfWeek.viewModel.checkItem(/*"{EB443C0B-F923-409E-85F3-E7893C8C30C2}"*/);
+        },
+
+        GetTriggerDetailEntityService: function () {
+            var triggerDetailService = new entityService({
+                url: "/sitecore/api/ssc/sitecore-quartzscheduler-controllers/triggerdetail"
+            });
+            return jobDetailService;
+        },
 
     });
 

@@ -131,6 +131,7 @@
     </Content>
     <Content Include="App_Config\Include\Sitecore.QuartzScheduler.config" />
     <Content Include="sitecore\shell\client\Applications\QuartzScheduler\Pages\TriggerDetailDialog\TriggerDetailDialog.js" />
+    <Content Include="sitecore\shell\client\Services\Assets\lib\extensions\validators\validCronExpression.js" />
     <None Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -151,6 +152,8 @@
     <Compile Include="Repository\JobDetailRepository.cs" />
     <Compile Include="Repository\Templates.cs" />
     <Compile Include="Repository\TriggerDetailRepository.cs" />
+    <Compile Include="Validators\CronExpressionAttribute.cs" />
+    <Compile Include="Validators\CronExpressionValidationMetaData.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

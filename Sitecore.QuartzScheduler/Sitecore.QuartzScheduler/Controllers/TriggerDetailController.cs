@@ -1,4 +1,5 @@
-﻿using Sitecore.QuartzScheduler.Models;
+﻿using Quartz;
+using Sitecore.QuartzScheduler.Models;
 using Sitecore.QuartzScheduler.Repository;
 using Sitecore.Services.Core;
 using Sitecore.Services.Infrastructure.Sitecore.Services;
@@ -24,6 +25,10 @@ namespace Sitecore.QuartzScheduler.Controllers
 
         }
 
+        public bool IsValidCronExpression(string cronExpression)
+        {
+            return CronExpression.IsValidExpression(cronExpression);
+        }
 
     }
 }
