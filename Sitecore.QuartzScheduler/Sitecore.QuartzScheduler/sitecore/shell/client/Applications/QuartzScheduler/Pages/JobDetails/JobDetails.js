@@ -5,7 +5,7 @@
         }
     });
 
-define(["sitecore", "jquery", "underscore", "entityService" ], function (Sitecore, $, _, entityService) {
+define(["sitecore", "jquery", "underscore", "entityService"], function (Sitecore, $, _, entityService) {
     var JobDetails = Sitecore.Definitions.App.extend({
 
         initialized: function () {
@@ -52,7 +52,7 @@ define(["sitecore", "jquery", "underscore", "entityService" ], function (Sitecor
 
         },
 
-        CreateJobDetail: function(){
+        CreateJobDetail: function () {
             var self = this;
             var jobDetailService = this.GetJobDetailEntityService();
             var jobDataMapString = this.GetJobDataMapString(self.lcJobDataMap.get("items"));
@@ -77,7 +77,7 @@ define(["sitecore", "jquery", "underscore", "entityService" ], function (Sitecor
             });
         },
 
-        UpdateJobDetail: function(id){
+        UpdateJobDetail: function (id) {
             var self = this;
             var jobDetailService = this.GetJobDetailEntityService();
             var jobDataMapString = this.GetJobDataMapString(self.lcJobDataMap.get("items"));
@@ -85,29 +85,43 @@ define(["sitecore", "jquery", "underscore", "entityService" ], function (Sitecor
 
             jobDetailService.fetchEntity(id).execute().then(function (jobDetail) {
                 console.log('entity to update fethed..' + jobDetail);
-                try{
+
+                try {
+
+                    self.msgNotifications.removeMessages();
+                    var canSave = true;
+
+                    if (self.txtJobKey.viewModel.text().trim().length == 0) {
+                        self.msgNotifications.addMessage("error", { text: "Job Key is required.", actions: [], closable: true, temporary: false })
+                        console.log('Job key is needed..');
+                        canSave = false;
+                    }
+                    if (self.txtJobType.viewModel.text().trim().length == 0) {
+                        self.msgNotifications.addMessage("error", { text: "Job Type is required.", actions: [], closable: true, temporary: false })
+                        console.log('Job key is needed..');
+                        canSave = false;
+                    }
+                    else {
+                        canSave = self.IsValidJobType(self.txtJobType.viewModel.text().trim())
+                    }
+                    if (!canSave) { return; }
+
                     jobDetail.JobKey = self.txtJobKey.viewModel.text();
                     jobDetail.Description = self.txtareaDescription.viewModel.text();
                     jobDetail.Group = self.txtGroup.viewModel.text();
                     jobDetail.Type = self.txtJobType.viewModel.text();
                     jobDetail.JobData = jobDataMapString;
-                }
-                catch (error) {
-                    console.log('error while updating attributes..' + error.message);
-                }
-            
-                console.log('updated entity (ready to save) : ' + jobDetail.toString());
+                    console.log('updated entity (ready to save) : ' + jobDetail.toString());
 
-                jobDetail.on('save', function () {
-                    console.log('save function on entity service called');
-                    self.UpdateSuccessful(self);
-                });
+                    jobDetail.on('save', function () {
+                        console.log('save function on entity service called');
+                        self.UpdateSuccessful(self);
+                    });
 
-                try{
                     jobDetail.save().execute();
                 }
-                catch (err) {
-                    console.log('Error occured while updating the JobDetail: ' + err.message);
+                catch (error) {
+                    console.log('Error occured while updating the JobDetail: ' + error.message);
                 }
 
             });
@@ -115,11 +129,40 @@ define(["sitecore", "jquery", "underscore", "entityService" ], function (Sitecor
 
         UpdateSuccessful: function (self) {
             console.log('update successful.');
-            self.msgNotifications.addMessage("notification", { text: "Job Details updated successfully !", actions: [], closable: true, temporary: true});
+            self.msgNotifications.addMessage("notification", { text: "Job Details updated successfully !", actions: [], closable: true, temporary: true });
 
         },
 
-        SaveJobDetails: function(){
+        IsValidJobType: function (jobType) {
+            var self = this;
+            var canSave = true;
+            console.log('Job Type being validated..' + jobType);
+            $.ajax({
+                url: '/api/sitecore/Utility/IsValidJobType',
+                type: 'GET',
+                async: false,
+                cache: false,
+                data: {
+                    'JobType': jobType
+                },
+                success: function (data) {
+                    console.log('IsValidJobType returned: ' + data);
+                    if (!data) {
+                        self.msgNotifications.addMessage("error", { text: "Job Type mentioned cannot be resolved. Ensure that Fully Qualitifed ClassName, Assembly Name is mentioned correctly.", actions: [], closable: true, temporary: false })
+                        console.log('Job Type cannot be loaded..');
+                        canSave = false;
+                    }
+                },
+                error: function () {
+                    canSave = true;
+                    console.log("There was an error while validating the Job Type. Still trying to update but your job may not work as expected!");
+                }
+            });
+
+            return canSave;
+        },
+
+        SaveJobDetails: function () {
             var jobId = this.selectedJobGuid.viewModel.text();
 
             if (jobId != "") {
@@ -180,7 +223,7 @@ define(["sitecore", "jquery", "underscore", "entityService" ], function (Sitecor
             window.location.replace('/sitecore/client/Applications/QuartzScheduler/Pages/JobList');
         },
 
-        onEditJobDataMap: function() {
+        onEditJobDataMap: function () {
             var app = this;
             console.log('Editing Job Data Map')
             var rawItem = app.lcJobDataMap.get("selectedItem").attributes;
@@ -191,7 +234,7 @@ define(["sitecore", "jquery", "underscore", "entityService" ], function (Sitecor
             app.smPnlJobDataMap.set("isOpen", true);
         },
 
-        onAddJobDataMap: function(){
+        onAddJobDataMap: function () {
             var app = this;
             console.log('Adding new Job Data Map')
             app.txtOriginalJobDataMapKey.set("text", "");
@@ -243,7 +286,7 @@ define(["sitecore", "jquery", "underscore", "entityService" ], function (Sitecor
             //if (jsonJobDataMap != null && jsonJobDataMap.length > 0) {
 
             console.log('editedJobDataMap:' + editedJobDataMap);
-                //edit existing job data map parameter
+            //edit existing job data map parameter
             if (editedJobDataMap != null && editedJobDataMap != "") {
                 for (var i = 0; i < jsonJobDataMap.length; i++) {
                     if (jsonJobDataMap[i].itemId == editedJobDataMap) {
@@ -272,7 +315,16 @@ define(["sitecore", "jquery", "underscore", "entityService" ], function (Sitecor
             return jsonJobDataMap;
         },
 
-  });
-    
-  return JobDetails;
+        onAddTriggerDetail: function () {
+            var app = this;
+            //SheerResponse.ShowModalDialog(new MediaDialogOptions('/sitecore/client/Applications/QuartzScheduler/Pages/TriggerDetailDialog'){
+            //                  Width = "100",
+            //                  Height = "200",
+            //                  Response = true,
+            //                  ForceDialogSize = true
+            //        });
+        }
+    });
+
+    return JobDetails;
 });

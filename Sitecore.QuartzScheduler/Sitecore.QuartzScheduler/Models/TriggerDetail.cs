@@ -82,6 +82,7 @@ namespace Sitecore.QuartzScheduler.Models
         /// A custom cron expression instead of UI based schedule. Cron expression can be defined based on Quartz Cron expression guidelines.
         /// </summary>
         [CronExpression(ErrorMessage = "{0} is not a valid Cron Expression.")]
+
         public string CronExpression { get; set; }
 
     }

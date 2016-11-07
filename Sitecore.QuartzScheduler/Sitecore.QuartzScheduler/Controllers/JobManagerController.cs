@@ -3,6 +3,7 @@ using Sitecore.Services.Core;
 using System.Web.Mvc;
 using Sitecore.Services.Infrastructure.Sitecore.Services;
 using Sitecore.QuartzScheduler.Repository;
+using System;
 
 namespace Sitecore.QuartzScheduler.Controllers
 {
@@ -17,22 +18,11 @@ namespace Sitecore.QuartzScheduler.Controllers
 
         public JobManagerController() : this(new JobDetailRepository())
         {
-
+            
         }
 
-        
-        //// GET: JobManager
-        //public ActionResult Index()
-        //{
-        //    return View();
-        //}
 
 
-        //public JsonResult GetAllJobs()
-        //{
-        //    var jobManager = new JobManager();
-        //    var joblist = jobManager.GetAllJobs();
-        //    return Json(joblist, JsonRequestBehavior.AllowGet);
-        //}
+
     }
 }
