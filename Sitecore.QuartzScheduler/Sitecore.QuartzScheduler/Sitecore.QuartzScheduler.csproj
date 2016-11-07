@@ -133,7 +133,6 @@
     <Content Include="App_Config\Include\Sitecore.QuartzScheduler.config" />
     <Content Include="sitecore\shell\client\Applications\QuartzScheduler\Pages\TriggerDetailDialog\TriggerDetailDialog.js" />
     <Content Include="sitecore\shell\client\Services\Assets\lib\extensions\validators\validCronExpression.js" />
-    <Content Include="App_Config\Include\LoadRoutes.config" />
     <None Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
