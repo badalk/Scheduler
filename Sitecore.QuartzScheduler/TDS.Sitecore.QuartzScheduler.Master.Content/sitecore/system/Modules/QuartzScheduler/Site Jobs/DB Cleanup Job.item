@@ -1,0 +1,79 @@
+----item----
+version: 1
+id: {97EEE137-5303-4CF9-87A2-CEF8B68DB9C2}
+database: master
+path: /sitecore/system/Modules/QuartzScheduler/Site Jobs/DB Cleanup Job
+parent: {0DA9CC1D-45EE-4B45-922D-700039CEC5A2}
+name: DB Cleanup Job
+master: {00000000-0000-0000-0000-000000000000}
+template: {C57D9C9A-BA63-4C3E-BFD5-4823B20BB5AE}
+templatekey: JobDetail
+
+----version----
+language: en
+version: 1
+revision: 92fbfe33-4dd9-47ca-865c-e7a91544a617
+
+----field----
+field: {ED56086A-99FE-47A4-9746-6F60767A3C98}
+name: Type
+key: type
+content-length: 32
+
+Scheduler.DBCleanupJob,Scheduler
+----field----
+field: {330C6D38-A9FA-4BF6-A4D2-F63439B69199}
+name: Job Key
+key: job key
+content-length: 15
+
+DB Cleanup Blob
+----field----
+field: {52ABCBE9-B033-4DFC-BA47-2F7520949919}
+name: Description
+key: description
+content-length: 85
+
+Job to clean up Sitecore and Log databases. This will clean up your orphaned blobs.. 
+----field----
+field: {E83DFF04-993E-4D09-BAA4-214A4A19894F}
+name: Group
+key: group
+content-length: 13
+
+House Keeping
+----field----
+field: {A9E21D13-4459-42BD-BD11-7618A80EA283}
+name: Job Data Map
+key: job data map
+content-length: 94
+
+path=/sitecore/content/Brand 02&tablestoclean=Blob, Logs, versions&query=template is something
+----field----
+field: {25BED78C-4957-4165-998A-CA1B52F67497}
+name: __Created
+key: __created
+content-length: 16
+
+20151221T212950Z
+----field----
+field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
+name: __Revision
+key: __revision
+content-length: 36
+
+92fbfe33-4dd9-47ca-865c-e7a91544a617
+----field----
+field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
+name: __Updated
+key: __updated
+content-length: 16
+
+20161107T210824Z
+----field----
+field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
+name: __Updated by
+key: __updated by
+content-length: 14
+
+sitecore\admin

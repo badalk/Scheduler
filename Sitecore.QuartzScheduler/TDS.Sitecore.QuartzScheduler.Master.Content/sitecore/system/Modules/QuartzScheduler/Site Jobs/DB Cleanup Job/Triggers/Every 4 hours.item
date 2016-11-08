@@ -1,0 +1,79 @@
+----item----
+version: 1
+id: {63BBAD8C-EC82-474B-ACD2-7D8A55478954}
+database: master
+path: /sitecore/system/Modules/QuartzScheduler/Site Jobs/DB Cleanup Job/Triggers/Every 4 hours
+parent: {80879FA4-B991-4AE1-ADF4-1DFE4FB40EB3}
+name: Every 4 hours
+master: {00000000-0000-0000-0000-000000000000}
+template: {822F8EF2-16CE-4B31-AD36-4F2132D81A39}
+templatekey: Trigger
+
+----version----
+language: en
+version: 1
+revision: 91c74be6-1934-4dee-b2c5-c2d15146a3e9
+
+----field----
+field: {FE4851AA-D51A-4F20-A5EE-47CD52D0A886}
+name: Trigger Key
+key: trigger key
+content-length: 13
+
+Every 4 hours
+----field----
+field: {B7E09575-3017-4A4B-9467-BCCBA023458F}
+name: Schedule Type
+key: schedule type
+content-length: 38
+
+{FFF17848-BE0E-4F33-8DA4-F3782E313011}
+----field----
+field: {93E8DA28-EF9E-46B0-834E-18E319C06C35}
+name: Repeat Interval
+key: repeat interval
+content-length: 1
+
+4
+----field----
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 14
+
+sitecore\admin
+----field----
+field: {25BED78C-4957-4165-998A-CA1B52F67497}
+name: __Created
+key: __created
+content-length: 16
+
+20151224T193813Z
+----field----
+field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
+name: __Created by
+key: __created by
+content-length: 14
+
+sitecore\admin
+----field----
+field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
+name: __Revision
+key: __revision
+content-length: 36
+
+91c74be6-1934-4dee-b2c5-c2d15146a3e9
+----field----
+field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
+name: __Updated
+key: __updated
+content-length: 16
+
+20160312T011607Z
+----field----
+field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
+name: __Updated by
+key: __updated by
+content-length: 14
+
+sitecore\admin
