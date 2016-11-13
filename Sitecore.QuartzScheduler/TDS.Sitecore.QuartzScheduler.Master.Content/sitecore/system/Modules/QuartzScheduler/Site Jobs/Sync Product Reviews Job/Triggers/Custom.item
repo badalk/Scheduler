@@ -12,7 +12,7 @@ templatekey: Trigger
 ----version----
 language: en
 version: 1
-revision: ad451db7-5de5-4ece-a69d-fb2a5d506271
+revision: 867e35ca-e8e6-43c4-8448-eff4ccc7629f
 
 ----field----
 field: {FE4851AA-D51A-4F20-A5EE-47CD52D0A886}
@@ -32,9 +32,9 @@ content-length: 16
 field: {B7E09575-3017-4A4B-9467-BCCBA023458F}
 name: Schedule Type
 key: schedule type
-content-length: 6
+content-length: 38
 
-Custom
+{DEDF5D7A-1036-4B54-9D9A-B1721AA2DB09}
 ----field----
 field: {D4D36AA8-30D9-4986-8CFC-DF9C2CCBABCC}
 name: Cron Expression
@@ -69,14 +69,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-ad451db7-5de5-4ece-a69d-fb2a5d506271
+867e35ca-e8e6-43c4-8448-eff4ccc7629f
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20151225T013720Z
+20161113T195455Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by

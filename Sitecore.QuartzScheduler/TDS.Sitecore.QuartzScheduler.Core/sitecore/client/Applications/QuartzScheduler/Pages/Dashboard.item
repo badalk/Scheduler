@@ -34,14 +34,14 @@ content-length: 0
 field: {F1A1FE9E-A60C-4DDB-A3A0-BB5B29FE732E}
 name: __Renderings
 key: __renderings
-content-length: 2330
+content-length: 3756
 
 <r>
   <d id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}" l="{4F72A793-BDBC-4262-9523-6AADD8FEA487}">
-    <r id="{DAFAFFB8-74AF-4141-A96A-70B16834CEC6}" ph="Page.Code" uid="{237256AA-9D30-463E-9ED1-90CFF092FCF6}" />
+    <r id="{DAFAFFB8-74AF-4141-A96A-70B16834CEC6}" par="PageCodeScriptFileName=%2fsitecore%2fshell%2fclient%2fApplications%2fQuartzScheduler%2fPages%2fDashboard%2fDashboard.js" ph="Page.Code" uid="{237256AA-9D30-463E-9ED1-90CFF092FCF6}" />
     <r id="{BE007891-2D9C-4E67-943C-752DBA0C041F}" ph="Page.Body" uid="{F373AD1A-6282-4295-96D7-3E29D6EE88B3}" />
     <r id="{5AE97C0C-EE88-4564-A363-4FA11C01C90A}" ph="GlobalHeader" uid="{532C7DCD-29E7-4C34-9910-FC283D61A026}" />
-    <r id="{7A69C522-7E99-4630-A25A-5D571505862A}" par="ImageUrl=%25252525252525252fsitecore%25252525252525252fshell%25252525252525252fclient%25252525252525252fSpeak%25252525252525252fAssets%25252525252525252fimg%25252525252525252fspeak-logo.png&amp;Id=GlobalLogo" ph="GlobalHeader.StartButton" uid="{A340B9F2-9FD0-4767-9B0B-62D7C8B0E5C7}" />
+    <r id="{7A69C522-7E99-4630-A25A-5D571505862A}" par="ImageUrl=%252525252525252525252525252fsitecore%252525252525252525252525252fshell%252525252525252525252525252fclient%252525252525252525252525252fSpeak%252525252525252525252525252fAssets%252525252525252525252525252fimg%252525252525252525252525252fspeak-logo.png&amp;Id=GlobalLogo" ph="GlobalHeader.StartButton" uid="{A340B9F2-9FD0-4767-9B0B-62D7C8B0E5C7}" />
     <r id="{EA28ED83-0F59-4BB9-AA95-6FAC9C3385D6}" par="Id=NavigationToggler" ph="GlobalHeader.NavigationToggler" uid="{0330E088-D1C0-4394-8F5B-5F2E0F577D5E}" />
     <r id="{EC86834B-890C-405C-BB36-CA25044909E1}" ph="GlobalFooter" uid="{C01DD5BD-DFC2-425B-A301-43AE8363B443}" />
     <r id="{93CEEFCD-2DE1-40AF-AE9A-EBBFBCCC522F}" ph="ApplicationHeader" uid="{1E240370-226C-40E4-9C54-7FE8630DF74A}" />
@@ -49,14 +49,18 @@ content-length: 2330
     <r id="{EB6214BE-5687-4706-ABA6-B25C0958C85B}" ph="ApplicationContent" uid="{5C96B069-71B7-4B1D-BE44-B673DE81D9DE}" />
     <r ds="{86DF1575-0725-435E-BC18-C34F4DF22FA3}" id="{DDF19992-89DB-4F29-82EC-F16A8C8D15B9}" par="Id=hbtnGrpQuartzScheduler&amp;SelectedItemId=%7b39BA2535-3988-47F4-9D7B-47D937D27D64%7d" ph="ApplicationContent.Navigation" uid="{DF4EB78C-A6FA-43F4-8627-5ED78CC2B50F}" />
     <r id="{F6C9F461-FCAF-47DC-AA01-C8C64C2EFFB8}" par="Id=Main&amp;UsePadding=1" ph="ApplicationContent.Main" uid="{8EC02FDB-51E9-4983-9AD3-FAD2210E5BAC}" />
-    <r id="{5E3B31F7-FE96-40FB-BE38-94418E4B789A}" par="Id=ChartDataProvider1&amp;Resolution=Day&amp;ResolutionRange=7" ph="Page.Code" uid="{DB1561F2-36B6-4263-AA04-2720DA14A7D6}" />
-    <r id="{7FA4957C-08F8-4C31-8877-88CB3525EE4D}" par="Id=LineChart1&amp;Data=%7bBinding+ChartDataProvider1.Data%7d" ph="ApplicationContent.Main" uid="{AF904255-0162-482D-942B-F0A0A5D8676E}" />
+    <r id="{5E3B31F7-FE96-40FB-BE38-94418E4B789A}" par="Id=ChartDataProvider1&amp;DataURL=%2fapi%2fsitecore%2fReportData%2fGetJobPerformanceData" ph="Page.Body" uid="{DB1561F2-36B6-4263-AA04-2720DA14A7D6}" />
+    <r id="{FE9723FC-56E4-4CA8-9C64-CB34F29462A5}" par="Id=ProgressIndicator1&amp;IsBusy=%7bBinding+ChartDataProvider1.IsBusy%7d&amp;TargetControl=LineChartPerformanceData" ph="ApplicationContent.Main" uid="{402177CC-53C1-4455-ADB0-BBAB4AA32504}" />
+    <r id="{F6C9F461-FCAF-47DC-AA01-C8C64C2EFFB8}" par="Id=Border1&amp;UsePadding=1" ph="ApplicationContent.Main" uid="{1B1AD4FC-0CFB-49D7-9B07-7C29060BC3D9}" />
+    <r id="{7717EB6C-9F90-4C58-826D-5E87722A0318}" par="Id=txtHeading&amp;TextType=LargeLabel&amp;Text=Job+Performance+Data" ph="Border1.Content" uid="{9B6C8B46-EDE2-4DAE-9363-20EDFE26CE04}" />
+    <r id="{7FA4957C-08F8-4C31-8877-88CB3525EE4D}" par="Id=LineChartPerformanceData&amp;ShowLegend=1&amp;ShowPointMarker=1&amp;ShowAxis=1&amp;CategoryChartField=%7b36922522-26C5-4DA3-A668-8826ED4778A0%7d&amp;EnableAnimation=1&amp;SeriesChartField=%7b0DD2B71F-BF39-4402-B149-84C14A35E444%7d&amp;ValueChartFields=%7b6DD4CA27-6A6D-4DFD-904E-82B7BCA98074%7d&amp;VisibleCategoriesRange=0&amp;ShowValues=1&amp;Data=%7bBinding+ChartDataProvider1.Data%7d" ph="Border1.Content" uid="{AB166E85-243B-4F54-A9E8-82068C863740}" />
+    <r id="{DC707F46-7F5E-4BA1-9BF9-820B4A23EC3F}" par="Id=Scrollbar1&amp;PageScriptFileName=%2fsitecore%2fshell%2fclient%2fSpeak%2fAssets%2flib%2fui%2f1.1%2fbehaviors%2fScrollBar.js&amp;Name=Scrollbar" ph="Border1.Content" uid="{D900C406-1917-418A-80DA-EAD2BCE91433}" />
   </d>
 </r>
 ----version----
 language: en
 version: 1
-revision: e6c7438c-cc58-4b77-8080-7e3c1937c99b
+revision: aaba2409-3f79-401d-99ef-8c3716ea1a7b
 
 ----field----
 field: {7205A57F-93B4-413A-AA9A-6B16BBC59565}
@@ -78,14 +82,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-e6c7438c-cc58-4b77-8080-7e3c1937c99b
+aaba2409-3f79-401d-99ef-8c3716ea1a7b
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20161107T130130Z
+20161113T231945Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by

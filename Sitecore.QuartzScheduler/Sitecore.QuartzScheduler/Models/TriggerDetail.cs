@@ -44,6 +44,8 @@ namespace Sitecore.QuartzScheduler.Models
         [Required(ErrorMessage = "Schedule Type is required. Please select valid Schedule Type.")]
         public string ScheduleType { get; set; }
 
+        public string ScheduleTypeValue { get; set; }
+
         /// <summary>
         /// Days Of the Week when this schedule should be applied if Schedule Type is Weekly (e.g. To indicate that this Job Runs only on Sat & Sunday)
         /// </summary>

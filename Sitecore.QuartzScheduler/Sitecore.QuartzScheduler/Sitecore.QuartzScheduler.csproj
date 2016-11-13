@@ -124,19 +124,23 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="sitecore\shell\client\Applications\QuartzScheduler\Pages\Dashboard\Dashboard.js" />
     <Content Include="sitecore\shell\client\Applications\QuartzScheduler\Pages\JobDetails\JobDetails.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="sitecore\shell\client\Applications\QuartzScheduler\Pages\JobList\JobList.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="App_Config\Include\Sitecore.QuartzScheduler.config" />
+    <Content Include="App_Config\Include\Sitecore.QuartzScheduler.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="sitecore\shell\client\Applications\QuartzScheduler\Pages\TriggerDetailDialog\TriggerDetailDialog.js" />
     <Content Include="sitecore\shell\client\Services\Assets\lib\extensions\validators\validCronExpression.js" />
     <None Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\JobManagerController.cs" />
+    <Compile Include="Controllers\ReportDataController.cs" />
     <Compile Include="Controllers\TriggerDetailController.cs" />
     <Compile Include="Controllers\UtilityController.cs" />
     <Compile Include="EventHandlers\ItemChanged.cs" />
@@ -174,6 +178,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="App_Start\" />
     <Folder Include="scripts\" />
+    <Folder Include="Views\ReportData\" />
     <Folder Include="Views\TriggerDetail\" />
   </ItemGroup>
   <PropertyGroup>

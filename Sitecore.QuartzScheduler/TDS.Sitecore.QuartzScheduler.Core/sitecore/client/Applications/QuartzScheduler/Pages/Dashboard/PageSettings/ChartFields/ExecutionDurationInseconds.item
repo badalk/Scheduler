@@ -1,0 +1,79 @@
+----item----
+version: 1
+id: {6DD4CA27-6A6D-4DFD-904E-82B7BCA98074}
+database: core
+path: /sitecore/client/Applications/QuartzScheduler/Pages/Dashboard/PageSettings/ChartFields/ExecutionDurationInseconds
+parent: {DDC47DDD-E6C4-46DE-9152-549487C6F0CA}
+name: ExecutionDurationInseconds
+master: {00000000-0000-0000-0000-000000000000}
+template: {ECD7D8B0-B6CE-4DEB-8994-A51674A03887}
+templatekey: ChartField
+
+----field----
+field: {29B1C584-0F87-49A2-BE09-EA4FB0A0ABF1}
+name: DataField
+key: datafield
+content-length: 26
+
+ExecutionDurationInSeconds
+----field----
+field: {1349C42B-35A9-418F-BED5-693CF8913467}
+name: NumberScale
+key: numberscale
+content-length: 38
+
+{2E47DEBE-06C0-47D0-91B4-F1BF58F46348}
+----version----
+language: en
+version: 1
+revision: 715bb710-8aee-41e6-bf8e-bc7be13f921a
+
+----field----
+field: {B4929234-6DCC-4ADB-827E-CDCDC128B8AF}
+name: HeaderText
+key: headertext
+content-length: 18
+
+Duration (Seconds)
+----field----
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 14
+
+sitecore\admin
+----field----
+field: {25BED78C-4957-4165-998A-CA1B52F67497}
+name: __Created
+key: __created
+content-length: 16
+
+20161108T191619Z
+----field----
+field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
+name: __Created by
+key: __created by
+content-length: 14
+
+sitecore\admin
+----field----
+field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
+name: __Revision
+key: __revision
+content-length: 36
+
+715bb710-8aee-41e6-bf8e-bc7be13f921a
+----field----
+field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
+name: __Updated
+key: __updated
+content-length: 16
+
+20161113T193950Z
+----field----
+field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
+name: __Updated by
+key: __updated by
+content-length: 14
+
+sitecore\admin

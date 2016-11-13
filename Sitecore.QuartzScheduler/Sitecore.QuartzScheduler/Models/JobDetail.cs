@@ -20,6 +20,9 @@ namespace Sitecore.QuartzScheduler.Models
             get { return base.Id; }
         }
 
+        public string ItemId { get; set; }
+
+        public string ItemName { get; set; }
         /// <summary>
         /// 
         /// </summary>

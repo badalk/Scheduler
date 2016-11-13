@@ -1,10 +1,10 @@
 ----item----
 version: 1
-id: {63BBAD8C-EC82-474B-ACD2-7D8A55478954}
+id: {96200D6B-E7A6-4E0D-8A7A-5C6C9F4F7A26}
 database: master
-path: /sitecore/system/Modules/QuartzScheduler/Site Jobs/DB Cleanup Job/Triggers/Every 4 hours
+path: /sitecore/system/Modules/QuartzScheduler/Site Jobs/DB Cleanup Job/Triggers/Every 17 seconds
 parent: {80879FA4-B991-4AE1-ADF4-1DFE4FB40EB3}
-name: Every 4 hours
+name: Every 17 seconds
 master: {00000000-0000-0000-0000-000000000000}
 template: {822F8EF2-16CE-4B31-AD36-4F2132D81A39}
 templatekey: Trigger
@@ -12,7 +12,7 @@ templatekey: Trigger
 ----version----
 language: en
 version: 1
-revision: fc782aba-795f-43c9-ad79-f62e8c067b0a
+revision: e1cb7f81-86b3-498e-9bc5-eb27dec61312
 
 ----field----
 field: {FE4851AA-D51A-4F20-A5EE-47CD52D0A886}
@@ -20,28 +20,28 @@ name: Trigger Key
 key: trigger key
 content-length: 13
 
-Every 4 hours
+Every 17 Secs
 ----field----
 field: {B28EEECF-D30B-453A-9726-45665AE22AE7}
 name: Start Time
 key: start time
 content-length: 16
 
-20161108T190000Z
+20151224T200000Z
 ----field----
 field: {B7E09575-3017-4A4B-9467-BCCBA023458F}
 name: Schedule Type
 key: schedule type
 content-length: 38
 
-{FFF17848-BE0E-4F33-8DA4-F3782E313011}
+{8CE41F0F-0596-4606-8C6A-D821357CBF74}
 ----field----
 field: {93E8DA28-EF9E-46B0-834E-18E319C06C35}
 name: Repeat Interval
 key: repeat interval
-content-length: 1
+content-length: 2
 
-4
+17
 ----field----
 field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
 name: __Owner
@@ -55,7 +55,7 @@ name: __Created
 key: __created
 content-length: 16
 
-20151224T193813Z
+20151224T194647Z
 ----field----
 field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
 name: __Created by
@@ -69,14 +69,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-fc782aba-795f-43c9-ad79-f62e8c067b0a
+e1cb7f81-86b3-498e-9bc5-eb27dec61312
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20161108T201506Z
+20161113T195814Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by

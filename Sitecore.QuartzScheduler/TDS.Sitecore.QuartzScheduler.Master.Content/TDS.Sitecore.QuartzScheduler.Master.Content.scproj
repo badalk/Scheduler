@@ -96,11 +96,11 @@
       <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
     </SitecoreItem>
-    <SitecoreItem Include="sitecore\system\Modules\QuartzScheduler\Site Jobs\DB Cleanup Job\Triggers\Every 10 mins.item">
+    <SitecoreItem Include="sitecore\system\Modules\QuartzScheduler\Site Jobs\DB Cleanup Job\Triggers\Every 1 mins.item">
       <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
     </SitecoreItem>
-    <SitecoreItem Include="sitecore\system\Modules\QuartzScheduler\Site Jobs\DB Cleanup Job\Triggers\Every 20 seconds.item">
+    <SitecoreItem Include="sitecore\system\Modules\QuartzScheduler\Site Jobs\DB Cleanup Job\Triggers\Every 17 seconds.item">
       <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
     </SitecoreItem>

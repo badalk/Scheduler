@@ -24,7 +24,7 @@ namespace Sitecore.QuartzScheduler.Models
                     var averageDuration = from p in triggerStats
                                           where (p.Group.Equals(this.Group) && p.JobKey.Equals(this.JobKey))
                                           group p by new { p.Group, p.JobKey } into g
-                                          select new { avgTime = g.Average(p => p.ExecutionDurationInseconds) };
+                                          select new { avgTime = g.Average(p => p.ExecutionDurationInSeconds) };
 
                     return averageDuration.FirstOrDefault().avgTime;
 
@@ -49,7 +49,7 @@ namespace Sitecore.QuartzScheduler.Models
                     var averageDuration = from p in triggerStats
                                           where (p.Group.Equals(this.Group) && p.JobKey.Equals(this.JobKey))
                                           group p by new { p.Group, p.JobKey } into g
-                                          select new { maxTime = g.Max(p => p.ExecutionDurationInseconds) };
+                                          select new { maxTime = g.Max(p => p.ExecutionDurationInSeconds) };
 
                     return averageDuration.FirstOrDefault().maxTime;
 

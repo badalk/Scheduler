@@ -27,13 +27,13 @@ namespace Sitecore.QuartzScheduler.Listeners
                     Group = trigger.Key.Group,
                     JobKey = trigger.JobKey.Name,
                     TriggerKey = trigger.Key.Name,
-                    ExecutionDurationInseconds = sw.Elapsed.TotalSeconds,
+                    ExecutionDurationInSeconds = sw.Elapsed.TotalSeconds,
                     StartTime = trigger.StartTimeUtc.DateTime.ToLocalTime(),
                     FinishTime = DateTime.Now,
                 };
 
 
-                Sitecore.Diagnostics.Log.Info(String.Format("Job {0} with trigger {1} Completed @ {2} and it took {3} seconds ", triggerStat.JobKey, triggerStat.TriggerKey, DateTime.Now, triggerStat.ExecutionDurationInseconds), this);
+                Sitecore.Diagnostics.Log.Info(String.Format("Job {0} with trigger {1} Completed @ {2} and it took {3} seconds ", triggerStat.JobKey, triggerStat.TriggerKey, DateTime.Now, triggerStat.ExecutionDurationInSeconds), this);
                 
                 string triggerStatProviderType = ConfigurationManager.AppSettings.Get("Sitecore.QuartzScheduler.TriggerStatisticsStoreProvider");
 

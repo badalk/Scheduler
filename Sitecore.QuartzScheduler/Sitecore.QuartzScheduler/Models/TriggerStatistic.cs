@@ -15,22 +15,24 @@ namespace Sitecore.QuartzScheduler.Models
         public DateTime StartTime { get; set; }
         public DateTime FinishTime { get; set; }
 
-        public DateTime? PreviousFireTime
-        {
-            get
-            {
-                JobManager jobMgr = new JobManager();
-                return jobMgr.GetPreviousFireTime(Group, TriggerKey);
-            }
-        }
 
-        public DateTime? NextFireTime {
-            get
-            {
-                JobManager jobMgr = new JobManager();
-                return jobMgr.GetNextFireTime(Group, TriggerKey);
-            }
-        }
+        //TODO: Need to un-comment these properties
+        //public DateTime? PreviousFireTime
+        //{
+        //    get
+        //    {
+        //        JobManager jobMgr = new JobManager();
+        //        return jobMgr.GetPreviousFireTime(Group, TriggerKey);
+        //    }
+        //}
+
+        //public DateTime NextFireTime {
+        //    get
+        //    {
+        //        JobManager jobMgr = new JobManager();
+        //        return jobMgr.GetNextFireTime(Group, TriggerKey);
+        //    }
+        //}
 
         public string State
         {
@@ -41,7 +43,7 @@ namespace Sitecore.QuartzScheduler.Models
             }
         }
 
-        public double ExecutionDurationInseconds { get; set; }
+        public double ExecutionDurationInSeconds { get; set; }
 
     }
 }
