@@ -27,11 +27,11 @@
       },
 
       getDataCallback: function (data) {
-          //var app = this;
+          var app = this;
           //console.log('app: ' + app);
           console.log('data: ' + data);
           //app.ChartDataProvider1.set("data", data);
-          //console.log('app.ChartDataProvider1.get("data"): ' + app.ChartDataProvider1.get("data"));
+          console.log('app.ChartDataProvider1.get("data"): ' + app.ChartDataProvider1.get("data"));
           //console.log('app.BarChart1.get("data"): ' + app.LineChart1.get("data"));
           //app.BarChart1.
       }

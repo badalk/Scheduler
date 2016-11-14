@@ -2,18 +2,15 @@
 using Quartz.Impl;
 using Quartz.Impl.Matchers;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using Sitecore.Diagnostics;
 using Sitecore.QuartzScheduler.Models;
 using Sitecore.Data;
 using Sitecore.Configuration;
-using Sitecore.QuartzScheduler;
 using Sitecore.QuartzScheduler.Listeners;
 using Sitecore.Data.Items;
 using System.Collections.Specialized;
 using Sitecore.Data.Fields;
-using System.Text;
 using Sitecore.QuartzScheduler.Repository;
 using System.Configuration;
 

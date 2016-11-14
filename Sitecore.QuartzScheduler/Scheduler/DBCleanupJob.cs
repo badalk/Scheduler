@@ -26,7 +26,8 @@ namespace Scheduler
             int value = dataMap.GetInt("value");
 
             Thread.Sleep(TimeSpan.FromSeconds(value));
-            value = value + 1;
+            Random r = new Random();
+            value = r.Next(1, 100);
 
             context.JobDetail.JobDataMap["value"] = value;
 

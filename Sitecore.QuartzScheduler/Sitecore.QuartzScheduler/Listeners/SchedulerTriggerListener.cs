@@ -11,7 +11,7 @@ namespace Sitecore.QuartzScheduler.Listeners
     public class SchedulerTriggerListener : TriggerListenerSupport 
     {
         Stopwatch sw;
-
+        DateTime startTime;
         public override string Name
         {
             get { return this.GetType().ToString(); }
@@ -28,7 +28,7 @@ namespace Sitecore.QuartzScheduler.Listeners
                     JobKey = trigger.JobKey.Name,
                     TriggerKey = trigger.Key.Name,
                     ExecutionDurationInSeconds = sw.Elapsed.TotalSeconds,
-                    StartTime = trigger.StartTimeUtc.DateTime.ToLocalTime(),
+                    StartTime = startTime.ToLocalTime(),
                     FinishTime = DateTime.Now,
                 };
 
@@ -59,7 +59,8 @@ namespace Sitecore.QuartzScheduler.Listeners
             try
             {
                 sw = Stopwatch.StartNew();
-                Sitecore.Diagnostics.Log.Info(String.Format("Job {0} Started @ {1}", context.JobDetail.Key, DateTime.Now.ToLocalTime()), this);
+                startTime = DateTime.Now.ToLocalTime();
+                Sitecore.Diagnostics.Log.Info(String.Format("Job {0} Started @ {1}", context.JobDetail.Key, startTime.ToLocalTime()), this);
             }
             catch (Exception ex)
             {

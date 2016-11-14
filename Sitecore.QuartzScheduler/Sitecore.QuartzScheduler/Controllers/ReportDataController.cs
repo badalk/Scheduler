@@ -1,4 +1,6 @@
-﻿using Sitecore.QuartzScheduler.Models;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Sitecore.QuartzScheduler.Models;
 using Sitecore.QuartzScheduler.Providers;
 using System;
 using System.Collections.Generic;
@@ -50,8 +52,8 @@ namespace Sitecore.QuartzScheduler.Controllers
                 {
                     Diagnostics.Log.Warn("Missing App Setting value for Sitecore.QuartzScheduler.TriggerStatisticsStoreProvider", this);
                 }
-                JavaScriptSerializer jsSerializer = new JavaScriptSerializer();
-                jsonData = jsSerializer.Serialize(triggerStats);
+                //JavaScriptSerializer jsSerializer = new JavaScriptSerializer();
+                jsonData = JsonConvert.SerializeObject(triggerStats,Formatting.None, new IsoDateTimeConverter() { DateTimeFormat = "yyyy-MM-dd HH:mm:ss" });
                 string requiredStructure = "{\"data\": {" +
                     "\"dataset\": [{" +
                     "\"data\": ";
