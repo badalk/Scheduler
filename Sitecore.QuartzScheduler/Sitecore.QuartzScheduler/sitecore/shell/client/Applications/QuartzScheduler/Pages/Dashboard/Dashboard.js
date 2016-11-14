@@ -20,8 +20,10 @@
 
           //this.LineChart1.viewModel.toggleProgressIndicator(true);
 
+
           console.log('Getting Performance data...');
           this.ChartDataProvider1.viewModel.getData(requestOptions);
+          this.ChartDataProvider2.viewModel.getData(requestOptions);
           console.log('Attempted to get Performance data...');
 
       },

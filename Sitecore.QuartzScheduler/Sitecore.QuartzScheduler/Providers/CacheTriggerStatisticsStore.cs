@@ -42,14 +42,23 @@ namespace Sitecore.QuartzScheduler.Providers
 
             return  (List<TriggerStatistic>) triggerStatsForGroup;
         }
+        //public List<TriggerStatistic> GetTriggerStatisticsSummary()
+        //{
+        //    var triggerStats = (List<TriggerStatistic>)cache["TriggerStats"];
+
+        //    var triggerStatsForGroup = from stats in triggerStats
+        //                               //where stats.JobKey.Equals(jobKey, StringComparison.InvariantCultureIgnoreCase)
+        //                               select { JobKey = stats.JobKey, ExecutionDurationInSeconds = stats.ExecutionDurationInSeconds};
+        //}
 
         public List<TriggerStatistic> GetTriggerStatisticsForJob(string jobKey)
         {
-            var triggerStatsForGroup = from stats in (List<TriggerStatistic>)cache["TriggerStats"]
+            var triggerStats = (List<TriggerStatistic>)cache["TriggerStats"];
+            var triggerStatsForGroup = from stats in triggerStats
                                    where stats.JobKey.Equals(jobKey, StringComparison.InvariantCultureIgnoreCase)
                                    select stats;
 
-            return (List<TriggerStatistic>) triggerStatsForGroup;
+            return triggerStatsForGroup.ToList<TriggerStatistic>();
         }
 
         public List<TriggerStatistic> GetTriggerStatisticsForJobTrigger(string jobKey, string triggerKey)

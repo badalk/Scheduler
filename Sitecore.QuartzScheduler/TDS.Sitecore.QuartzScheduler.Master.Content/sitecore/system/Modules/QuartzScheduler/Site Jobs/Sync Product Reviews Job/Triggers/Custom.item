@@ -12,15 +12,15 @@ templatekey: Trigger
 ----version----
 language: en
 version: 1
-revision: 867e35ca-e8e6-43c4-8448-eff4ccc7629f
+revision: 72ef9bef-912a-4e5b-81b7-4503a6c5d635
 
 ----field----
 field: {FE4851AA-D51A-4F20-A5EE-47CD52D0A886}
 name: Trigger Key
 key: trigger key
-content-length: 21
+content-length: 22
 
-Custom 12pm every day
+Custom Every 5 minutes
 ----field----
 field: {B28EEECF-D30B-453A-9726-45665AE22AE7}
 name: Start Time
@@ -39,9 +39,9 @@ content-length: 38
 field: {D4D36AA8-30D9-4986-8CFC-DF9C2CCBABCC}
 name: Cron Expression
 key: cron expression
-content-length: 12
+content-length: 13
 
-0 0 12 * * ?
+0 0/5 * * * ?
 ----field----
 field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
 name: __Owner
@@ -69,14 +69,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-867e35ca-e8e6-43c4-8448-eff4ccc7629f
+72ef9bef-912a-4e5b-81b7-4503a6c5d635
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20161113T195455Z
+20161114T015950Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by

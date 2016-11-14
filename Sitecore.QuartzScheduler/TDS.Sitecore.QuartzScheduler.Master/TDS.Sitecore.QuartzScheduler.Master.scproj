@@ -32,7 +32,7 @@
     <InstallSitecoreConnector>True</InstallSitecoreConnector>
     <DisableFileDeployment>False</DisableFileDeployment>
     <SitecoreDeployFolder>C:\inetpub\wwwroot\SitecoreXP8\Website</SitecoreDeployFolder>
-    <SitecoreAccessGuid>c7b1330b-946b-483f-a870-98c32903bbfa</SitecoreAccessGuid>
+    <SitecoreAccessGuid>2caa0def-f12a-4aaa-af0f-c57b6132b43b</SitecoreAccessGuid>
     <PackageName>TDS.Sitecore.QuartzScheduler.Master</PackageName>
     <PackageAuthor>Badal Kotecha</PackageAuthor>
     <PackagePublisher>sitecore.badalkotecha.com</PackagePublisher>

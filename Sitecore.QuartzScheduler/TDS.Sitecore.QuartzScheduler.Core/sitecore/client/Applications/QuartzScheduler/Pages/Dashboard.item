@@ -34,7 +34,7 @@ content-length: 0
 field: {F1A1FE9E-A60C-4DDB-A3A0-BB5B29FE732E}
 name: __Renderings
 key: __renderings
-content-length: 3756
+content-length: 4478
 
 <r>
   <d id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}" l="{4F72A793-BDBC-4262-9523-6AADD8FEA487}">
@@ -50,17 +50,20 @@ content-length: 3756
     <r ds="{86DF1575-0725-435E-BC18-C34F4DF22FA3}" id="{DDF19992-89DB-4F29-82EC-F16A8C8D15B9}" par="Id=hbtnGrpQuartzScheduler&amp;SelectedItemId=%7b39BA2535-3988-47F4-9D7B-47D937D27D64%7d" ph="ApplicationContent.Navigation" uid="{DF4EB78C-A6FA-43F4-8627-5ED78CC2B50F}" />
     <r id="{F6C9F461-FCAF-47DC-AA01-C8C64C2EFFB8}" par="Id=Main&amp;UsePadding=1" ph="ApplicationContent.Main" uid="{8EC02FDB-51E9-4983-9AD3-FAD2210E5BAC}" />
     <r id="{5E3B31F7-FE96-40FB-BE38-94418E4B789A}" par="Id=ChartDataProvider1&amp;DataURL=%2fapi%2fsitecore%2fReportData%2fGetJobPerformanceData" ph="Page.Body" uid="{DB1561F2-36B6-4263-AA04-2720DA14A7D6}" />
+    <r id="{5E3B31F7-FE96-40FB-BE38-94418E4B789A}" par="Id=ChartDataProvider2&amp;DataURL=%2fapi%2fsitecore%2fReportData%2fGetJobWisePerformanceData" ph="Page.Body" uid="{8A09A94D-5130-48EA-B46D-8E654232D7B1}" />
     <r id="{FE9723FC-56E4-4CA8-9C64-CB34F29462A5}" par="Id=ProgressIndicator1&amp;IsBusy=%7bBinding+ChartDataProvider1.IsBusy%7d&amp;TargetControl=LineChartPerformanceData" ph="ApplicationContent.Main" uid="{402177CC-53C1-4455-ADB0-BBAB4AA32504}" />
-    <r id="{F6C9F461-FCAF-47DC-AA01-C8C64C2EFFB8}" par="Id=Border1&amp;UsePadding=1" ph="ApplicationContent.Main" uid="{1B1AD4FC-0CFB-49D7-9B07-7C29060BC3D9}" />
+    <r id="{F6C9F461-FCAF-47DC-AA01-C8C64C2EFFB8}" par="Id=Border1&amp;UsePadding=0" ph="ApplicationContent.Main" uid="{1B1AD4FC-0CFB-49D7-9B07-7C29060BC3D9}" />
     <r id="{7717EB6C-9F90-4C58-826D-5E87722A0318}" par="Id=txtHeading&amp;TextType=LargeLabel&amp;Text=Job+Performance+Data" ph="Border1.Content" uid="{9B6C8B46-EDE2-4DAE-9363-20EDFE26CE04}" />
-    <r id="{7FA4957C-08F8-4C31-8877-88CB3525EE4D}" par="Id=LineChartPerformanceData&amp;ShowLegend=1&amp;ShowPointMarker=1&amp;ShowAxis=1&amp;CategoryChartField=%7b36922522-26C5-4DA3-A668-8826ED4778A0%7d&amp;EnableAnimation=1&amp;SeriesChartField=%7b0DD2B71F-BF39-4402-B149-84C14A35E444%7d&amp;ValueChartFields=%7b6DD4CA27-6A6D-4DFD-904E-82B7BCA98074%7d&amp;VisibleCategoriesRange=0&amp;ShowValues=1&amp;Data=%7bBinding+ChartDataProvider1.Data%7d" ph="Border1.Content" uid="{AB166E85-243B-4F54-A9E8-82068C863740}" />
-    <r id="{DC707F46-7F5E-4BA1-9BF9-820B4A23EC3F}" par="Id=Scrollbar1&amp;PageScriptFileName=%2fsitecore%2fshell%2fclient%2fSpeak%2fAssets%2flib%2fui%2f1.1%2fbehaviors%2fScrollBar.js&amp;Name=Scrollbar" ph="Border1.Content" uid="{D900C406-1917-418A-80DA-EAD2BCE91433}" />
+    <r id="{7FA4957C-08F8-4C31-8877-88CB3525EE4D}" par="Id=LineChartPerformanceData&amp;IsVisible=0&amp;ShowLegend=1&amp;ShowPointMarker=1&amp;ShowAxis=1&amp;CategoryChartField=%7b36922522-26C5-4DA3-A668-8826ED4778A0%7d&amp;EnableAnimation=1&amp;SeriesChartField=%7b0DD2B71F-BF39-4402-B149-84C14A35E444%7d&amp;ValueChartFields=%7b6DD4CA27-6A6D-4DFD-904E-82B7BCA98074%7d&amp;VisibleCategoriesRange=0&amp;ShowValues=1&amp;Data=%7bBinding+ChartDataProvider1.Data%7d" ph="Border1.Content" uid="{AB166E85-243B-4F54-A9E8-82068C863740}" />
+    <r id="{C4393722-39FA-4869-9582-3A8EB8983A0D}" par="Id=RowPanel1" ph="Border1.Content" uid="{F388EDA4-3F5E-4C79-8188-A45E774D9952}" />
+    <r id="{5CB208F6-1860-426B-8221-FAA85B329848}" par="Id=ColumnPanel1" ph="RowPanel1.Content" uid="{DAC0D890-6297-4103-9298-A1E7B4831228}" />
+    <r id="{7FA4957C-08F8-4C31-8877-88CB3525EE4D}" par="Id=LineChart1&amp;ShowLegend=1&amp;ShowPointMarker=1&amp;ShowAxis=1&amp;CategoryChartField=%7b36922522-26C5-4DA3-A668-8826ED4778A0%7d&amp;EnableAnimation=1&amp;SeriesChartField=%7b0DD2B71F-BF39-4402-B149-84C14A35E444%7d&amp;ValueChartFields=%7b6DD4CA27-6A6D-4DFD-904E-82B7BCA98074%7d&amp;ShowValues=1&amp;Data=%7bBinding+ChartDataProvider2.Data%7d" ph="ColumnPanel1.Content" uid="{22D5D720-E993-4A5D-81F7-E80893231F1D}" />
   </d>
 </r>
 ----version----
 language: en
 version: 1
-revision: aaba2409-3f79-401d-99ef-8c3716ea1a7b
+revision: bb7cec26-2c47-4695-8f42-fe92ace4270d
 
 ----field----
 field: {7205A57F-93B4-413A-AA9A-6B16BBC59565}
@@ -82,14 +85,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-aaba2409-3f79-401d-99ef-8c3716ea1a7b
+bb7cec26-2c47-4695-8f42-fe92ace4270d
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20161113T231945Z
+20161114T160737Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by

@@ -18,7 +18,7 @@ namespace Sitecore.QuartzScheduler
                 IList<string> jobDataMapKeys = jobDataMap.GetKeys();
                 for (int i = 0; i < jobDataMapKeys.Count; i++)
                 {
-                    sbJobDataMap.Append(jobDataMapKeys[i] + "=" + jobDataMap.GetString(jobDataMapKeys[i]));
+                    sbJobDataMap.Append(jobDataMapKeys[i] + "=" + jobDataMap[(jobDataMapKeys[i])].ToString());
                     if (i < jobDataMapKeys.Count - 1)
                     {
                         sbJobDataMap.Append("&");

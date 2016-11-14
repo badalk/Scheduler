@@ -44,7 +44,7 @@
     <AddDateTimeToPackageName>False</AddDateTimeToPackageName>
     <EnableValidations>False</EnableValidations>
     <ValidationSettingsFilePath>.\TDS.Sitecore.QuartzScheduler.Core_Debug.xml</ValidationSettingsFilePath>
-    <SitecoreAccessGuid>949ee806-1103-44c5-9948-1f2990d26b78</SitecoreAccessGuid>
+    <SitecoreAccessGuid>2caa0def-f12a-4aaa-af0f-c57b6132b43b</SitecoreAccessGuid>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <DebugSymbols>false</DebugSymbols>
