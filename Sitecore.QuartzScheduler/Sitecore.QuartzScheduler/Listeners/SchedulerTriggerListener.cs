@@ -8,16 +8,16 @@ using Sitecore.QuartzScheduler.Models;
 
 namespace Sitecore.QuartzScheduler.Listeners
 {
-    public class SchedulerTriggerListener : TriggerListenerSupport 
+    public class SchedulerTriggerListener : ITriggerListener 
     {
         Stopwatch sw;
         DateTime startTime;
-        public override string Name
+        public string Name
         {
             get { return this.GetType().ToString(); }
         }
 
-        public override void TriggerComplete(ITrigger trigger, IJobExecutionContext context, SchedulerInstruction triggerInstructionCode)
+        public void TriggerComplete(ITrigger trigger, IJobExecutionContext context, SchedulerInstruction triggerInstructionCode)
         {
             try
             {
@@ -54,13 +54,15 @@ namespace Sitecore.QuartzScheduler.Listeners
             }
         }
 
-        public override void TriggerFired(ITrigger trigger, IJobExecutionContext context)
+        public void TriggerFired(ITrigger trigger, IJobExecutionContext context)
         {
             try
             {
                 sw = Stopwatch.StartNew();
                 startTime = DateTime.Now.ToLocalTime();
                 Sitecore.Diagnostics.Log.Info(String.Format("Job {0} Started @ {1}", context.JobDetail.Key, startTime.ToLocalTime()), this);
+                Sitecore.Diagnostics.Log.Info(String.Format("Currently executing {0} Jobs", context.Scheduler.GetCurrentlyExecutingJobs().Count), this);
+
             }
             catch (Exception ex)
             {
@@ -68,5 +70,15 @@ namespace Sitecore.QuartzScheduler.Listeners
             }
         }
 
+        public void TriggerMisfired(ITrigger trigger)
+        {
+            Sitecore.Diagnostics.Log.Warn(String.Format("Trigger Misfired for Job \"{0}\" at {1}", trigger.JobKey.ToString(), DateTime.Now), this);
+        }
+
+        public bool VetoJobExecution(ITrigger trigger, IJobExecutionContext context)
+        {
+            Sitecore.Diagnostics.Log.Info(String.Format("In VetoJobExecution of Trigger Listener for job \"{0}\" at {1}", trigger.JobKey.ToString(), DateTime.Now), this);
+            return false;
+        }
     }
 }

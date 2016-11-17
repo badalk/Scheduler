@@ -22,36 +22,44 @@ namespace Sitecore.QuartzScheduler.Repository
     {
         public void Add(JobDetail entity)
         {
-            using (new SecurityDisabler())
+            try
             {
-                string sitecoreJobDefinitionLocation = ConfigurationManager.AppSettings.Get("Sitecore.QuartzScheduler.JobLocation");
-
-                if (!String.IsNullOrEmpty(sitecoreJobDefinitionLocation))
+                using (new SecurityDisabler())
                 {
-                    Database masterDB = Sitecore.Configuration.Factory.GetDatabase("master");
-                    Item parentItem = masterDB.GetItem(sitecoreJobDefinitionLocation);
-                    TemplateItem jdTemplate = masterDB.GetTemplate(ID.Parse(Templates.JobDetailTemplate));
-                    //"/sitecore/templates/modules/quartzscheduler/jobdetail");
-                    Item jdItem = parentItem.Add(entity.JobKey, jdTemplate);
-                    jdItem.Editing.BeginEdit();
-                    try
+                    string sitecoreJobDefinitionLocation = ConfigurationManager.AppSettings.Get("Sitecore.QuartzScheduler.JobLocation");
+
+                    if (!String.IsNullOrEmpty(sitecoreJobDefinitionLocation))
                     {
-                        UpdateFields(entity, jdItem);
-                    }
-                    catch (Exception ex)
-                    {
-                        Sitecore.Diagnostics.Log.Info(String.Format("Error adding Job information for {0}", String.IsNullOrEmpty(entity.JobKey)), this);
-                        Sitecore.Diagnostics.Log.Error(ex.Message + Environment.NewLine + ex.StackTrace, this);
+                        Database masterDB = Sitecore.Configuration.Factory.GetDatabase("master");
+                        Item parentItem = masterDB.GetItem(@"/" + sitecoreJobDefinitionLocation + @"/");
+                        TemplateItem jdTemplate = masterDB.GetTemplate(ID.Parse(Common.Constants.JobDetailTemplateID));
+                        //"/sitecore/templates/modules/quartzscheduler/jobdetail");
+                        Item jdItem = parentItem.Add(entity.JobKey, jdTemplate);
+                        jdItem.Editing.BeginEdit();
+                        try
+                        {
+                            UpdateFields(entity, jdItem);
+                        }
+                        catch (Exception ex)
+                        {
+                            Sitecore.Diagnostics.Log.Info(String.Format("Error adding Job information for {0}", String.IsNullOrEmpty(entity.JobKey)), this);
+                            Sitecore.Diagnostics.Log.Error(ex.Message + Environment.NewLine + ex.StackTrace, this);
+
+                        }
+                        finally
+                        {
+                            jdItem.Editing.EndEdit();
+                        }
 
                     }
-                    finally
-                    {
-                        jdItem.Editing.EndEdit();
-                    }
-                    
+
+
                 }
-
-
+            }
+            catch(Exception ex)
+            {
+                Sitecore.Diagnostics.Log.Error(ex.Message + Environment.NewLine + ex.StackTrace, this);
+                throw ex;
             }
         }
 
@@ -85,10 +93,15 @@ namespace Sitecore.QuartzScheduler.Repository
 
         public bool Exists(JobDetail entity)
         {
+            if (string.IsNullOrEmpty(entity.itemId))
+                return false;
+
             var jobDetail = Sitecore.Data.Database.GetDatabase("master").GetItem(new ID(entity.itemId));
 
             return jobDetail != null;
         }
+
+
 
         public JobDetail FindById(string id)
         {
@@ -137,28 +150,36 @@ namespace Sitecore.QuartzScheduler.Repository
 
         public void Update(JobDetail entity)
         {
-            using (new SecurityDisabler())
+            try
             {
-                Database masterDB = Sitecore.Configuration.Factory.GetDatabase("master");
-                TemplateItem jdTemplate = masterDB.GetTemplate(ID.Parse("{C57D9C9A-BA63-4C3E-BFD5-4823B20BB5AE}"));
-                //"/sitecore/templates/modules/quartzscheduler/jobdetail");
-                Item jdItem = masterDB.GetItem(new ID(entity.itemId));
-                jdItem.Editing.BeginEdit();
-                try
+                using (new SecurityDisabler())
                 {
-                    UpdateFields(entity, jdItem);
-                }
-                catch (Exception ex)
-                {
-                    Sitecore.Diagnostics.Log.Info(String.Format("Error updating Job information for {0}", String.IsNullOrEmpty(entity.JobKey)), this);
-                    Sitecore.Diagnostics.Log.Error(ex.Message + Environment.NewLine + ex.StackTrace, this);
+                    Database masterDB = Sitecore.Configuration.Factory.GetDatabase("master");
+                    TemplateItem jdTemplate = masterDB.GetTemplate(ID.Parse("{C57D9C9A-BA63-4C3E-BFD5-4823B20BB5AE}"));
+                    //"/sitecore/templates/modules/quartzscheduler/jobdetail");
+                    Item jdItem = masterDB.GetItem(new ID(entity.itemId));
+                    jdItem.Editing.BeginEdit();
+                    try
+                    {
+                        UpdateFields(entity, jdItem);
+                    }
+                    catch (Exception ex)
+                    {
+                        Sitecore.Diagnostics.Log.Info(String.Format("Error updating Job information for {0}", entity.JobKey), this);
+                        Sitecore.Diagnostics.Log.Error(ex.Message + Environment.NewLine + ex.StackTrace, this);
+
+                    }
+                    finally
+                    {
+                        jdItem.Editing.EndEdit();
+                    }
 
                 }
-                finally
-                {
-                    jdItem.Editing.EndEdit();
-                }
-
+            }
+            catch(Exception ex)
+            {
+                Sitecore.Diagnostics.Log.Error(ex.Message + Environment.NewLine + ex.StackTrace, this);
+                throw ex;
             }
         }
 

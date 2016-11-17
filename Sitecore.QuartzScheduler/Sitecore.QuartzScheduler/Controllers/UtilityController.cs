@@ -7,12 +7,7 @@ namespace Sitecore.QuartzScheduler.Controllers
 {
     public class UtilityController : Controller
     {
-        [HttpGet]
-        [ActionName("IsValidJobType")]
-        //public JsonResult IsValidJobType()
-        //{
-        //    return new JsonResult() { Data = "Is this is a valid Job Type", JsonRequestBehavior = JsonRequestBehavior.AllowGet };
-        //}
+
         public ActionResult IsValidJobType(string JobType)
         {
             var returnValue = new JsonResult();
@@ -22,7 +17,7 @@ namespace Sitecore.QuartzScheduler.Controllers
             {
                 //string type = "Scheduler.SyncProductReviewsJob, Scheduler";
                 bool isValidJobType = false;
-                if (Type.GetType(JobType, false, true) != null)
+                if (Type.GetType(JobType, true, true) != null)
                     isValidJobType = true;
 
 

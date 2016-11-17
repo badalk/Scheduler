@@ -28,6 +28,9 @@ namespace Sitecore.QuartzScheduler
 
             // get a scheduler
             scheduler = StdSchedulerFactory.GetDefaultScheduler();
+            scheduler.ListenerManager.AddSchedulerListener(new SchedulerListener());
+            scheduler.ListenerManager.AddJobListener(new SchedulerJobListener(), GroupMatcher<JobKey>.AnyGroup());
+
         }
 
         public void ScheduleJobs()
@@ -51,173 +54,46 @@ namespace Sitecore.QuartzScheduler
 
                 foreach (JobDetail jd in jobDefinitions)
                 {
+                    //if (jd.JobKey.Equals("Cleanup Publish Queue"))
+                    //{
 
-                    JobDataMap jobDataMap = new JobDataMap();
+                        JobDataMap jobDataMap = new JobDataMap();
 
-                    //Get Job Data Map
-                    NameValueCollection jobDataCollection = Sitecore.Web.WebUtil.ParseUrlParameters(jd.JobData);
-                    foreach (string key in jobDataCollection.Keys)
-                    {
-                        jobDataMap.Add(key, jobDataCollection[key]);
-                    }
-
-                    // define the job and tie it to our HelloJob class
-                    var job = JobBuilder.Create(Type.GetType(jd.Type, true, true))
-                        .WithIdentity(jd.JobKey, jd.Group)
-                        .WithDescription(jd.Description)
-                        .UsingJobData(jobDataMap)
-                        .Build();
-
-                    Log.Info(String.Format("Job {0} created", jd.JobKey), this);
-                    Log.Info(String.Format("Getting triggers for job {0}", jd.JobKey), this);
-
-                    var triggersForJob = GetTriggersForJob(jd);
-
-
-                    Quartz.Collection.HashSet<ITrigger> triggers = new Quartz.Collection.HashSet<ITrigger>();
-                    foreach (TriggerDetail td in triggersForJob)
-                    {
-                        var trigger = TriggerBuilder.Create();
-                        trigger.WithIdentity(td.TriggerKey, jd.Group);
-                        trigger.ForJob(jd.JobKey);
-                        trigger.StartAt(td.StartTime);
-                        if (td.EndTime != null && !td.EndTime.Equals(DateTime.MinValue))
-                            trigger.EndAt(td.EndTime);
-                        //trigger.StartNow()
-
-                        //var scheduleType = td.ScheduleType
-
-                        switch (td.ScheduleTypeValue.ToLower())
+                        //Get Job Data Map
+                        NameValueCollection jobDataCollection = Sitecore.Web.WebUtil.ParseUrlParameters(jd.JobData);
+                        foreach (string key in jobDataCollection.Keys)
                         {
-                            case "seconds":
-                                if (td.RepeatInterval > 0)
-                                {
-                                    if (td.RepeatCount > 0)
-                                    {
-                                        trigger = trigger.WithSimpleSchedule(x => x
-                                                        .WithIntervalInSeconds(td.RepeatInterval)
-                                                        .WithRepeatCount(td.RepeatCount)
-                                                        );
-                                    }
-                                    else
-                                    {
-                                        trigger = trigger.WithSimpleSchedule(x => x
-                                                        .WithIntervalInSeconds(td.RepeatInterval)
-                                                        .RepeatForever()
-                                                        );
-                                    }
-                                }
-                                else
-                                    Log.Warn(String.Format("Job {0} was configured with {1} schedule but no Repeat Interval mentioned. Please configure the Repeat Interval correctly !!", jd.JobKey, td.ScheduleType), this);
-
-
-                                Diagnostics.Log.Info(String.Format("ScheduleType {0} and Schedule : {1})", td.ScheduleType, trigger.ToString()), this);
-
-                                break;
-                            case "minutes":
-                                if (td.RepeatInterval > 0)
-                                {
-                                    if (td.RepeatCount > 0)
-                                    {
-                                        trigger = trigger.WithSimpleSchedule(x => x
-                                                        .WithIntervalInMinutes(td.RepeatInterval)
-                                                        .WithRepeatCount(td.RepeatCount)
-                                                        );
-                                    }
-                                    else
-                                    {
-                                        trigger = trigger.WithSimpleSchedule(x => x
-                                                        .WithIntervalInMinutes(td.RepeatInterval)
-                                                        .RepeatForever()
-                                                        );
-                                    }
-                                }
-                                else
-                                    Log.Warn(String.Format("Job {0} was configured with {1} schedule but no Repeat Interval mentioned. Please configure the Repeat Interval correctly !!", jd.JobKey, td.ScheduleType), this);
-
-
-                                Diagnostics.Log.Info(String.Format("ScheduleType {0} and Schedule : {1})", td.ScheduleType, trigger.ToString()), this);
-
-                                break;
-                            case "hours":
-                               if (td.RepeatInterval > 0)
-                                {
-                                    if (td.RepeatCount > 0)
-                                    {
-                                        trigger = trigger.WithSimpleSchedule(x => x
-                                                        .WithIntervalInHours(td.RepeatInterval)
-                                                        .WithRepeatCount(td.RepeatCount)
-                                                        );
-                                    }
-                                    else
-                                    {
-                                        trigger = trigger.WithSimpleSchedule(x => x
-                                                        .WithIntervalInHours(td.RepeatInterval)
-                                                        .RepeatForever()
-                                                        );
-                                    }
-                                }
-                                else
-                                    Log.Warn(String.Format("Job {0} was configured with {1} schedule but no Repeat Interval mentioned. Please configure the Repeat Interval correctly !!", jd.JobKey, td.ScheduleType), this);
-
-
-                                Diagnostics.Log.Info(String.Format("ScheduleType {0} and Schedule : {1})", td.ScheduleType, trigger.ToString()), this);
-
-                                break;
-
-                            case "daily":
-                                trigger.WithSchedule(CronScheduleBuilder.DailyAtHourAndMinute(td.StartTime.Hour, td.StartTime.Minute));
-                                break;
-
-                            case "weekly":
-                                //Convert Sitecore DaysOfWeeks property to System.DaysOfWeek which is understood by Quartz.net
-                                if (td.DaysOfWeeks.Count > 0)
-                                {
-                                    DayOfWeek[] dayOfWeeks = new DayOfWeek[td.DaysOfWeeks.Count];
-                                    for (int i = 0; i < td.DaysOfWeeks.Count; i++)
-                                    {
-                                        dayOfWeeks[i] = (System.DayOfWeek)Enum.Parse(typeof(System.DayOfWeek), td.DaysOfWeeks[i].ToString());
-                                    }
-
-                                    trigger.WithSchedule(CronScheduleBuilder.AtHourAndMinuteOnGivenDaysOfWeek(td.StartTime.Hour, td.StartTime.Minute, dayOfWeeks));
-                                }
-                                else
-                                {
-                                    Log.Warn(String.Format("Job {0} was configured with {1} schedule but \"Day of Weeks\" was not set correctly. Please configure the trigger correctly !!", jd.JobKey, td.ScheduleType), this);
-
-                                }
-                                break;
-
-                            case "monthly":
-                                if (td.DayOfMonth > 0)
-                                    trigger.WithSchedule(CronScheduleBuilder.MonthlyOnDayAndHourAndMinute(td.DayOfMonth, td.StartTime.Hour, td.StartTime.Minute));
-                                else
-                                    Log.Warn(String.Format("Job {0} was configured with {1} schedule but \"Day of Month\" was not set correctly. Please configure the trigger correctly !!", jd.JobKey, td.ScheduleType), this);
-
-                                break;
-
-                            case "custom":
-                                if (!String.IsNullOrEmpty(td.CronExpression))
-                                    trigger.WithSchedule(CronScheduleBuilder.CronSchedule(new CronExpression(td.CronExpression)));
-                                else
-                                    Log.Warn(String.Format("Job {0} was configured with {1} schedule but \"Cron Expression\" was not set correctly. Please configure the trigger correctly !!", jd.JobKey, td.ScheduleType), this);
-                                break;
-
+                            jobDataMap.Add(key, jobDataCollection[key]);
                         }
 
+                        // define the job and tie it to our HelloJob class
+                        var job = JobBuilder.Create(Type.GetType(jd.Type, true, true))
+                            .WithIdentity(jd.JobKey, jd.Group)
+                            .WithDescription(jd.Description)
+                            .UsingJobData(jobDataMap)
+                            .Build();
 
+                        Log.Info(String.Format("Job {0} created", jd.JobKey), this);
+                        Log.Info(String.Format("Getting triggers for job {0}", jd.JobKey), this);
 
-                        //Add Job and Trigger listeners
-                        Log.Info("Registering Trigger Listener", this);
-                        scheduler.ListenerManager.AddTriggerListener(trigListener, EverythingMatcher<JobKey>.AllTriggers());
+                        var triggersForJob = GetTriggersForJob(jd);
 
-                        triggers.Add(trigger.Build());
-                        Log.Info(String.Format("Job {0} is scheduled with trigger {1}.", jd.JobKey, td.TriggerKey), this);
+                        Quartz.Collection.HashSet<ITrigger> triggers = new Quartz.Collection.HashSet<ITrigger>();
 
+                        #region "Looping through trigger Details"
+                        foreach (TriggerDetail td in triggersForJob)
+                        {
+                            TriggerBuilder trigger = GetTriggerBuilder(jd, td);
+
+                            triggers.Add(trigger.Build());
+                            Log.Info(String.Format("Job {0} is scheduled with trigger {1}.", jd.JobKey, td.TriggerKey), this);
+
+                        }
+                        #endregion
+
+                        scheduler.ScheduleJob(job, triggers, true);
                     }
-
-                    scheduler.ScheduleJob(job, triggers, true);
-                }
+                //}
             }
            
             catch (JobExecutionException jobExeEX)
@@ -234,11 +110,147 @@ namespace Sitecore.QuartzScheduler
             }
         }
 
+        private TriggerBuilder GetTriggerBuilder(JobDetail jd, TriggerDetail td)
+        {
+            var trigger = TriggerBuilder.Create();
+            trigger.WithIdentity(td.TriggerKey, jd.Group);
+            trigger.ForJob(jd.JobKey);
+            trigger.WithPriority(td.Priority);
+            trigger.StartAt(td.StartTime.AddDays((int)(DateTime.Now - td.StartTime).TotalDays));
+            if (td.EndTime != null && !td.EndTime.Equals(DateTime.MinValue))
+                trigger.EndAt(td.EndTime);
+
+            switch (td.ScheduleTypeValue.ToLower())
+            {
+                case "seconds":
+                    if (td.RepeatInterval > 0)
+                    {
+                        if (td.RepeatCount > 0)
+                        {
+                            trigger = trigger.WithSimpleSchedule(x => x
+                                            .WithIntervalInSeconds(td.RepeatInterval)
+                                            .WithRepeatCount(td.RepeatCount)
+                                            );
+                        }
+                        else
+                        {
+                            trigger = trigger.WithSimpleSchedule(x => x
+                                            .WithIntervalInSeconds(td.RepeatInterval)
+                                            .RepeatForever()
+                                            );
+                        }
+                    }
+                    else
+                        Log.Warn(String.Format("Job {0} was configured with {1} schedule but no Repeat Interval mentioned. Please configure the Repeat Interval correctly !!", jd.JobKey, td.ScheduleType), this);
+
+
+                    Diagnostics.Log.Info(String.Format("ScheduleType {0} and Schedule : {1})", td.ScheduleType, trigger.ToString()), this);
+
+                    break;
+                case "minutes":
+                    if (td.RepeatInterval > 0)
+                    {
+                        if (td.RepeatCount > 0)
+                        {
+                            trigger = trigger.WithSimpleSchedule(x => x
+                                            .WithIntervalInMinutes(td.RepeatInterval)
+                                            .WithRepeatCount(td.RepeatCount)
+                                            );
+                        }
+                        else
+                        {
+                            trigger = trigger.WithSimpleSchedule(x => x
+                                            .WithIntervalInMinutes(td.RepeatInterval)
+                                            .RepeatForever()
+                                            );
+                        }
+                    }
+                    else
+                        Log.Warn(String.Format("Job {0} was configured with {1} schedule but no Repeat Interval mentioned. Please configure the Repeat Interval correctly !!", jd.JobKey, td.ScheduleType), this);
+
+
+                    Diagnostics.Log.Info(String.Format("ScheduleType {0} and Schedule : {1})", td.ScheduleType, trigger.ToString()), this);
+
+                    break;
+                case "hours":
+                    if (td.RepeatInterval > 0)
+                    {
+                        if (td.RepeatCount > 0)
+                        {
+                            trigger = trigger.WithSimpleSchedule(x => x
+                                            .WithIntervalInHours(td.RepeatInterval)
+                                            .WithRepeatCount(td.RepeatCount)
+                                            );
+                        }
+                        else
+                        {
+                            trigger = trigger.WithSimpleSchedule(x => x
+                                            .WithIntervalInHours(td.RepeatInterval)
+                                            .RepeatForever()
+                                            );
+                        }
+                    }
+                    else
+                        Log.Warn(String.Format("Job {0} was configured with {1} schedule but no Repeat Interval mentioned. Please configure the Repeat Interval correctly !!", jd.JobKey, td.ScheduleType), this);
+
+
+                    Diagnostics.Log.Info(String.Format("ScheduleType {0} and Schedule : {1})", td.ScheduleType, trigger.ToString()), this);
+
+                    break;
+
+                case "daily":
+                    trigger.WithSchedule(CronScheduleBuilder.DailyAtHourAndMinute(td.StartTime.Hour, td.StartTime.Minute));
+                    break;
+
+                case "weekly":
+                    //Convert Sitecore DaysOfWeeks property to System.DaysOfWeek which is understood by Quartz.net
+                    if (td.DaysOfWeeks.Count > 0)
+                    {
+                        DayOfWeek[] dayOfWeeks = new DayOfWeek[td.DaysOfWeeks.Count];
+                        for (int i = 0; i < td.DaysOfWeeks.Count; i++)
+                        {
+                            dayOfWeeks[i] = (System.DayOfWeek)Enum.Parse(typeof(System.DayOfWeek), td.DaysOfWeeks[i].ToString());
+                        }
+
+                        trigger.WithSchedule(CronScheduleBuilder.AtHourAndMinuteOnGivenDaysOfWeek(td.StartTime.Hour, td.StartTime.Minute, dayOfWeeks));
+                    }
+                    else
+                    {
+                        Log.Warn(String.Format("Job {0} was configured with {1} schedule but \"Day of Weeks\" was not set correctly. Please configure the trigger correctly !!", jd.JobKey, td.ScheduleType), this);
+
+                    }
+                    break;
+
+                case "monthly":
+                    if (td.DayOfMonth > 0)
+                        trigger.WithSchedule(CronScheduleBuilder.MonthlyOnDayAndHourAndMinute(td.DayOfMonth, td.StartTime.Hour, td.StartTime.Minute));
+                    else
+                        Log.Warn(String.Format("Job {0} was configured with {1} schedule but \"Day of Month\" was not set correctly. Please configure the trigger correctly !!", jd.JobKey, td.ScheduleType), this);
+
+                    break;
+
+                case "custom":
+                    if (!String.IsNullOrEmpty(td.CronExpression))
+                        trigger.WithSchedule(CronScheduleBuilder.CronSchedule(new CronExpression(td.CronExpression)));
+                    else
+                        Log.Warn(String.Format("Job {0} was configured with {1} schedule but \"Cron Expression\" was not set correctly. Please configure the trigger correctly !!", jd.JobKey, td.ScheduleType), this);
+                    break;
+
+            }
+
+
+
+            //Add Job and Trigger listeners
+            Log.Info("Registering Trigger Listener", this);
+            scheduler.ListenerManager.AddTriggerListener(trigListener, EverythingMatcher<JobKey>.AllTriggers());
+            return trigger;
+        }
+
         private List<JobDetail> GetConfiguredJobs()
         {
             //get a list of all Quartz Scheduler Items including JobDetails and Triggers
             //string quartzJobsQuery = "fast://sitecore/content//*[@@templateid='{D01E915E-A1C2-4DB2-A2C8-B619513A82CB}']//*";
-            string quartzJobsQuery = "fast://" + GetJobDefinitionLocation() + "//*[@@templateid='" + Templates.JobDetailTemplate + "']";
+            string quartzJobsQuery = "fast://" + GetJobDefinitionLocation() + "//*[@@templateid='" + Common.Constants.JobDetailTemplateID + "']";
 
             Database masterDb = Factory.GetDatabase("master");
             Item[] quartzJobs = masterDb.SelectItems(quartzJobsQuery);
@@ -314,7 +326,7 @@ namespace Sitecore.QuartzScheduler
 
             //Get the trigger definitions for this job
             string quartzJobTriggersQuery =
-                "fast://" + GetJobDefinitionLocation() + "//*[@@parentid='" + jobDetail.ItemId + "']//*[@@templateid='" + Templates.TriggerDetailTempalte + "']";
+                "fast://" + GetJobDefinitionLocation() + "//*[@@parentid='" + jobDetail.ItemId + "']//*[@@templateid='" + Common.Constants.TriggerDetailTempalteID + "']";
 
             Item[] quartzJobTriggers = masterDb.SelectItems(quartzJobTriggersQuery);
             List<TriggerDetail> lstTriggers = new List<TriggerDetail>();
@@ -333,6 +345,10 @@ namespace Sitecore.QuartzScheduler
                     if (!String.IsNullOrEmpty(triggerItem.Fields["End Time"].Value))
                     {
                         triggerDetail.EndTime = ((DateField)triggerItem.Fields["End Time"]).DateTime;
+                    }
+                    if (!String.IsNullOrEmpty(triggerItem.Fields["Priority"].Value))
+                    {
+                        triggerDetail.Priority = int.Parse(triggerItem.Fields["Priority"].Value);
                     }
 
                     //Handling Days of Week field values

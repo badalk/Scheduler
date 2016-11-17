@@ -60,6 +60,7 @@ define(["sitecore", "jquery", "underscore", "entityService"], function (Sitecore
 
             //create JobDetail entity
             var jobDetail = {
+                ItemName: self.txtJobKey.viewModel.text(),
                 JobKey: self.txtJobKey.viewModel.text(),
                 Description: self.txtareaDescription.viewModel.text(),
                 Group: self.txtGroup.viewModel.text(),
@@ -73,7 +74,7 @@ define(["sitecore", "jquery", "underscore", "entityService"], function (Sitecore
                 console.log('entity returned: ' + newJobDetail.toString());
                 self.msgNotifications.addMessage("notification", { text: "Job Details created successfully !", actions: [], closable: true, temporary: true });
             }).fail(function (error) {
-                self.msgNotifications.addMessage("error", { text: error.message, actions: [], closable: true, temporary: true });
+                self.msgNotifications.addMessage("error", { text: "Error in Job Detail Creation: " + error.message, actions: [], closable: true, temporary: true });
             });
         },
 

@@ -139,6 +139,7 @@
     <None Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\HelperUtility.cs" />
     <Compile Include="Controllers\JobManagerController.cs" />
     <Compile Include="Controllers\ReportDataController.cs" />
     <Compile Include="Controllers\TriggerDetailController.cs" />
@@ -146,17 +147,24 @@
     <Compile Include="EventHandlers\ItemChanged.cs" />
     <Compile Include="JobManager.cs" />
     <Compile Include="JobManagerUtility.cs" />
+    <Compile Include="Jobs\ArchiveJobPerformanceData.cs" />
+    <Compile Include="Jobs\CleanupEventQueue.cs" />
+    <Compile Include="Jobs\CleanupHistory.cs" />
+    <Compile Include="Jobs\CleanupPublishQueue.cs" />
+    <Compile Include="Listeners\SchedulerJobListener.cs" />
+    <Compile Include="Listeners\SchedulerListener.cs" />
     <Compile Include="Listeners\SchedulerTriggerListener.cs" />
     <Compile Include="Models\JobDetail.cs" />
     <Compile Include="Models\JobStatistic-TBD.cs" />
     <Compile Include="Models\TriggerDetail.cs" />
     <Compile Include="Models\TriggerStatistic.cs" />
+    <Compile Include="Models\TriggerStatSummary.cs" />
     <Compile Include="Pipelines\Initialize.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\CacheTriggerStatisticsStore.cs" />
     <Compile Include="Providers\ITriggerStatisticsStore.cs" />
     <Compile Include="Repository\JobDetailRepository.cs" />
-    <Compile Include="Repository\Templates.cs" />
+    <Compile Include="Common\Constants.cs" />
     <Compile Include="Repository\TriggerDetailRepository.cs" />
     <Compile Include="Validators\CronExpressionAttribute.cs" />
     <Compile Include="Validators\CronExpressionValidationMetaData.cs" />

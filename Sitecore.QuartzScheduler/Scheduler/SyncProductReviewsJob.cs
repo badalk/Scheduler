@@ -12,8 +12,6 @@ namespace Scheduler
     [PersistJobDataAfterExecution]
     class SyncProductReviewsJob : IJob
     {
-
-
         public void Execute(IJobExecutionContext context)
         {
             //JobDataMap dataMap = context.JobDetail.JobDataMap;

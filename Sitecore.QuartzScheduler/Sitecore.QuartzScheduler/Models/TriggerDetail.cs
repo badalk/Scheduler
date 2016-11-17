@@ -27,6 +27,8 @@ namespace Sitecore.QuartzScheduler.Models
         [Required(ErrorMessage = "Trigger Key is required")]
         public string TriggerKey { get; set; }
 
+        public int Priority { get; set; }
+
         /// <summary>
         /// At what time the schedule should start
         /// </summary>

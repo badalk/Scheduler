@@ -59,6 +59,8 @@ namespace Sitecore.QuartzScheduler.Repository
 
         public bool Exists(TriggerDetail entity)
         {
+            if (String.IsNullOrEmpty(entity.itemId))
+                return false;
             var triggerDetail = Sitecore.Data.Database.GetDatabase("master").GetItem(new ID(entity.itemId));
             return triggerDetail != null;
         }
@@ -133,7 +135,7 @@ namespace Sitecore.QuartzScheduler.Repository
             using (new SecurityDisabler())
             {
                 Database masterDB = Sitecore.Configuration.Factory.GetDatabase("master");
-                TemplateItem triggerTemplate = masterDB.GetTemplate(ID.Parse(Templates.TriggerDetailTempalte));
+                TemplateItem triggerTemplate = masterDB.GetTemplate(ID.Parse(Common.Constants.TriggerDetailTempalteID));
                 //"/sitecore/templates/modules/quartzscheduler/TriggerDetail");
                 Item triggerItem = masterDB.GetItem(new ID(entity.itemId));
                 triggerItem.Editing.BeginEdit();

@@ -35,5 +35,9 @@ namespace Sitecore.QuartzScheduler.Providers
         /// <returns></returns>
         List<TriggerStatistic> GetTriggerStatisticsForJob(string jobKey);
 
+
+        List<TriggerStatSummary> GetTriggerStatisticsSummary();
+
+        void ArchiveTriggerStatistics(int DaysToKeep, string ArchiveLocation);
     }
 }
