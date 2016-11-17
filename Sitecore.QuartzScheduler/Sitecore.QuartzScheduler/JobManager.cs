@@ -18,18 +18,18 @@ namespace Sitecore.QuartzScheduler
 {
     public class JobManager
     {
-        ITriggerListener trigListener;
-        IScheduler scheduler;
+        static IScheduler scheduler;
 
         public JobManager()
         {
-            //Create a SchedulerTriggerListener
-            trigListener = new SchedulerTriggerListener();
-
             // get a scheduler
-            scheduler = StdSchedulerFactory.GetDefaultScheduler();
-            scheduler.ListenerManager.AddSchedulerListener(new SchedulerListener());
-            scheduler.ListenerManager.AddJobListener(new SchedulerJobListener(), GroupMatcher<JobKey>.AnyGroup());
+            if (scheduler == null)
+            {
+                scheduler = StdSchedulerFactory.GetDefaultScheduler();
+                Log.Info("Scheduler Instance ID: " + scheduler.SchedulerInstanceId, this);
+                scheduler.ListenerManager.AddSchedulerListener(new SchedulerListener());
+                scheduler.ListenerManager.AddJobListener(new SchedulerJobListener(), GroupMatcher<JobKey>.AnyGroup());
+            }
 
         }
 
@@ -57,50 +57,55 @@ namespace Sitecore.QuartzScheduler
                     //if (jd.JobKey.Equals("Cleanup Publish Queue"))
                     //{
 
-                        JobDataMap jobDataMap = new JobDataMap();
+                    JobDataMap jobDataMap = new JobDataMap();
 
-                        //Get Job Data Map
-                        NameValueCollection jobDataCollection = Sitecore.Web.WebUtil.ParseUrlParameters(jd.JobData);
-                        foreach (string key in jobDataCollection.Keys)
-                        {
-                            jobDataMap.Add(key, jobDataCollection[key]);
-                        }
-
-                        // define the job and tie it to our HelloJob class
-                        var job = JobBuilder.Create(Type.GetType(jd.Type, true, true))
-                            .WithIdentity(jd.JobKey, jd.Group)
-                            .WithDescription(jd.Description)
-                            .UsingJobData(jobDataMap)
-                            .Build();
-
-                        Log.Info(String.Format("Job {0} created", jd.JobKey), this);
-                        Log.Info(String.Format("Getting triggers for job {0}", jd.JobKey), this);
-
-                        var triggersForJob = GetTriggersForJob(jd);
-
-                        Quartz.Collection.HashSet<ITrigger> triggers = new Quartz.Collection.HashSet<ITrigger>();
-
-                        #region "Looping through trigger Details"
-                        foreach (TriggerDetail td in triggersForJob)
-                        {
-                            TriggerBuilder trigger = GetTriggerBuilder(jd, td);
-
-                            triggers.Add(trigger.Build());
-                            Log.Info(String.Format("Job {0} is scheduled with trigger {1}.", jd.JobKey, td.TriggerKey), this);
-
-                        }
-                        #endregion
-
-                        scheduler.ScheduleJob(job, triggers, true);
+                    //Get Job Data Map
+                    NameValueCollection jobDataCollection = Sitecore.Web.WebUtil.ParseUrlParameters(jd.JobData);
+                    foreach (string key in jobDataCollection.Keys)
+                    {
+                        jobDataMap.Add(key, jobDataCollection[key]);
                     }
+
+                    // define the job and tie it to our HelloJob class
+                    var job = JobBuilder.Create(Type.GetType(jd.Type, true, true))
+                        .WithIdentity(jd.JobKey, jd.Group)
+                        .WithDescription(jd.Description)
+                        .UsingJobData(jobDataMap)
+                        .Build();
+
+                    Log.Info(String.Format("Job {0} created", jd.JobKey), this);
+                    Log.Info(String.Format("Getting triggers for job {0}", jd.JobKey), this);
+
+                    var triggersForJob = GetTriggersForJob(jd);
+
+                    Quartz.Collection.HashSet<ITrigger> triggers = new Quartz.Collection.HashSet<ITrigger>();
+
+                    ITriggerListener trigListener = new SchedulerTriggerListener();
+
+                    #region "Looping through trigger Details"
+
+                    foreach (TriggerDetail td in triggersForJob)
+                    {
+                        TriggerBuilder trigger = GetTriggerBuilder(jd, td);
+                        //Add Job and Trigger listeners
+                        Log.Info("Registering Trigger Listener", this);
+                        scheduler.ListenerManager.AddTriggerListener(trigListener, EverythingMatcher<JobKey>.AllTriggers());
+                        triggers.Add(trigger.Build());
+                        Log.Info(String.Format("Job {0} is scheduled with trigger {1}.", jd.JobKey, td.TriggerKey), this);
+
+
+                    }
+                    #endregion
+
+                    scheduler.ScheduleJob(job, triggers, true);
+                }
                 //}
             }
-           
             catch (JobExecutionException jobExeEX)
             {
                 Log.Error(String.Format("Error Occured in {0}", jobExeEX.Source) + jobExeEX.Message + Environment.NewLine + jobExeEX.StackTrace, this);
             }
-             catch(SchedulerException schedulerEx)
+            catch (SchedulerException schedulerEx)
             {
                 Log.Error(String.Format("Error Occured in {0}", schedulerEx.Source) + schedulerEx.Message + Environment.NewLine + schedulerEx.StackTrace, this);
             }
@@ -239,10 +244,6 @@ namespace Sitecore.QuartzScheduler
             }
 
 
-
-            //Add Job and Trigger listeners
-            Log.Info("Registering Trigger Listener", this);
-            scheduler.ListenerManager.AddTriggerListener(trigListener, EverythingMatcher<JobKey>.AllTriggers());
             return trigger;
         }
 
@@ -461,7 +462,7 @@ namespace Sitecore.QuartzScheduler
             ITrigger trigger = TriggerBuilder.
                 Create().
                 ForJob(jobDetail).
-                WithIdentity("ondemand", jobDetail.Key.Group).
+                WithIdentity(jobKey, jobDetail.Key.Group).
                 WithSchedule(SimpleScheduleBuilder.Create().WithRepeatCount(0).WithInterval(TimeSpan.Zero)).
                 StartNow().Build();
             scheduler.ScheduleJob(jobDetail, trigger);

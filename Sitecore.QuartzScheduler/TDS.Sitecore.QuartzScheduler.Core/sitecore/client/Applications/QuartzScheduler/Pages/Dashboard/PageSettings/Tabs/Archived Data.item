@@ -1,0 +1,76 @@
+----item----
+version: 1
+id: {D4EB8FAD-66CC-49A2-AA6D-7E4A535576AD}
+database: core
+path: /sitecore/client/Applications/QuartzScheduler/Pages/Dashboard/PageSettings/Tabs/Archived Data
+parent: {DDE6EB9C-51D4-4C5E-BBA0-11927F422E4B}
+name: Archived Data
+master: {00000000-0000-0000-0000-000000000000}
+template: {F62B4CD7-754C-4461-810F-2B6BD2C92A0D}
+templatekey: Tab
+
+----field----
+field: {DEAB3795-056F-4421-ADF0-758844461B72}
+name: Placeholder Name
+key: placeholder name
+content-length: 17
+
+Load Archive Data
+----field----
+field: {F1A1FE9E-A60C-4DDB-A3A0-BB5B29FE732E}
+name: __Renderings
+key: __renderings
+content-length: 1597
+
+<r>
+  <d id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+    <r id="{F6C9F461-FCAF-47DC-AA01-C8C64C2EFFB8}" par="Id=Border1&amp;PaddingType=All&amp;UsePadding=1" uid="{0BE11113-FE14-4E77-98E2-518B41C50CC9}" />
+    <r id="{C4393722-39FA-4869-9582-3A8EB8983A0D}" par="Id=RowPanel1" ph="Border1.Content" uid="{F07234FF-CC16-4FF5-9300-308F57298ADD}" />
+    <r id="{5CB208F6-1860-426B-8221-FAA85B329848}" par="Id=ColumnPanel1&amp;GridColumns=3&amp;ContentAlign=Right" ph="RowPanel1.Content" uid="{E8B7095B-A52E-4356-BC44-33D471BFF766}" />
+    <r id="{5CB208F6-1860-426B-8221-FAA85B329848}" par="Id=ColumnPanel2&amp;GridColumns=7&amp;ContentAlign=Center" ph="RowPanel1.Content" uid="{CA69542D-3B9E-4C62-B96A-1E178B2D73F7}" />
+    <r id="{5CB208F6-1860-426B-8221-FAA85B329848}" par="Id=ColumnPanel3&amp;GridColumns=2" ph="RowPanel1.Content" uid="{C0FDED4B-D3CF-4802-9DFA-A1511BDAB7CC}" />
+    <r id="{98316BB6-F3F5-4E6F-81F0-79F173D151D8}" par="Id=Label1&amp;Text=Path+to+Archived+Data+File%3a" ph="ColumnPanel1.Content" uid="{A7D8F792-3C4A-48EB-8981-7D6C49467B91}" />
+    <r id="{57F86E9A-1844-45CE-BF8A-62900AE17A92}" par="IsEnabled=1&amp;WidthPolicy=%7b10E1CB3E-660F-4C5E-9F25-F67C4637D463%7d&amp;Id=txtJsonPath&amp;IsVisible=1&amp;Watermark=Enter+path+to+Archived+Json+file" ph="ColumnPanel2.Content" uid="{0A85C083-2CBE-4F3A-B44B-876AE5D3E8FE}" />
+    <r id="{913AB005-2527-4C2D-9827-FB3A8DFB135C}" par="Click=javascript%3aapp.loadChartData()%3b&amp;Id=Button1&amp;ButtonType=Primary&amp;Text=Show+Charts" ph="ColumnPanel3.Content" uid="{FD3E3A01-3D1E-45AB-A827-3C0E84493B88}" />
+  </d>
+</r>
+----version----
+language: en
+version: 1
+revision: 988c11ba-28b8-4983-a866-c8e8f89363c5
+
+----field----
+field: {AEA872FB-AA91-4D1A-B877-3CA6FBBB4FD4}
+name: Header
+key: header
+content-length: 17
+
+Load Archive Data
+----field----
+field: {25BED78C-4957-4165-998A-CA1B52F67497}
+name: __Created
+key: __created
+content-length: 16
+
+20161114T180314Z
+----field----
+field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
+name: __Revision
+key: __revision
+content-length: 36
+
+988c11ba-28b8-4983-a866-c8e8f89363c5
+----field----
+field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
+name: __Updated
+key: __updated
+content-length: 16
+
+20161114T200421Z
+----field----
+field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
+name: __Updated by
+key: __updated by
+content-length: 14
+
+sitecore\admin

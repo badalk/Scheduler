@@ -1,0 +1,73 @@
+----item----
+version: 1
+id: {99650E49-501B-4A9F-A09E-4CE913B4B09C}
+database: core
+path: /sitecore/client/Applications/QuartzScheduler/Pages/Dashboard/PageSettings/Tabs/Summary
+parent: {DDE6EB9C-51D4-4C5E-BBA0-11927F422E4B}
+name: Summary
+master: {00000000-0000-0000-0000-000000000000}
+template: {F62B4CD7-754C-4461-810F-2B6BD2C92A0D}
+templatekey: Tab
+
+----field----
+field: {DEAB3795-056F-4421-ADF0-758844461B72}
+name: Placeholder Name
+key: placeholder name
+content-length: 3
+
+Tab
+----field----
+field: {F1A1FE9E-A60C-4DDB-A3A0-BB5B29FE732E}
+name: __Renderings
+key: __renderings
+content-length: 1326
+
+<r>
+  <d id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+    <r id="{F6C9F461-FCAF-47DC-AA01-C8C64C2EFFB8}" par="Id=Border1&amp;PaddingType=All&amp;ContentAlignment=Center&amp;UsePadding=1" uid="{73848FE2-5EF9-470A-9B5C-A30ADD04212F}" />
+    <r id="{7717EB6C-9F90-4C58-826D-5E87722A0318}" par="Id=Text1&amp;TextType=LargeLabel&amp;Text=Job+Performance+Summary" ph="Border1.Content" uid="{E5BAD3A2-F367-4B9B-9BF9-F6D4FEF8FF3F}" />
+    <r id="{F6C9F461-FCAF-47DC-AA01-C8C64C2EFFB8}" par="Id=Border2&amp;PaddingType=All&amp;UsePadding=1" ph="Border1.Content" uid="{32B0E1C0-23E6-4375-A7E8-B3D26E8EE576}" />
+    <r id="{5E3B31F7-FE96-40FB-BE38-94418E4B789A}" par="Id=ChartDataProviderSummary&amp;DataURL=%2fapi%2fsitecore%2fReportData%2fGetJobPerformanceSummary" ph="Border2.Content" uid="{A2A265CE-5F73-4C82-B177-08A3005CDD01}" />
+    <r id="{01571226-416B-4E07-863E-B00EA2B3245D}" par="Id=ColumnChart1&amp;ShowLegend=1&amp;ShowPointMarker=1&amp;ShowAxis=1&amp;CategoryChartField=%7bBA574590-BF1A-41B6-AF1D-5E800768ED5F%7d&amp;EnableAnimation=1&amp;SeriesChartField=%7bCDBFEBF4-8F59-40BE-9B9E-F2F1B9DD50FB%7d&amp;ValueChartFields=%7bF172BCB6-F3CB-4476-AC26-A9EDAB8DDFFB%7d&amp;ShowValues=1&amp;Data=%7bBinding+ChartDataProviderSummary.Data%7d" ph="Border2.Content" uid="{6631F6C0-9DA0-4C7A-8CDB-EF4D2226274D}" />
+  </d>
+</r>
+----version----
+language: en
+version: 1
+revision: c7301699-3662-4d43-aa03-7a8ca787a662
+
+----field----
+field: {AEA872FB-AA91-4D1A-B877-3CA6FBBB4FD4}
+name: Header
+key: header
+content-length: 3
+
+Tab
+----field----
+field: {25BED78C-4957-4165-998A-CA1B52F67497}
+name: __Created
+key: __created
+content-length: 16
+
+20161114T181222Z
+----field----
+field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
+name: __Revision
+key: __revision
+content-length: 36
+
+c7301699-3662-4d43-aa03-7a8ca787a662
+----field----
+field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
+name: __Updated
+key: __updated
+content-length: 16
+
+20161116T173010Z
+----field----
+field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
+name: __Updated by
+key: __updated by
+content-length: 14
+
+sitecore\admin

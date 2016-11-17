@@ -1,0 +1,87 @@
+----item----
+version: 1
+id: {E51B7976-7CA1-4CB5-8497-9038481C0DE4}
+database: core
+path: /sitecore/client/Applications/QuartzScheduler/Pages/Dashboard/PageSettings/Tabs/Job Performance Data
+parent: {DDE6EB9C-51D4-4C5E-BBA0-11927F422E4B}
+name: Job Performance Data
+master: {00000000-0000-0000-0000-000000000000}
+template: {F62B4CD7-754C-4461-810F-2B6BD2C92A0D}
+templatekey: Tab
+
+----field----
+field: {DEAB3795-056F-4421-ADF0-758844461B72}
+name: Placeholder Name
+key: placeholder name
+content-length: 26
+
+JobPerformanceData.Content
+----field----
+field: {F1A1FE9E-A60C-4DDB-A3A0-BB5B29FE732E}
+name: __Renderings
+key: __renderings
+content-length: 2663
+
+<r>
+  <d id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+    <r id="{F6C9F461-FCAF-47DC-AA01-C8C64C2EFFB8}" par="Id=Border1" uid="{211034EB-8E50-4A63-B446-0413ED92CB56}" />
+    <r id="{C4393722-39FA-4869-9582-3A8EB8983A0D}" par="UsePadding=1&amp;Id=RowPanel2&amp;PaddingType=All" ph="Border1.Content" uid="{B9CDBC73-94F7-4FC2-9625-03A47E7B6CD3}" />
+    <r id="{5CB208F6-1860-426B-8221-FAA85B329848}" par="Id=ColumnPanel2&amp;GridColumns=8&amp;ContentAlign=Center" ph="RowPanel2.Content" uid="{1742595C-D3AB-4019-9B6F-E6442EC6D08C}" />
+    <r id="{7717EB6C-9F90-4C58-826D-5E87722A0318}" par="Id=Text1&amp;TextType=LargeLabel&amp;Text=Job+Performance+Data" ph="ColumnPanel2.Content" uid="{A37A6E06-F066-4AA0-ADE3-3C6A04553A9C}" />
+    <r id="{5CB208F6-1860-426B-8221-FAA85B329848}" par="Id=ColumnPanel3&amp;GridColumns=4&amp;ContentAlign=Right" ph="RowPanel2.Content" uid="{AEE36FC2-50A6-4713-8591-F8D29DF69F10}" />
+    <r id="{913AB005-2527-4C2D-9827-FB3A8DFB135C}" par="Click=javascript%3aapp.getJobPerformanceData()%3b&amp;Id=Button1&amp;IsEnabled=%7bBinding+ChartDataProviderJobPerformance.HasData%7d&amp;ButtonType=Primary&amp;Text=Download+Data" ph="ColumnPanel3.Content" uid="{54D9D9A0-565B-4658-B3CB-DFB9E3F48392}" />
+    <r id="{F6C9F461-FCAF-47DC-AA01-C8C64C2EFFB8}" par="Id=Border2&amp;PaddingType=All&amp;IsVisible=1&amp;UsePadding=1&amp;ShowBorder=0" ph="Border1.Content" uid="{13ED170F-10E9-4545-802A-A33E628B03A5}" />
+    <r id="{5E3B31F7-FE96-40FB-BE38-94418E4B789A}" par="Id=ChartDataProviderJobPerformance&amp;DataURL=%2fapi%2fsitecore%2fReportData%2fGetJobWisePerformanceData" ph="Border2.Content" uid="{13FEABBF-9A32-4242-BCB6-76633BACB572}" />
+    <r id="{FE9723FC-56E4-4CA8-9C64-CB34F29462A5}" par="Id=ProgressIndicator1&amp;AutoShowTimeout=1000&amp;TargetControl=LineChart1" ph="Border2.Content" uid="{E7B16ED5-803A-450B-91A7-E6C094FAAA29}" />
+    <r id="{C4393722-39FA-4869-9582-3A8EB8983A0D}" par="Id=RowPanel1" ph="Border2.Content" uid="{63CE4BDC-B9C6-4CFA-AB5E-86C90CB3F1A9}" />
+    <r id="{5CB208F6-1860-426B-8221-FAA85B329848}" par="Id=ColumnPanel1" ph="RowPanel1.Content" uid="{286A9445-4482-4C61-BBDF-CC20CD83FC6C}" />
+    <r id="{7FA4957C-08F8-4C31-8877-88CB3525EE4D}" par="Id=LineChart1&amp;ShowLegend=1&amp;ShowPointMarker=1&amp;ShowAxis=1&amp;CategoryChartField=%7b36922522-26C5-4DA3-A668-8826ED4778A0%7d&amp;EnableAnimation=1&amp;SeriesChartField=%7b0DD2B71F-BF39-4402-B149-84C14A35E444%7d&amp;ValueChartFields=%7b6DD4CA27-6A6D-4DFD-904E-82B7BCA98074%7d&amp;ShowValues=1&amp;Data=%7bBinding+ChartDataProviderJobPerformance.Data%7d" ph="ColumnPanel1.Content" uid="{72AF7B09-19BF-4525-8551-3A9C59D871D3}" />
+  </d>
+</r>
+----version----
+language: en
+version: 1
+revision: 69c9a5f4-3037-402c-9441-17693aeb3eba
+
+----field----
+field: {3C386BCC-A573-4589-B1BD-EDACE83DD69D}
+name: Tooltip
+key: tooltip
+content-length: 0
+
+
+----field----
+field: {AEA872FB-AA91-4D1A-B877-3CA6FBBB4FD4}
+name: Header
+key: header
+content-length: 20
+
+Job Performance Data
+----field----
+field: {25BED78C-4957-4165-998A-CA1B52F67497}
+name: __Created
+key: __created
+content-length: 16
+
+20161114T180156Z
+----field----
+field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
+name: __Revision
+key: __revision
+content-length: 36
+
+69c9a5f4-3037-402c-9441-17693aeb3eba
+----field----
+field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
+name: __Updated
+key: __updated
+content-length: 16
+
+20161116T164724Z
+----field----
+field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
+name: __Updated by
+key: __updated by
+content-length: 14
+
+sitecore\admin

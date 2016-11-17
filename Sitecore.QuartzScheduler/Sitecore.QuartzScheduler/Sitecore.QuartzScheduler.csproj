@@ -155,7 +155,6 @@
     <Compile Include="Listeners\SchedulerListener.cs" />
     <Compile Include="Listeners\SchedulerTriggerListener.cs" />
     <Compile Include="Models\JobDetail.cs" />
-    <Compile Include="Models\JobStatistic-TBD.cs" />
     <Compile Include="Models\TriggerDetail.cs" />
     <Compile Include="Models\TriggerStatistic.cs" />
     <Compile Include="Models\TriggerStatSummary.cs" />

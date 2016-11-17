@@ -71,7 +71,7 @@ namespace Sitecore.QuartzScheduler.Controllers
                             JobDetail jd = jobList[i];
 
                             triggerStats = triggerStatStore.GetTriggerStatisticsForJob(jd.JobKey);
-                            if (triggerStats != null)
+                            if (triggerStats != null && triggerStats.Count > 0)
                             {
                                 jsonData = HelperUtility.GetJsonSerializedData(triggerStats);
                                 if (i < jobList.Count - 1)
@@ -84,6 +84,7 @@ namespace Sitecore.QuartzScheduler.Controllers
                                 Diagnostics.Log.Warn("No chart data retrieved from configured Sitecore.QuartzScheduler.TriggerStatisticsStoreProvider when GetAllTriggerStatistics is called!", this);
                             }
                         }
+
                         finalJsonReportData = HelperUtility.AddJsonHeader(finalJsonReportData);
                     }
                 }

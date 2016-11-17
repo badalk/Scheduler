@@ -1,9 +1,9 @@
 ----item----
 version: 1
-id: {980FBF61-6363-4261-9E4F-05CB77ECF2E9}
+id: {38214845-54A5-4A1C-8509-4796933967B7}
 database: core
-path: /sitecore/client/Applications/QuartzScheduler/Pages/TriggerDetails/PageSettings
-parent: {85C7AF86-D056-400B-A3CE-5D80479F23E4}
+path: /sitecore/client/Applications/QuartzScheduler/Pages/Dashboard/PageSettings/Tabs/Summary/PageSettings
+parent: {99650E49-501B-4A9F-A09E-4CE913B4B09C}
 name: PageSettings
 master: {00000000-0000-0000-0000-000000000000}
 template: {E35EAA2D-EDEA-431C-A9E6-488272B53782}
@@ -12,7 +12,7 @@ templatekey: PageSettings
 ----version----
 language: en
 version: 1
-revision: c4354901-d1e0-4a03-98ad-95a68b6f0cf1
+revision: 0d3f5113-a6b6-499b-9136-bb6231df8f0f
 
 ----field----
 field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
@@ -27,7 +27,7 @@ name: __Created
 key: __created
 content-length: 16
 
-20160313T234626Z
+20161116T164247Z
 ----field----
 field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
 name: __Created by
@@ -41,14 +41,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-c4354901-d1e0-4a03-98ad-95a68b6f0cf1
+0d3f5113-a6b6-499b-9136-bb6231df8f0f
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20160313T234626Z
+20161116T164247Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
