@@ -318,12 +318,7 @@ define(["sitecore", "jquery", "underscore", "entityService"], function (Sitecore
 
         onAddTriggerDetail: function () {
             var app = this;
-            //SheerResponse.ShowModalDialog(new MediaDialogOptions('/sitecore/client/Applications/QuartzScheduler/Pages/TriggerDetailDialog'){
-            //                  Width = "100",
-            //                  Height = "200",
-            //                  Response = true,
-            //                  ForceDialogSize = true
-            //        });
+
         }
     });
 

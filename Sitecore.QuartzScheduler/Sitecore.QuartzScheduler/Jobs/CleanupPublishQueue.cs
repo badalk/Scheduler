@@ -5,6 +5,7 @@ using Sitecore.Diagnostics;
 
 namespace Sitecore.QuartzScheduler.Jobs
 {
+    [DisallowConcurrentExecution]
     public class CleanupPublishQueue : IJob
     {
         public void Execute(IJobExecutionContext context)

@@ -49,8 +49,8 @@
                     var jsonJobDataMap = that.GetJobDataMapJson(rawItem["Job Data Map"]);
                     console.log('Job Data Map : ' + jsonJobDataMap);
 
-                    that.txtLastRunDateValue.set("text", Date.now().toString());
-                    that.txtNextRunDateValue.set("text", "Next Value");
+                    //that.txtLastRunDateValue.set("text", Date.now().toString());
+                    //that.txtNextRunDateValue.set("text", "Next Value");
                     that.lcJobDataMap.set("items", jsonJobDataMap);
 
                 }
@@ -85,6 +85,34 @@
         onEditJobDetails: function () {
             console.log('Editing Job Details');
             window.location.replace('/sitecore/client/Applications/QuartzScheduler/Pages/JobDetails?jd=' + this.lcJobs.get('selectedItemId'));
+        },
+
+        onExecuteJob: function () {
+            var app = this;
+            var rawItem =  app.lcJobs.get("selectedItem").get("$fields")[0].item;
+            console.log("Executing Job: ID = '" + this.lcJobs.get('selectedItemId') + "' and JobName: " + rawItem["Job Key"]);
+            var jobKey = rawItem["Job Key"];
+            var group = rawItem["Group"];
+
+            $.ajax({
+                url: '/api/sitecore/Utility/ExecuteJob',
+                type: 'POST',
+                async: false,
+                cache: false,
+                data: {
+                    'JobKey': jobKey,
+                    'Group' : group
+                },
+                success: function (data) {
+                    console.log('Job Executed with success');
+                    alert('Job : "' + jobKey + '" executed successfully');
+                },
+                error: function () {
+                    console.log("There was an error executing the job");
+                    alert('Error occured while executing Job : "' + jobKey + '"');
+                }
+            });
+
         }
 
     });

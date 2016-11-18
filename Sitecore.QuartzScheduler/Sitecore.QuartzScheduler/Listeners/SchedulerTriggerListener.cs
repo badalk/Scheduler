@@ -10,8 +10,6 @@ namespace Sitecore.QuartzScheduler.Listeners
 {
     public class SchedulerTriggerListener : ITriggerListener 
     {
-        Stopwatch sw;
-        DateTime startTime;
         public string Name
         {
             get { return this.GetType().ToString(); }
@@ -21,15 +19,15 @@ namespace Sitecore.QuartzScheduler.Listeners
         {
             try
             {
-                sw.Stop();
+                var executationDuration = (DateTime.UtcNow - trigger.GetPreviousFireTimeUtc()).Value.TotalSeconds;
                 TriggerStatistic triggerStat = new TriggerStatistic()
                 {
                     Group = trigger.Key.Group,
                     JobKey = trigger.JobKey.Name,
                     TriggerKey = trigger.Key.Name,
-                    ExecutionDurationInSeconds = sw.Elapsed.TotalSeconds,
-                    StartTime = startTime.ToLocalTime(),
-                    FinishTime = DateTime.Now,
+                    ExecutionDurationInSeconds = executationDuration,
+                    StartTime = trigger.GetPreviousFireTimeUtc().Value.DateTime.ToLocalTime(),
+                    FinishTime = DateTime.Now
                 };
 
 
@@ -58,9 +56,7 @@ namespace Sitecore.QuartzScheduler.Listeners
         {
             try
             {
-                sw = Stopwatch.StartNew();
-                startTime = DateTime.Now.ToLocalTime();
-                Sitecore.Diagnostics.Log.Info(String.Format("Job {0} Started @ {1}", context.JobDetail.Key, startTime.ToLocalTime()), this);
+                Sitecore.Diagnostics.Log.Info(String.Format("Job {0} Started @ {1}", context.JobDetail.Key, DateTime.Now.ToLocalTime()), this);
                 Sitecore.Diagnostics.Log.Info(String.Format("Currently executing {0} Jobs", context.Scheduler.GetCurrentlyExecutingJobs().Count), this);
 
             }

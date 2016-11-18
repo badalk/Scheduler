@@ -23,7 +23,6 @@
 
           console.log('Getting Performance data...');
           this.ChartDataProviderJobPerformance.viewModel.getData(requestOptions);
-         // this.ChartDataProvider2.viewModel.getData(requestOptions);
           console.log('Attempted to get Performance data...');
 
       },
@@ -31,7 +30,6 @@
       getDataCallback: function (data) {
           var app = this;
           console.log('data: ' + data);
-          //console.log('app.ChartDataProviderJobPerformance.get("data"): ' + app.ChartDataProviderJobPerformance.get("data"));
       },
 
       getJobPerformanceData: function () {

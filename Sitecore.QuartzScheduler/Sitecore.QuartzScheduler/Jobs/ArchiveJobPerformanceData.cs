@@ -15,6 +15,8 @@ using Sitecore.QuartzScheduler.Providers;
 
 namespace Sitecore.QuartzScheduler.Jobs
 {
+    [DisallowConcurrentExecution]
+
     public class ArchiveJobPerformanceData: IJob
     {
         public void Execute(IJobExecutionContext context)

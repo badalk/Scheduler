@@ -454,19 +454,22 @@ namespace Sitecore.QuartzScheduler
 
         }
 
-        public void ExecuteJob(string jobKey)
+        public void ExecuteJob(string jobKey, string group)
         {
-            Log.Info(String.Format("Executing Job {0} at {1} triggered by user {2} on demand", jobKey, DateTime.Now, Sitecore.Context.User.Name), this);
-            IJobDetail jobDetail = scheduler.GetJobDetail(new JobKey(jobKey));
+            try
+            {
+                Log.Info(String.Format("Executing Job {0} at {1} triggered by user {2} on demand", jobKey, DateTime.Now, Sitecore.Context.User.Name), this);
+                IJobDetail jobDetail = scheduler.GetJobDetail(new JobKey(jobKey, group));
 
-            ITrigger trigger = TriggerBuilder.
-                Create().
-                ForJob(jobDetail).
-                WithIdentity(jobKey, jobDetail.Key.Group).
-                WithSchedule(SimpleScheduleBuilder.Create().WithRepeatCount(0).WithInterval(TimeSpan.Zero)).
-                StartNow().Build();
-            scheduler.ScheduleJob(jobDetail, trigger);
-            Log.Info(String.Format("Job {0} completed at {1} triggered by user {2} on demand", jobKey, DateTime.Now, Sitecore.Context.User.Name), this);
+                scheduler.TriggerJob(new JobKey(jobKey, group), jobDetail.JobDataMap);
+                Log.Info(String.Format("Job {0} completed at {1} triggered by user {2} on demand", jobKey, DateTime.Now, Sitecore.Context.User.Name), this);
+            }
+            catch(Exception ex)
+            {
+                Log.Error(String.Format("Error occured while executing Job \"{0}\" at {1} triggered by user {2} on demand", jobKey, DateTime.Now, Sitecore.Context.User.Name), this);
+                Log.Error(ex.Message + Environment.NewLine + ex.StackTrace, this);
+                throw ex;
+            }
         }
 
         public DateTime GetNextFireTime(string group, string triggerKey)
