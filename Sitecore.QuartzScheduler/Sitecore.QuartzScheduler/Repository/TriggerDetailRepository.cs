@@ -88,18 +88,28 @@ namespace Sitecore.QuartzScheduler.Repository
                     trigger.ScheduleType = scheduleType.TargetItem.ID.ToString();
                 }
 
+                //MultilistField daysOfWeeks = triggerDetail.Fields["Days of Week"];
+                //trigger.DaysOfWeeks = daysOfWeeks.GetItems();
+
                 //DaysofWeek
                 MultilistField daysOfWeeks = triggerDetail.Fields["Days of Week"];
                 if (daysOfWeeks != null)
                 {
+                    // trigger.DaysOfWeeks = daysOfWeeks.GetItems().ToList<Item>();
                     Item[] items = daysOfWeeks.GetItems();
                     if (items != null && items.Length > 0)
                     {
-                        List<DaysOfWeek> lstDaysOfWeek = new List<DaysOfWeek>();
+                        List<Models.DayOfWeek> lstDaysOfWeek = new List<Models.DayOfWeek>();
 
                         for (int i = 0; i < items.Length; i++)
                         {
-                            lstDaysOfWeek.Add((DaysOfWeek) Enum.Parse(typeof(DaysOfWeek), items[i].Name, true));
+                            Models.DayOfWeek dayOfWeek = new Models.DayOfWeek()
+                            {
+                                itemId = items[i].ID.ToString(),
+                                itemName = items[i].Name,
+                                DayOfWeekValue = (DaysOfWeek)Enum.Parse(typeof(DaysOfWeek), items[i].Name, true)
+                            };
+                            lstDaysOfWeek.Add(dayOfWeek);
                         }
                         trigger.DaysOfWeeks = lstDaysOfWeek;
                     }
@@ -171,14 +181,15 @@ namespace Sitecore.QuartzScheduler.Repository
             triggerItem.Fields["End Time"].Value = entity.EndTime.ToString();
             triggerItem.Fields["Schedule Type"].Value = entity.ScheduleType;
             //triggerItem.Fields["Days of Week"].Value = entity.DaysOfWeeks;
-            MultilistField daysOfWeekField =  triggerItem.Fields["Days of Week"];
-            foreach(DaysOfWeek dow in entity.DaysOfWeeks)
-            {
-                if (!daysOfWeekField.Contains((dow.ToString())))
-                {
-                    daysOfWeekField.Add(dow.ToString());
-                }
-            }
+            //MultilistField daysOfWeekField =  triggerItem.Fields["Days of Week"];
+            //foreach(Item dowItem in entity.DaysOfWeeks)
+            //{
+            //    if (!daysOfWeekField.Contains((dow.ToString())))
+            //    {
+            //        daysOfWeekField.Add(dow.ToString());
+            //    }
+            //}
+            //triggerItem.Fields["Days of Week"].Value = entity.DaysOfWeeks;
             triggerItem.Fields["Day of Month"].Value = entity.DayOfMonth.ToString();
             triggerItem.Fields["Repeat Count"].Value = entity.RepeatCount.ToString();
             triggerItem.Fields["Repeat Interval"].Value = entity.RepeatInterval.ToString();

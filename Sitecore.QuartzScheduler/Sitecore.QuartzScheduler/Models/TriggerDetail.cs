@@ -1,4 +1,5 @@
-﻿using Sitecore.QuartzScheduler.Validators;
+﻿using Sitecore.Data.Items;
+using Sitecore.QuartzScheduler.Validators;
 using Sitecore.Services.Core.Model;
 using System;
 using System.Collections.Generic;
@@ -51,13 +52,13 @@ namespace Sitecore.QuartzScheduler.Models
         /// <summary>
         /// Days Of the Week when this schedule should be applied if Schedule Type is Weekly (e.g. To indicate that this Job Runs only on Sat & Sunday)
         /// </summary>
-        private List<Sitecore.DaysOfWeek> _daysOfWeek;
-        public List<Sitecore.DaysOfWeek> DaysOfWeeks
+        private List<DayOfWeek> _daysOfWeek;
+        public List<DayOfWeek> DaysOfWeeks
         {
             get
             {
                 if (_daysOfWeek == null)
-                    _daysOfWeek = new List<DaysOfWeek>();
+                    _daysOfWeek = new List<DayOfWeek>();
                 
                 return _daysOfWeek;
             }

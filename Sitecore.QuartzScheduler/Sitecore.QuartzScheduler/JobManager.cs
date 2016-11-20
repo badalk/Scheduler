@@ -13,6 +13,7 @@ using System.Collections.Specialized;
 using Sitecore.Data.Fields;
 using Sitecore.QuartzScheduler.Repository;
 using System.Configuration;
+using System.Linq;
 
 namespace Sitecore.QuartzScheduler
 {
@@ -209,12 +210,12 @@ namespace Sitecore.QuartzScheduler
 
                 case "weekly":
                     //Convert Sitecore DaysOfWeeks property to System.DaysOfWeek which is understood by Quartz.net
-                    if (td.DaysOfWeeks.Count > 0)
+                    if (td.DaysOfWeeks != null && td.DaysOfWeeks.Count > 0)
                     {
-                        DayOfWeek[] dayOfWeeks = new DayOfWeek[td.DaysOfWeeks.Count];
+                        System.DayOfWeek[] dayOfWeeks = new System.DayOfWeek[td.DaysOfWeeks.Count];
                         for (int i = 0; i < td.DaysOfWeeks.Count; i++)
                         {
-                            dayOfWeeks[i] = (System.DayOfWeek)Enum.Parse(typeof(System.DayOfWeek), td.DaysOfWeeks[i].ToString());
+                            dayOfWeeks[i] = (System.DayOfWeek)Enum.Parse(typeof(System.DayOfWeek), td.DaysOfWeeks[i].DayOfWeekValue.ToString());
                         }
 
                         trigger.WithSchedule(CronScheduleBuilder.AtHourAndMinuteOnGivenDaysOfWeek(td.StartTime.Hour, td.StartTime.Minute, dayOfWeeks));
@@ -250,11 +251,10 @@ namespace Sitecore.QuartzScheduler
         private List<JobDetail> GetConfiguredJobs()
         {
             //get a list of all Quartz Scheduler Items including JobDetails and Triggers
-            //string quartzJobsQuery = "fast://sitecore/content//*[@@templateid='{D01E915E-A1C2-4DB2-A2C8-B619513A82CB}']//*";
-            string quartzJobsQuery = "fast://" + GetJobDefinitionLocation() + "//*[@@templateid='" + Common.Constants.JobDetailTemplateID + "']";
+            string jobsDefinitionsQuery = "fast://" + GetJobDefinitionLocation() + "//*[@@templateid='" + Common.Constants.JobDetailTemplateID + "']";
 
             Database masterDb = Factory.GetDatabase("master");
-            Item[] quartzJobs = masterDb.SelectItems(quartzJobsQuery);
+            Item[] quartzJobs = masterDb.SelectItems(jobsDefinitionsQuery);
 
 
             List<JobDetail> lstJobs = new List<JobDetail>();
@@ -352,20 +352,20 @@ namespace Sitecore.QuartzScheduler
                         triggerDetail.Priority = int.Parse(triggerItem.Fields["Priority"].Value);
                     }
 
-                    //Handling Days of Week field values
-                    //triggerDetail.DaysOfWeeks = triggerItem["Days of Week"];
-                    MultilistField daysOfWeekField = triggerItem.Fields["Days of Week"];
-                    if (daysOfWeekField != null)
-                    {
-                        Item[] daysOfWeek = daysOfWeekField.GetItems();
-                        if (daysOfWeek != null && daysOfWeek.Length > 0)
-                        {
-                            foreach (Item day in daysOfWeek)
-                            {
-                                triggerDetail.DaysOfWeeks.Add((Sitecore.DaysOfWeek)Enum.Parse(typeof(Sitecore.DaysOfWeek), day.Name));
-                            }
-                        }
-                    }
+                    
+                    //MultilistField daysOfWeekField = triggerItem.Fields["Days of Week"];
+                    //if (daysOfWeekField != null)
+                    //{
+                    //    Item[] daysOfWeek = daysOfWeekField.GetItems();
+                    //    //triggerDetail.DaysOfWeeks = daysOfWeekField.GetItems().ToList<Item>();
+                    //    if (daysOfWeek != null && daysOfWeek.Length > 0)
+                    //    {
+                    //        foreach (Item day in daysOfWeek)
+                    //        {
+                    //            triggerDetail.DaysOfWeeks.Add((Sitecore.DaysOfWeek)Enum.Parse(typeof(Sitecore.DaysOfWeek), day.Name));
+                    //        }
+                    //    }
+                    //}
 
                     if (!String.IsNullOrEmpty(triggerItem.Fields["Day of Month"].Value))
                         triggerDetail.DayOfMonth = int.Parse(triggerItem["Day of Month"]);

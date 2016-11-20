@@ -12,7 +12,7 @@ templatekey: JobDetail
 ----version----
 language: en
 version: 1
-revision: 78b76c0c-0e7c-4f68-aa1b-384b1d8e489b
+revision: 3e301a38-cb08-4cbe-b188-f7e7548a70bf
 
 ----field----
 field: {ED56086A-99FE-47A4-9746-6F60767A3C98}
@@ -32,9 +32,9 @@ Cleanup Event Queue
 field: {52ABCBE9-B033-4DFC-BA47-2F7520949919}
 name: Description
 key: description
-content-length: 28
+content-length: 36
 
-Clearing Publish Queue Daily
+Cleaning Event Queue Every few hours
 ----field----
 field: {E83DFF04-993E-4D09-BAA4-214A4A19894F}
 name: Group
@@ -62,14 +62,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-78b76c0c-0e7c-4f68-aa1b-384b1d8e489b
+3e301a38-cb08-4cbe-b188-f7e7548a70bf
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20161117T212724Z
+20161118T012813Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by

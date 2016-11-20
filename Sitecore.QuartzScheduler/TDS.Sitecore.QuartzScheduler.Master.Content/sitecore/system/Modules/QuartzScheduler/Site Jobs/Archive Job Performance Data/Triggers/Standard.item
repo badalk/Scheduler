@@ -12,7 +12,7 @@ templatekey: Trigger
 ----version----
 language: en
 version: 1
-revision: 024eed02-f088-4dbb-a0f5-f6a44780ce8c
+revision: 774a136a-7aae-4076-b156-5b1ec64a1c1b
 
 ----field----
 field: {FE4851AA-D51A-4F20-A5EE-47CD52D0A886}
@@ -34,14 +34,14 @@ name: Schedule Type
 key: schedule type
 content-length: 38
 
-{D39CE392-E22D-4CC7-9C1E-70E13A15F7E6}
+{2E1A8F13-CD77-4CA4-936C-6FB7AF20B2D5}
 ----field----
 field: {93E8DA28-EF9E-46B0-834E-18E319C06C35}
 name: Repeat Interval
 key: repeat interval
-content-length: 1
+content-length: 0
 
-1
+
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
@@ -55,14 +55,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-024eed02-f088-4dbb-a0f5-f6a44780ce8c
+774a136a-7aae-4076-b156-5b1ec64a1c1b
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20161117T042637Z
+20161118T040049Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by

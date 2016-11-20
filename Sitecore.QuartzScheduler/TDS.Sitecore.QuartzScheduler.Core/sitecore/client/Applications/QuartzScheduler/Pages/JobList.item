@@ -34,14 +34,14 @@ content-length: 0
 field: {F1A1FE9E-A60C-4DDB-A3A0-BB5B29FE732E}
 name: __Renderings
 key: __renderings
-content-length: 9694
+content-length: 9749
 
 <r>
   <d id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}" l="{4F72A793-BDBC-4262-9523-6AADD8FEA487}">
     <r id="{DAFAFFB8-74AF-4141-A96A-70B16834CEC6}" par="PageCodeScriptFileName=%2fsitecore%2fshell%2fclient%2fApplications%2fQuartzScheduler%2fPages%2fJobList%2fJobList.js" ph="Page.Code" uid="{237256AA-9D30-463E-9ED1-90CFF092FCF6}" />
     <r id="{225B55AC-0270-44F9-842B-96D89F9C20A9}" ph="Page.Body" uid="{822F45CF-5E38-4827-B56F-55773F468ADE}" />
     <r id="{5AE97C0C-EE88-4564-A363-4FA11C01C90A}" ph="GlobalHeader" uid="{532C7DCD-29E7-4C34-9910-FC283D61A026}" />
-    <r id="{7A69C522-7E99-4630-A25A-5D571505862A}" par="ImageUrl=%2525252525252525252525252fsitecore%2525252525252525252525252fshell%2525252525252525252525252fclient%2525252525252525252525252fSpeak%2525252525252525252525252fAssets%2525252525252525252525252fimg%2525252525252525252525252fspeak-logo.png&amp;Id=GlobalLogo" ph="GlobalHeader.StartButton" uid="{A340B9F2-9FD0-4767-9B0B-62D7C8B0E5C7}" />
+    <r id="{7A69C522-7E99-4630-A25A-5D571505862A}" par="ImageUrl=%252525252525252525252525252fsitecore%252525252525252525252525252fshell%252525252525252525252525252fclient%252525252525252525252525252fSpeak%252525252525252525252525252fAssets%252525252525252525252525252fimg%252525252525252525252525252fspeak-logo.png&amp;Id=GlobalLogo" ph="GlobalHeader.StartButton" uid="{A340B9F2-9FD0-4767-9B0B-62D7C8B0E5C7}" />
     <r id="{EA28ED83-0F59-4BB9-AA95-6FAC9C3385D6}" par="Id=NavigationToggler" ph="GlobalHeader.NavigationToggler" uid="{FDD98D93-DE19-46DF-B209-44FFEA5E43ED}" />
     <r id="{EC86834B-890C-405C-BB36-CA25044909E1}" ph="GlobalFooter" uid="{C01DD5BD-DFC2-425B-A301-43AE8363B443}" />
     <r id="{93CEEFCD-2DE1-40AF-AE9A-EBBFBCCC522F}" ph="ApplicationHeader" uid="{1E240370-226C-40E4-9C54-7FE8630DF74A}" />
@@ -64,15 +64,15 @@ content-length: 9694
     <r id="{5CB208F6-1860-426B-8221-FAA85B329848}" par="Id=cPnlLastRunDateTimeValue&amp;GridColumns=9&amp;ContentAlign=Left" ph="rPnlLastRunDateTime.Content" uid="{3A1A00A0-EC2A-4DF0-B1A6-43F8B0A47BBE}" />
     <r id="{7717EB6C-9F90-4C58-826D-5E87722A0318}" par="Id=txtLastRunDateLabel&amp;TextType=Title&amp;Text=Last+Run" ph="cPnlLastRunDateTimeLabel.Content" uid="{D95AB894-3DB6-4801-9EC6-4D79B8AB54AB}" />
     <r id="{7717EB6C-9F90-4C58-826D-5E87722A0318}" par="Id=txtLastRunDateValue" ph="cPnlLastRunDateTimeValue.Content" uid="{D46C56C7-CD38-4E71-B697-279AD4BE4105}" />
-    <r id="{C4393722-39FA-4869-9582-3A8EB8983A0D}" par="Id=rPnlNextRunDateTime" ph="spnlAddnlJobDetails.Content" uid="{D8FCA65E-A071-4FD1-B2B5-193A71DC620E}" />
-    <r id="{5CB208F6-1860-426B-8221-FAA85B329848}" par="Id=cPnlNextRunDateTimeLabel&amp;GridColumns=3&amp;ContentAlign=Left" ph="rPnlNextRunDateTime.Content" uid="{7DDDF129-455A-4B63-9F79-890402B420D3}" />
-    <r id="{5CB208F6-1860-426B-8221-FAA85B329848}" par="Id=cPnlNextRunDateTimeValue&amp;GridColumns=9&amp;ContentAlign=Left" ph="rPnlNextRunDateTime.Content" uid="{3A1A00A0-EC2A-4DF0-B1A6-43F8B0A47BBE}" />
-    <r id="{7717EB6C-9F90-4C58-826D-5E87722A0318}" par="Id=txtNextRunDateLabel&amp;TextType=Title&amp;Text=Next+Run" ph="cPnlNextRunDateTimeLabel.Content" uid="{D95AB894-3DB6-4801-9EC6-4D79B8AB54AB}" />
-    <r id="{7717EB6C-9F90-4C58-826D-5E87722A0318}" par="Id=txtNextRunDateValue" ph="cPnlNextRunDateTimeValue.Content" uid="{D46C56C7-CD38-4E71-B697-279AD4BE4105}" />
+    <r id="{C4393722-39FA-4869-9582-3A8EB8983A0D}" par="Id=rPnlNextRunDateTime" ph="spnlAddnlJobDetails.Content" uid="{039E31FF-866B-4ACB-9606-B60B68858995}" />
+    <r id="{5CB208F6-1860-426B-8221-FAA85B329848}" par="Id=cPnlNextRunDateTimeLabel&amp;GridColumns=3&amp;ContentAlign=Left" ph="rPnlNextRunDateTime.Content" uid="{2A4AAEED-2B56-4D3E-ACFA-B77199CB7F67}" />
+    <r id="{5CB208F6-1860-426B-8221-FAA85B329848}" par="Id=cPnlNextRunDateTimeValue&amp;GridColumns=9&amp;ContentAlign=Left" ph="rPnlNextRunDateTime.Content" uid="{4A27B4C2-CBDD-428D-9B49-FCD9A9E24F47}" />
+    <r id="{7717EB6C-9F90-4C58-826D-5E87722A0318}" par="Id=txtNextRunDateLabel&amp;TextType=Title&amp;Text=Next+Run" ph="cPnlNextRunDateTimeLabel.Content" uid="{CD2B0AC6-92D1-4CC3-8B36-5E542DFA0376}" />
+    <r id="{7717EB6C-9F90-4C58-826D-5E87722A0318}" par="Id=txtNextRunDateValue" ph="cPnlNextRunDateTimeValue.Content" uid="{3328C24B-2508-4841-8721-683D40C85848}" />
     <r id="{F6C9F461-FCAF-47DC-AA01-C8C64C2EFFB8}" par="Id=borderBetnJobDetailsAndJobDataMap&amp;UsePadding=1&amp;ShowBorder=0" ph="spnlAddnlJobDetails.Content" uid="{B6C24C29-B156-4A2B-A0FC-55B2ABDB3E4B}" />
     <r id="{CA84FBFF-B3A0-4AEC-9C2C-7DDBBF7DA102}" par="Id=jobDataExpander&amp;Text=Job+Data+Map+(Parameters)" ph="spnlAddnlJobDetails.Content" uid="{4F2432E7-57DC-4C60-B718-B894DD13D39B}" />
     <r ds="{80D6F555-34CD-4A03-9B42-19B436FE11BD}" id="{ACE0AFD6-3DE0-42CF-8E62-4E68CD810A8D}" par="Id=lcJobDataMap&amp;TileHtmlFileName=%2fsitecore%2fshell%2fclient%2fBusiness+Component+Library%2fLayouts%2fRenderings%2fListsAndGrids%2fListControls%2fDefaultTile.cshtml" ph="jobDataExpander.Body" uid="{FCF6E222-B9C1-42D7-AB64-84A7C18C19BA}" />
-    <r id="{913AB005-2527-4C2D-9827-FB3A8DFB135C}" par="Id=btnExecuteJobs&amp;ButtonType=Primary&amp;Text=Execute+Job" ph="spnlAddnlJobDetails.Buttons" uid="{E65D3A78-B35B-49BC-B78C-F3C54C12CDAE}" />
+    <r id="{913AB005-2527-4C2D-9827-FB3A8DFB135C}" par="Click=javascript%3aapp.onExecuteJob()&amp;Id=btnExecuteJob&amp;ButtonType=Primary&amp;Text=Execute+Job" ph="spnlAddnlJobDetails.Buttons" uid="{E65D3A78-B35B-49BC-B78C-F3C54C12CDAE}" />
     <r id="{F6C9F461-FCAF-47DC-AA01-C8C64C2EFFB8}" par="Id=JobsAndTriggersSeparator&amp;UsePadding=1&amp;ShowBorder=0" ph="expanderList.Body" uid="{DA8D3071-66FA-4B60-B5A5-CBBD3E52DED6}" />
     <r id="{7717EB6C-9F90-4C58-826D-5E87722A0318}" par="Id=txtTriggerListHeader&amp;IsVisible=%7bBinding+lcTriggers.IsVisible%7d&amp;TextType=LargeTitle&amp;Text=Triggers+Defined+For+Selected+Job" ph="expanderList.Body" uid="{3E52D364-F9FD-466A-BF7E-0485B2414179}" />
     <r ds="{2A166F4E-6396-44FC-BAC0-A7D10F13822B}" id="{ACE0AFD6-3DE0-42CF-8E62-4E68CD810A8D}" par="Id=lcTriggers&amp;IsVisible=%7bBinding+lcJobs.HasSelectedItem%7d&amp;Items=%7bBinding+srchDSTriggers.Items%7d&amp;TileHtmlFileName=%2fsitecore%2fshell%2fclient%2fBusiness+Component+Library%2fLayouts%2fRenderings%2fListsAndGrids%2fListControls%2fDefaultTile.cshtml" ph="expanderList.Body" uid="{B1D54887-BA73-4CE7-B0C1-FFDCAC908968}" />
@@ -87,7 +87,7 @@ content-length: 9694
 ----version----
 language: en
 version: 1
-revision: 9d77bdfd-b866-4f3c-b80d-9a7edb22462d
+revision: d64102c1-d9ed-4912-9b10-d94c6be1405f
 
 ----field----
 field: {7205A57F-93B4-413A-AA9A-6B16BBC59565}
@@ -109,14 +109,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-9d77bdfd-b866-4f3c-b80d-9a7edb22462d
+d64102c1-d9ed-4912-9b10-d94c6be1405f
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20160229T012429Z
+20161117T230341Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
