@@ -354,15 +354,15 @@ define(["sitecore", "jquery", "underscore", "entityService"], function (Sitecore
             for (var i = 0; i < self.lcDaysOfWeek.viewModel.checkedItems().length; i++) {
                 //console.log(" triggerDetail.DaysOfWeeks.underlying[i]: " + triggerDetail.DaysOfWeeks.underlying[i]);
                 var item = self.lcDaysOfWeek.viewModel.checkedItems()[i];
-                var day = new {
-                    itemId : item.itemId,
-                    itemName : item.itemName
+                var day = {
+                    "itemId" : item.itemId,
+                    "itemName" : item.itemName
                 };
                 console.log("self.lcDaysOfWeek.viewModel.checkedItems[" + i + "].itemId : " + item.itemId);
                 //trigger.DaysOfWeeks.underlying[i].itemId = item.itemId;
                 //trigger.DaysOfWeeks.underlying[i].itemName = item.itemName;
                 trigger.DaysOfWeeks.underlying[i] = day;
-                console.log("triggerDetail.DaysOfWeeks.underlying[" + i + "]: " + trigger.DaysOfWeeks.underlying[i]);
+                console.log("trigger.DaysOfWeeks.underlying[" + i + "]: " + trigger.DaysOfWeeks.underlying[i]);
             }
 
             return trigger;
