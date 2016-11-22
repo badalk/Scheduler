@@ -27,7 +27,7 @@ content-length: 3
 field: {F1A1FE9E-A60C-4DDB-A3A0-BB5B29FE732E}
 name: __Renderings
 key: __renderings
-content-length: 11719
+content-length: 12118
 
 <r>
   <d id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}" l="{4F72A793-BDBC-4262-9523-6AADD8FEA487}">
@@ -92,12 +92,14 @@ content-length: 11719
     <r id="{913AB005-2527-4C2D-9827-FB3A8DFB135C}" par="Click=javascript%3aapp.onAddTriggerDetail()%3b&amp;Id=btnAddTrigger&amp;ButtonType=Primary&amp;Text=Add+Trigger" ph="advExpTriggerDetails.ActionBar" uid="{8BEBA07D-10F3-41DA-9C8C-2F69F56ED2DA}" />
     <r id="{913AB005-2527-4C2D-9827-FB3A8DFB135C}" par="Id=btnEditTrigger&amp;IsEnabled=%7bBinding+lcTriggers.HasSelectedItem%7d&amp;Text=Edit+Trigger" ph="advExpTriggerDetails.ActionBar" uid="{D7D84BB7-8BD4-40B6-9B12-CB4FDCF1F067}" />
     <r ds="{2A166F4E-6396-44FC-BAC0-A7D10F13822B}" id="{ACE0AFD6-3DE0-42CF-8E62-4E68CD810A8D}" par="Id=lcTriggers&amp;TileHtmlFileName=%2fsitecore%2fshell%2fclient%2fBusiness+Component+Library%2fLayouts%2fRenderings%2fListsAndGrids%2fListControls%2fDefaultTile.cshtml" ph="advExpTriggerDetails.Body" uid="{F23BFF26-0254-4980-8B84-A0ACA2805086}" />
+    <r id="{B60FB581-44D1-4372-86A2-D6E494F020E1}" par="Id=DialogWindow1&amp;Size=%7b1255F2C7-60B0-4FF6-8C00-D6E6E50147A7%7d&amp;IsAnimated=1" ph="ApplicationContent.Main" uid="{9AF096FD-352B-4C4E-A187-9EF63489E25C}" />
+    <r id="{41EF8D3D-6B51-4E31-B61E-417A5E652AE1}" par="Id=Frame1&amp;Height=100%25&amp;Width=100%25" ph="DialogWindow1.Content" uid="{77769B0B-04BC-409B-8BDC-C0D1E7C85611}" />
   </d>
 </r>
 ----version----
 language: en
 version: 1
-revision: ae2590d3-cc6b-44de-ac29-772d0bc60e08
+revision: d998295c-c1a4-4a1e-9fcc-b81a82ed18e6
 
 ----field----
 field: {7205A57F-93B4-413A-AA9A-6B16BBC59565}
@@ -119,14 +121,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-ae2590d3-cc6b-44de-ac29-772d0bc60e08
+d998295c-c1a4-4a1e-9fcc-b81a82ed18e6
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20161107T221129Z
+20161121T170756Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by

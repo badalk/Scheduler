@@ -88,8 +88,6 @@ namespace Sitecore.QuartzScheduler.Repository
                     trigger.ScheduleType = scheduleType.TargetItem.ID.ToString();
                 }
 
-                //MultilistField daysOfWeeks = triggerDetail.Fields["Days of Week"];
-                //trigger.DaysOfWeeks = daysOfWeeks.GetItems();
 
                 //DaysofWeek
                 MultilistField daysOfWeeks = triggerDetail.Fields["Days of Week"];
@@ -157,7 +155,6 @@ namespace Sitecore.QuartzScheduler.Repository
                 {
                     Sitecore.Diagnostics.Log.Info(String.Format("Error updating Trigger information for {0}", String.IsNullOrEmpty(entity.TriggerKey)), this);
                     Sitecore.Diagnostics.Log.Error(ex.Message + Environment.NewLine + ex.StackTrace, this);
-
                 }
                 finally
                 {
@@ -165,8 +162,6 @@ namespace Sitecore.QuartzScheduler.Repository
                 }
 
             }
-
-
         }
 
         private void UpdateFields(TriggerDetail entity, Item triggerItem)
@@ -180,25 +175,12 @@ namespace Sitecore.QuartzScheduler.Repository
             triggerItem.Fields["Start Time"].Value = entity.StartTime.ToString();
             triggerItem.Fields["End Time"].Value = entity.EndTime.ToString();
             triggerItem.Fields["Schedule Type"].Value = entity.ScheduleType;
-            //triggerItem.Fields["Days of Week"].Value = entity.DaysOfWeeks;
-            //MultilistField daysOfWeekField =  triggerItem.Fields["Days of Week"];
-            //foreach(Item dowItem in entity.DaysOfWeeks)
-            //{
-            //    if (!daysOfWeekField.Contains((dow.ToString())))
-            //    {
-            //        daysOfWeekField.Add(dow.ToString());
-            //    }
-            //}
-            //triggerItem.Fields["Days of Week"].Value = entity.DaysOfWeeks;
             triggerItem.Fields["Day of Month"].Value = entity.DayOfMonth.ToString();
             triggerItem.Fields["Repeat Count"].Value = entity.RepeatCount.ToString();
             triggerItem.Fields["Repeat Interval"].Value = entity.RepeatInterval.ToString();
             triggerItem.Fields["Cron Expression"].Value = entity.CronExpression;
         }
 
-        public bool IsValidCronExpression(string cronExpression)
-        {
-            return CronExpression.IsValidExpression(cronExpression);
-        }
+
     }
 }

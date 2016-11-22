@@ -13,7 +13,7 @@ templatekey: Speak-DialogPage
 field: {F1A1FE9E-A60C-4DDB-A3A0-BB5B29FE732E}
 name: __Renderings
 key: __renderings
-content-length: 11202
+content-length: 12466
 
 <r>
   <d id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}" l="{4F72A793-BDBC-4262-9523-6AADD8FEA487}">
@@ -23,6 +23,7 @@ content-length: 11202
     <r id="{19A9EB6B-1283-49EB-BD75-AAFE76453469}" ph="ApplicationContent" uid="{C8038C21-FD89-4B47-8F50-327A1A819151}" />
     <r id="{93CEEFCD-2DE1-40AF-AE9A-EBBFBCCC522F}" ph="ApplicationHeader" uid="{834B506B-EE1F-4589-9EDC-65C2F08F9D47}" />
     <r id="{7717EB6C-9F90-4C58-826D-5E87722A0318}" par="Id=Text1&amp;Text=Add+%2f+Edit+Trigger+Details" ph="ApplicationHeader.Title" uid="{4028167E-CF06-4D29-858F-1AEA5C6E8186}" />
+    <r id="{910155C7-3881-4A56-90FB-D126490EDE55}" par="Id=msgNotifications" ph="ApplicationContent.Main" uid="{A75B6B9F-9A4B-449A-AA9E-B72C718779BB}" />
     <r id="{F6C9F461-FCAF-47DC-AA01-C8C64C2EFFB8}" par="Id=Border1&amp;PaddingType=Bottom&amp;UsePadding=1" ph="ApplicationContent.Main" uid="{C6E7B92F-D4AE-4999-B914-A8A1E0FC6C29}" />
     <r id="{7717EB6C-9F90-4C58-826D-5E87722A0318}" par="Id=selectedJobGuid&amp;IsVisible=0" ph="ColumnPanel14.Content" uid="{BC34622D-CCB0-4E06-BA3B-2D5582EF4FF3}" />
     <r id="{CA84FBFF-B3A0-4AEC-9C2C-7DDBBF7DA102}" par="Id=triggerDetailExpander&amp;Text=Trigger+Details" ph="ApplicationContent.Main" uid="{D53FF258-E472-42B2-8A61-2F8BA5E4981B}" />
@@ -73,14 +74,19 @@ content-length: 11202
     <r id="{7717EB6C-9F90-4C58-826D-5E87722A0318}" par="Id=Text6&amp;TextType=LargeLabel&amp;Text=Day+of+the+Month" ph="monthlyExpander.Body" uid="{1F277FBF-3D1E-43CD-A5EB-5FEB4DD46B33}" />
     <r id="{57F86E9A-1844-45CE-BF8A-62900AE17A92}" par="IsEnabled=1&amp;Id=txtDayOfMonth&amp;IsVisible=1" ph="monthlyExpander.Body" uid="{B838BBAA-91CA-4E2D-B34A-189E2DD3BC97}" />
     <r id="{CA84FBFF-B3A0-4AEC-9C2C-7DDBBF7DA102}" par="Id=customExpander&amp;IsVisible=0&amp;Text=Custom+Schedule" ph="ApplicationContent.Main" uid="{FD010317-4CE0-46B7-A248-82D220D78175}" />
-    <r id="{7717EB6C-9F90-4C58-826D-5E87722A0318}" par="Id=Text7&amp;TextType=LargeLabel&amp;Text=Custom+Cron+Expression" ph="customExpander.Body" uid="{3A7B2084-6DBE-447C-85A9-DE896AF933FD}" />
+    <r id="{C4393722-39FA-4869-9582-3A8EB8983A0D}" par="Id=RowPanel5" ph="customExpander.Body" uid="{FBE79562-90B2-404D-9E1A-469048E30409}" />
+    <r id="{5CB208F6-1860-426B-8221-FAA85B329848}" par="Id=ColumnPanel15&amp;GridColumns=6&amp;ContentAlign=Left" ph="RowPanel5.Content" uid="{4327E74A-F60E-41C5-A4ED-9BAEE1A02B23}" />
+    <r id="{5CB208F6-1860-426B-8221-FAA85B329848}" par="Id=ColumnPanel16&amp;GridColumns=6&amp;ContentAlign=Right" ph="RowPanel5.Content" uid="{08A673AA-A15D-414E-8809-59945146B164}" />
+    <r id="{7717EB6C-9F90-4C58-826D-5E87722A0318}" par="Id=Text7&amp;TextType=LargeLabel&amp;Text=Custom+Cron+Expression" ph="ColumnPanel15.Content" uid="{3A7B2084-6DBE-447C-85A9-DE896AF933FD}" />
+    <r id="{162FC747-B9E6-4FCE-A96C-1EFE125643F2}" par="Id=HyperlinkButton1&amp;Text=Cron+Expression+Help+Guide&amp;Target=_blank&amp;NavigateUrl=http%3a%2f%2fwww.quartz-scheduler.net%2fdocumentation%2fquartz-3.x%2ftutorial%2fcrontrigger.html" ph="ColumnPanel16.Content" uid="{D40DD811-FF2E-4BBE-A4E5-1D267F352D17}" />
     <r id="{57F86E9A-1844-45CE-BF8A-62900AE17A92}" par="IsEnabled=1&amp;Id=txtCustomCronExpression&amp;IsVisible=1" ph="customExpander.Body" uid="{2FD26097-E0EC-4A94-A86C-2308545A8950}" />
+    <r id="{913AB005-2527-4C2D-9827-FB3A8DFB135C}" par="Click=javascript%3aapp.onSaveTriggerDetails()%3b&amp;Id=btnSave&amp;IsVisible=1&amp;ButtonType=Primary&amp;Text=Save+Trigger+Details" ph="ApplicationHeader.Actions" uid="{D5C22042-04FD-414F-B13B-0BC0665EFA1B}" />
   </d>
 </r>
 ----version----
 language: en
 version: 1
-revision: 441e3b07-7ff6-49da-89d7-e61d09492a0f
+revision: 2d0bfa9c-6b89-41c6-a94d-a47d54552000
 
 ----field----
 field: {7205A57F-93B4-413A-AA9A-6B16BBC59565}
@@ -102,14 +108,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-441e3b07-7ff6-49da-89d7-e61d09492a0f
+2d0bfa9c-6b89-41c6-a94d-a47d54552000
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20161120T042551Z
+20161122T023532Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by

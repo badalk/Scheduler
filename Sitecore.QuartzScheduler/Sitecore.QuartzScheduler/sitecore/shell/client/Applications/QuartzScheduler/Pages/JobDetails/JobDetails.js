@@ -317,8 +317,24 @@ define(["sitecore", "jquery", "underscore", "entityService"], function (Sitecore
         },
 
         onAddTriggerDetail: function () {
-            var app = this;
 
+            try{
+                var app = this;
+                console.log("Launching Trigger Detail Dialog");
+                var jd = Sitecore.Helpers.url.getQueryParameters(window.location.href)['jd'];
+                var td = "{68975F6D-9C5B-4C26-99AF-5537A87244C7}";
+
+                var url = "TriggerDetails?jd=" + jd + "&td=" + td;
+
+                app.Frame1.set("sourceUrl", url);
+                app.DialogWindow1.set("isModal", true);
+                console.log("app.DialogWindow1.set(\"isModal\") : " + app.DialogWindow1.get("isModal"));
+                app.DialogWindow1.show();
+            }
+            catch(exception)
+            {
+                console.log("Error occured while loading the trigger detail dialog: " + exception.name + ", " + exception.message + ", " + exception.stack)
+            }
         }
     });
 
