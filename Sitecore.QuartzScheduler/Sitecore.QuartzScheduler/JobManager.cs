@@ -352,21 +352,6 @@ namespace Sitecore.QuartzScheduler
                         triggerDetail.Priority = int.Parse(triggerItem.Fields["Priority"].Value);
                     }
 
-                    
-                    //MultilistField daysOfWeekField = triggerItem.Fields["Days of Week"];
-                    //if (daysOfWeekField != null)
-                    //{
-                    //    Item[] daysOfWeek = daysOfWeekField.GetItems();
-                    //    //triggerDetail.DaysOfWeeks = daysOfWeekField.GetItems().ToList<Item>();
-                    //    if (daysOfWeek != null && daysOfWeek.Length > 0)
-                    //    {
-                    //        foreach (Item day in daysOfWeek)
-                    //        {
-                    //            triggerDetail.DaysOfWeeks.Add((Sitecore.DaysOfWeek)Enum.Parse(typeof(Sitecore.DaysOfWeek), day.Name));
-                    //        }
-                    //    }
-                    //}
-
                     if (!String.IsNullOrEmpty(triggerItem.Fields["Day of Month"].Value))
                         triggerDetail.DayOfMonth = int.Parse(triggerItem["Day of Month"]);
 
@@ -383,8 +368,7 @@ namespace Sitecore.QuartzScheduler
 
                     if (!String.IsNullOrEmpty(triggerItem.Fields["Schedule Type"].Value))
                     {
-                        triggerDetail.ScheduleType = triggerItem["Schedule Type"];
-                        triggerDetail.ScheduleTypeValue = masterDb.GetItem(new ID(triggerDetail.ScheduleType)).Name;
+                        triggerDetail.ScheduleType = triggerItem.Fields["Schedule Type"].Value;
                     }
 
                     if (!String.IsNullOrEmpty(triggerItem.Fields["Cron Expression"].Value))

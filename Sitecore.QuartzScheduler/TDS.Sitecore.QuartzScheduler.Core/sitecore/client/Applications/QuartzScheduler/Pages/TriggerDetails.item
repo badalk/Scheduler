@@ -13,7 +13,7 @@ templatekey: Speak-DialogPage
 field: {F1A1FE9E-A60C-4DDB-A3A0-BB5B29FE732E}
 name: __Renderings
 key: __renderings
-content-length: 12466
+content-length: 14416
 
 <r>
   <d id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}" l="{4F72A793-BDBC-4262-9523-6AADD8FEA487}">
@@ -26,6 +26,17 @@ content-length: 12466
     <r id="{910155C7-3881-4A56-90FB-D126490EDE55}" par="Id=msgNotifications" ph="ApplicationContent.Main" uid="{A75B6B9F-9A4B-449A-AA9E-B72C718779BB}" />
     <r id="{F6C9F461-FCAF-47DC-AA01-C8C64C2EFFB8}" par="Id=Border1&amp;PaddingType=Bottom&amp;UsePadding=1" ph="ApplicationContent.Main" uid="{C6E7B92F-D4AE-4999-B914-A8A1E0FC6C29}" />
     <r id="{7717EB6C-9F90-4C58-826D-5E87722A0318}" par="Id=selectedJobGuid&amp;IsVisible=0" ph="ColumnPanel14.Content" uid="{BC34622D-CCB0-4E06-BA3B-2D5582EF4FF3}" />
+    <r id="{CA84FBFF-B3A0-4AEC-9C2C-7DDBBF7DA102}" par="Id=jobDetailExpander&amp;Text=Job+Details" ph="ApplicationContent.Main" uid="{08910BF8-4882-47BC-B504-37AE728C1910}" />
+    <r id="{C4393722-39FA-4869-9582-3A8EB8983A0D}" par="Id=RowPanel6" ph="jobDetailExpander.Body" uid="{F3996CA4-D3A4-41F9-86FE-5691E72091D2}" />
+    <r id="{5CB208F6-1860-426B-8221-FAA85B329848}" par="Id=cpnlJobNameLabel&amp;GridColumns=3&amp;ContentAlign=Right" ph="RowPanel6.Content" uid="{06ECC7A9-A071-4237-86CE-846BB213286F}" />
+    <r id="{5CB208F6-1860-426B-8221-FAA85B329848}" par="Id=cpnlJobName&amp;GridColumns=3&amp;ContentAlign=Left" ph="RowPanel6.Content" uid="{E16FDA14-2533-447F-B1B8-1E2E9B9B7030}" />
+    <r id="{5CB208F6-1860-426B-8221-FAA85B329848}" par="Id=cpnlGrpNameLabel&amp;GridColumns=3&amp;ContentAlign=Right" ph="RowPanel6.Content" uid="{0C404A1C-6DEB-4ED9-B071-FDD3015EEC6B}" />
+    <r id="{5CB208F6-1860-426B-8221-FAA85B329848}" par="Id=cpnlGroupName&amp;GridColumns=3&amp;ContentAlign=Left" ph="RowPanel6.Content" uid="{B46245F6-75F0-49BB-97B7-51D45A73F1FD}" />
+    <r id="{7717EB6C-9F90-4C58-826D-5E87722A0318}" par="Id=txtJobNameLabel&amp;TextType=Label&amp;Text=Job+Name" ph="cpnlJobNameLabel.Content" uid="{140F63C9-8194-47A3-9AD4-9DE2C4344CE9}" />
+    <r id="{7717EB6C-9F90-4C58-826D-5E87722A0318}" par="Id=txtJobName&amp;TextType=Value" ph="cpnlJobName.Content" uid="{029E6CF3-6869-4DAC-A773-E87281CBD468}" />
+    <r id="{7717EB6C-9F90-4C58-826D-5E87722A0318}" par="Id=txtGroupNameLabel&amp;TextType=Label&amp;Text=Group" ph="cpnlGrpNameLabel.Content" uid="{D728B737-C7AD-4BDC-A263-4BF090AACB7D}" />
+    <r id="{7717EB6C-9F90-4C58-826D-5E87722A0318}" par="Id=txtGroup&amp;TextType=Value" ph="cpnlGroupName.Content" uid="{7664DDAA-02D0-4367-A3B1-CC89731ED76E}" />
+    <r id="{73C16115-8B56-43AF-8EA3-4D704FCDA127}" par="Id=Separator1&amp;IsVisible=1" ph="ApplicationContent.Main" uid="{5AF5E9ED-5627-4E11-AAD5-4E6909E93B92}" />
     <r id="{CA84FBFF-B3A0-4AEC-9C2C-7DDBBF7DA102}" par="Id=triggerDetailExpander&amp;Text=Trigger+Details" ph="ApplicationContent.Main" uid="{D53FF258-E472-42B2-8A61-2F8BA5E4981B}" />
     <r id="{C4393722-39FA-4869-9582-3A8EB8983A0D}" par="Id=RowPanel1" ph="triggerDetailExpander.Body" uid="{B7E190C2-2DE8-41D3-93E0-BC208121E0EC}" />
     <r id="{5CB208F6-1860-426B-8221-FAA85B329848}" par="Id=ColumnPanel1&amp;GridColumns=2&amp;ContentAlign=Right" ph="RowPanel1.Content" uid="{ECC18F8D-C4B4-45DF-8538-E7417FD9EE56}" />
@@ -86,7 +97,7 @@ content-length: 12466
 ----version----
 language: en
 version: 1
-revision: 2d0bfa9c-6b89-41c6-a94d-a47d54552000
+revision: 6ad22124-8403-4664-b683-f95358b05058
 
 ----field----
 field: {7205A57F-93B4-413A-AA9A-6B16BBC59565}
@@ -108,14 +119,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-2d0bfa9c-6b89-41c6-a94d-a47d54552000
+6ad22124-8403-4664-b683-f95358b05058
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20161122T023532Z
+20161123T010602Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by

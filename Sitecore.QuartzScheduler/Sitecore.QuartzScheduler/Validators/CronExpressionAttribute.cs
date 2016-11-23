@@ -1,4 +1,5 @@
 ﻿using Quartz;
+using Sitecore.QuartzScheduler.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -18,7 +19,14 @@ namespace Sitecore.QuartzScheduler.Validators
 
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
-            return CronExpression.IsValidExpression(value.ToString()) ? ValidationResult.Success : new ValidationResult(ErrorMessage);
+            bool isValid = true;
+            if (value != null)
+            {
+                if (((TriggerDetail) validationContext.ObjectInstance).ScheduleTypeValue.ToLower() == "custom")
+                    isValid = CronExpression.IsValidExpression(value.ToString());
+            }
+
+            return isValid ? ValidationResult.Success : new ValidationResult(ErrorMessage);
         }
 
         public override string FormatErrorMessage(string name)

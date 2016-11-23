@@ -2,9 +2,9 @@
 version: 1
 id: {99650E49-501B-4A9F-A09E-4CE913B4B09C}
 database: core
-path: /sitecore/client/Applications/QuartzScheduler/Pages/Dashboard/PageSettings/Tabs/Summary
+path: /sitecore/client/Applications/QuartzScheduler/Pages/Dashboard/PageSettings/Tabs/Performance Summary
 parent: {DDE6EB9C-51D4-4C5E-BBA0-11927F422E4B}
-name: Summary
+name: Performance Summary
 master: {00000000-0000-0000-0000-000000000000}
 template: {F62B4CD7-754C-4461-810F-2B6BD2C92A0D}
 templatekey: Tab
@@ -20,7 +20,7 @@ Tab
 field: {F1A1FE9E-A60C-4DDB-A3A0-BB5B29FE732E}
 name: __Renderings
 key: __renderings
-content-length: 1896
+content-length: 1902
 
 <r>
   <d id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
@@ -29,7 +29,7 @@ content-length: 1896
     <r id="{F6C9F461-FCAF-47DC-AA01-C8C64C2EFFB8}" par="Id=Border2&amp;PaddingType=All&amp;UsePadding=1" ph="Border1.Content" uid="{32B0E1C0-23E6-4375-A7E8-B3D26E8EE576}" />
     <r id="{D47D6BFD-4F1F-4715-9FD1-5957EC0259F5}" par="Id=DataSource" ph="Border2.Content" uid="{726B05BD-79B5-41EB-B154-BD1362937099}" />
     <r id="{ACE0AFD6-3DE0-42CF-8E62-4E68CD810A8D}" par="Id=ListControl1&amp;TileHtmlFileName=%2fsitecore%2fshell%2fclient%2fBusiness+Component+Library%2fLayouts%2fRenderings%2fListsAndGrids%2fListControls%2fDefaultTile.cshtml" ph="Border2.Content" uid="{4EAEBAD1-2F1A-43A9-9456-F8652E62689F}" />
-    <r id="{F6C9F461-FCAF-47DC-AA01-C8C64C2EFFB8}" par="Id=Border3" ph="Page.Body" uid="{83FF44E4-34B7-475F-B317-067F1F603BC3}" />
+    <r id="{F6C9F461-FCAF-47DC-AA01-C8C64C2EFFB8}" par="Id=Border3" ph="Border1.Content" uid="{83FF44E4-34B7-475F-B317-067F1F603BC3}" />
     <r id="{5E3B31F7-FE96-40FB-BE38-94418E4B789A}" par="Id=ChartDataProviderSummary&amp;DataURL=%2fapi%2fsitecore%2fReportData%2fGetJobPerformanceSummary" ph="Border3.Content" uid="{A2A265CE-5F73-4C82-B177-08A3005CDD01}" />
     <r id="{01571226-416B-4E07-863E-B00EA2B3245D}" par="Id=ColumnChart1&amp;ShowLegend=1&amp;ShowPointMarker=1&amp;ShowAxis=1&amp;CategoryChartField=%7bBA574590-BF1A-41B6-AF1D-5E800768ED5F%7d&amp;EnableAnimation=1&amp;SeriesChartField=%7bCDBFEBF4-8F59-40BE-9B9E-F2F1B9DD50FB%7d&amp;ValueChartFields=%7bF172BCB6-F3CB-4476-AC26-A9EDAB8DDFFB%7d&amp;ShowValues=1&amp;Data=%7bBinding+ChartDataProviderSummary.Data%7d" ph="Border3.Content" uid="{6631F6C0-9DA0-4C7A-8CDB-EF4D2226274D}" />
   </d>
@@ -37,7 +37,7 @@ content-length: 1896
 ----version----
 language: en
 version: 1
-revision: f1eb8a40-afaa-4da5-8a51-5b01c0cb327a
+revision: f9354ced-8528-4866-bb28-3ee8a34bb740
 
 ----field----
 field: {AEA872FB-AA91-4D1A-B877-3CA6FBBB4FD4}
@@ -59,14 +59,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-f1eb8a40-afaa-4da5-8a51-5b01c0cb327a
+f9354ced-8528-4866-bb28-3ee8a34bb740
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20161121T163302Z
+20161122T132426Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by

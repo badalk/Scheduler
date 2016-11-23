@@ -10,6 +10,16 @@ define(["sitecore", "jquery", "underscore", "entityService"], function (Sitecore
         initialized: function () {
             var app = this;
 
+            var selectedJobID = Sitecore.Helpers.url.getQueryParameters(window.location.href)['jd'];
+            app.selectedJobGuid.set("text", selectedJobID);
+            var selectedTriggerID = Sitecore.Helpers.url.getQueryParameters(window.location.href)['td'];
+
+            var jobDetailService = app.GetJobDetailEntityService();
+            jobDetailService.fetchEntity(selectedJobID).execute().then(function (jobDetail) {
+                app.txtJobName.set("text", jobDetail.JobKey);
+                app.txtGroup.set("text", jobDetail.Group);
+            });
+
             app.cmbScheduleType.on("change:selectedItemId", function () {
                 var selectedSchedule = app.cmbScheduleType.get('selectedItem').itemName;
                 console.log('selectedItem: ' + selectedSchedule);
@@ -17,11 +27,6 @@ define(["sitecore", "jquery", "underscore", "entityService"], function (Sitecore
             });
 
             app.dsDaysOfWeek.on("change:hasItems", function () {
-                //var app = this;
-                var selectedJobID = Sitecore.Helpers.url.getQueryParameters(window.location.href)['jd'];
-                app.selectedJobGuid.set("text", selectedJobID);
-                var selectedTriggerID = Sitecore.Helpers.url.getQueryParameters(window.location.href)['td'];
-
                 if (selectedTriggerID && selectedTriggerID.length > 0) {
                     app.LoadTriggerDetails(selectedTriggerID, app);
                 }
@@ -97,6 +102,26 @@ define(["sitecore", "jquery", "underscore", "entityService"], function (Sitecore
             else
                 return "";
         },
+        GetDateTime: function (date, strTime) {
+            if (date != null) {
+                var dtNewDate = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+                console.log("Date without time: " + dtNewDate);
+                if ((typeof strTime != 'undefined') || (strTime != "")) {
+                    strTime = strTime.substring(strTime.indexOf("T")+1, strTime.length);
+                    console.log("Time Value: " + strTime);
+                    var hours = Math.floor(strTime.substring(0, 2));
+                    var mins = Math.floor(strTime.substring(2, 4));
+                    var secs = Math.floor(strTime.substring(4, 6));
+                    console.log("Hours : Minutes : Seconds =>  " + hours + " : " + mins + " : " + secs);
+                    dtNewDate = new Date(date.getFullYear(), date.getMonth(), date.getDate(), hours, mins, secs, 0);
+                }
+                console.log("Date being returned : " + dtNewDate.toDateString());
+                return dtNewDate;
+            }
+            else
+                return null;
+        },
+
         pad: function(n) {
             return n<10 ? '0'+n : n;
         },
@@ -190,10 +215,12 @@ define(["sitecore", "jquery", "underscore", "entityService"], function (Sitecore
             var app = this;
             var jobId = Sitecore.Helpers.url.getQueryParameters(window.location.href)['jd'];
             var triggerId = Sitecore.Helpers.url.getQueryParameters(window.location.href)['td'];
+            console.log("Trigger ID available in query string : " + triggerId);
+            console.log("Job ID available in query string : " + jobId);
 
-            if (jobId != ""){
+            if ((typeof jobId != 'undefined') && (jobId != "")){
 
-                if (triggerId != "") {
+                if ((typeof triggerId != 'undefined') && (triggerId != "")) {
                     console.log("calling update function for trigger details " +  triggerId + " under job " + jobId);
                     app.UpdateTrigerDetail(jobId, triggerId);
                 }
@@ -209,10 +236,10 @@ define(["sitecore", "jquery", "underscore", "entityService"], function (Sitecore
 
         UpdateTrigerDetail: function (jobId, triggerId) {
             var self = this;
-            var triggerDetailService = this.GetTriggerDetailEntityService();
+            var triggerDetailService = self.GetTriggerDetailEntityService();
 
             triggerDetailService.fetchEntity(triggerId).execute().then(function (trigger) {
-                console.log('entity to update fethed..' + trigger);
+                console.log('entity to update fetched..' + trigger);
 
                 try {
 
@@ -226,7 +253,10 @@ define(["sitecore", "jquery", "underscore", "entityService"], function (Sitecore
                             self.UpdateSuccessful(self);
                         });
 
-                        //trigger.save().execute();
+                        trigger.save().then(function (tr) {
+                            tr.itemName.should.eql(trigger.itemName);
+                            done();
+                        });
                     }
                 }
                 catch (error) {
@@ -236,6 +266,36 @@ define(["sitecore", "jquery", "underscore", "entityService"], function (Sitecore
         },
 
         CreateTriggerDetail: function(jobId){
+            var self = this;
+            var triggerDetailService = self.GetTriggerDetailEntityService();
+
+            if (self.IsValidEntity()) {
+
+                var trigger = {
+                    TriggerKey: self.txtTriggerKey.viewModel.text(),
+                    ParentItemId: Sitecore.Helpers.url.getQueryParameters(window.location.href)['jd'],
+                    StartTime: new Date(),
+                    EndTime: new Date(),
+                    ScheduleType : "",
+                    RepeatCount : 0,
+                    RepeatInterval : 0,
+                    DayOfMonth : 0,
+                    DaysOfWeeks: null,
+                    CronExpression: ""
+                };
+
+                trigger = self.GetTriggerDetailUpdated(trigger);
+                console.log('Trigger Details to be saved: ' + trigger.toString());
+
+                triggerDetailService.create(trigger).execute().then(function (newTrigger) {
+                    console.log('entity returned: ' + newTrigger.toString());
+                    console.log('Item ID of new trigger : ' + newTrigger.itemId);
+                    self.msgNotifications.addMessage("notification", { text: "Trigger Details created successfully! Please close this window and reopen again if you want to modify trigger details.", actions: [], closable: true, temporary: true });
+                    self.btnSave.set("isEnabled", false)
+                }).fail(function (error) {
+                    self.msgNotifications.addMessage("error", { text: "Error in Trigger Detail Creation: " + error.message, actions: [], closable: true, temporary: true });
+                });
+            }
 
         },
 
@@ -268,7 +328,7 @@ define(["sitecore", "jquery", "underscore", "entityService"], function (Sitecore
                 case "minutes":
                 case "seconds":
                     if (isNaN(repeatInterval)) {
-                        self.msgNotifications.addMessage("error", { text: "Repeat Interval should be a number", actions: [], closable: true, temporary: false });
+                        self.msgNotifications.addMessage("error", { text: "Duration should be a number", actions: [], closable: true, temporary: false });
                         isValid = false;
                     }
                     else {
@@ -276,14 +336,14 @@ define(["sitecore", "jquery", "underscore", "entityService"], function (Sitecore
 
                         if ((scheduleType == "seconds") || (scheduleType == "minutes")) {
                             if ((iRptInterval <= 0) || (iRptInterval > 59)) {
-                                self.msgNotifications.addMessage("error", { text: "Repeat Interval should be between 1 to 59", actions: [], closable: true, temporary: false });
+                                self.msgNotifications.addMessage("error", { text: "Duration should be between 1 to 59", actions: [], closable: true, temporary: false });
                                 isValid = false;
 
                             }
                         }
                         else if (scheduleType == "hours") {
                             if ((iRptInterval <= 0) || (iRptInterval > 23)) {
-                                self.msgNotifications.addMessage("error", { text: "Repeat Interval should be between 1 to 23", actions: [], closable: true, temporary: false });
+                                self.msgNotifications.addMessage("error", { text: "Duration should be between 1 to 23", actions: [], closable: true, temporary: false });
                                 isValid = false;
                             }
                         }
@@ -323,47 +383,53 @@ define(["sitecore", "jquery", "underscore", "entityService"], function (Sitecore
                     break;
 
             }
-            console.log("IsValiEntity: " + isValid);
+            console.log("IsValidEntity: " + isValid);
             return isValid;
 
         },
 
         GetTriggerDetailUpdated: function (trigger) {
             var self = this;
-            console.log("Start date: " + self.dtStartDate.get("date"));
-            console.log("Start time: " + self.dtStartTime.get("time"));
-            console.log("End Date : " + self.dtEndDate.get("date"));
-            console.log("End Time : " + self.dtEndTime.get("time"));
+            var startDateTime = self.GetDateTime(self.dtStartDate.viewModel.getDate(), self.dtStartTime.get("time"));
+            console.log("Start date: " + startDateTime);
+            var endDateTime = self.GetDateTime(self.dtEndDate.viewModel.getDate(), self.dtEndTime.get("time"));
+            console.log("End Date : " +  endDateTime);
             console.log("Schedule Type : " + self.cmbScheduleType.get("selectedItemId"));
             console.log("Repeat Interval : " + self.txtRepeatInterval.viewModel.text());
             console.log("Repeat Count : " + self.txtRepeatCount.viewModel.text());
+            console.log("Day of Month : " + self.txtDayOfMonth.viewModel.text());
             console.log("Cron Expression: " + self.txtCustomCronExpression.viewModel.text().trim());
 
             trigger.TriggerKey = self.txtTriggerKey.viewModel.text();
-            //trigger.StartTime = self.dtStartDate.get("date")
-            //trigger.EndTime = self.dtEndDate.get("date")
+            trigger.ParentItemId = Sitecore.Helpers.url.getQueryParameters(window.location.href)['jd'];
+            trigger.StartTime = startDateTime;
+            trigger.EndTime = endDateTime;
             trigger.RepeatInterval = parseInt(self.txtRepeatInterval.viewModel.text());
             trigger.RepeatCount = parseInt(self.txtRepeatCount.viewModel.text());
             trigger.ScheduleType = self.cmbScheduleType.get("selectedItemId");
             trigger.DayOfMonth = parseInt(self.txtDayOfMonth.viewModel.text());
-            trigger.CronExpression = parseInt(self.txtCustomCronExpression.viewModel.text().trim());
+            trigger.CronExpression = self.txtCustomCronExpression.viewModel.text().trim();
+ 
+            if (trigger.DaysOfWeeks != null) {
+                console.log("trigger.DaysOfWeeks.underlying - before initializing : " + trigger.DaysOfWeeks.length);
+            }
+            var arrDaysOfWeeks = []; //resetting the DayOfWeeks selections to set the new ones
+            console.log("trigger.DaysOfWeeks.underlying - after re-initializing : " + trigger.DaysOfWeeks);
 
-            trigger.DaysOfWeeks.underlying = []; //resetting the DayOfWeeks selections to set the new ones
-            console.log("No of items checked: " + self.lcDaysOfWeek.viewModel.checkedItems().length);
+            console.log("No of Days checked: " + self.lcDaysOfWeek.viewModel.checkedItems().length);
 
             for (var i = 0; i < self.lcDaysOfWeek.viewModel.checkedItems().length; i++) {
-                //console.log(" triggerDetail.DaysOfWeeks.underlying[i]: " + triggerDetail.DaysOfWeeks.underlying[i]);
                 var item = self.lcDaysOfWeek.viewModel.checkedItems()[i];
                 var day = {
                     "itemId" : item.itemId,
                     "itemName" : item.itemName
                 };
                 console.log("self.lcDaysOfWeek.viewModel.checkedItems[" + i + "].itemId : " + item.itemId);
-                //trigger.DaysOfWeeks.underlying[i].itemId = item.itemId;
-                //trigger.DaysOfWeeks.underlying[i].itemName = item.itemName;
-                trigger.DaysOfWeeks.underlying[i] = day;
-                console.log("trigger.DaysOfWeeks.underlying[" + i + "]: " + trigger.DaysOfWeeks.underlying[i]);
+                arrDaysOfWeeks.push(day);
+                console.log("trigger.DaysOfWeeks.underlying[" + i + "]: " + arrDaysOfWeeks[i]);
             }
+            trigger.DaysOfWeeks = arrDaysOfWeeks;
+            //trigger.DaysOfWeeks = self.lcDaysOfWeek.viewModel.checkedItems();
 
             return trigger;
         },

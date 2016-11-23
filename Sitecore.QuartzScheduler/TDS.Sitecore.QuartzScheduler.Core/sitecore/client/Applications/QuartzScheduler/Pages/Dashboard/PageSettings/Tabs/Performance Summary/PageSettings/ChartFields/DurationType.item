@@ -1,10 +1,10 @@
 ----item----
 version: 1
-id: {F172BCB6-F3CB-4476-AC26-A9EDAB8DDFFB}
+id: {CDBFEBF4-8F59-40BE-9B9E-F2F1B9DD50FB}
 database: core
-path: /sitecore/client/Applications/QuartzScheduler/Pages/Dashboard/PageSettings/Tabs/Summary/PageSettings/ChartFields/Duration
+path: /sitecore/client/Applications/QuartzScheduler/Pages/Dashboard/PageSettings/Tabs/Performance Summary/PageSettings/ChartFields/DurationType
 parent: {AF96A58D-EBF2-4420-8E16-E58678558019}
-name: Duration
+name: DurationType
 master: {00000000-0000-0000-0000-000000000000}
 template: {ECD7D8B0-B6CE-4DEB-8994-A51674A03887}
 templatekey: ChartField
@@ -13,21 +13,21 @@ templatekey: ChartField
 field: {29B1C584-0F87-49A2-BE09-EA4FB0A0ABF1}
 name: DataField
 key: datafield
-content-length: 8
+content-length: 12
 
-Duration
+DurationType
 ----version----
 language: en
 version: 1
-revision: 70d83ae6-1254-425a-b0b4-8f690a15fb63
+revision: 39adcaa9-e676-465f-8520-31361fe8a166
 
 ----field----
 field: {B4929234-6DCC-4ADB-827E-CDCDC128B8AF}
 name: HeaderText
 key: headertext
-content-length: 18
+content-length: 0
 
-Duration (Seconds)
+
 ----field----
 field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
 name: __Owner
@@ -41,7 +41,7 @@ name: __Created
 key: __created
 content-length: 16
 
-20161116T164357Z
+20161116T164507Z
 ----field----
 field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
 name: __Created by
@@ -55,14 +55,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-70d83ae6-1254-425a-b0b4-8f690a15fb63
+39adcaa9-e676-465f-8520-31361fe8a166
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20161116T172416Z
+20161116T172523Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by

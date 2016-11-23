@@ -2,7 +2,7 @@
 version: 1
 id: {AF96A58D-EBF2-4420-8E16-E58678558019}
 database: core
-path: /sitecore/client/Applications/QuartzScheduler/Pages/Dashboard/PageSettings/Tabs/Summary/PageSettings/ChartFields
+path: /sitecore/client/Applications/QuartzScheduler/Pages/Dashboard/PageSettings/Tabs/Performance Summary/PageSettings/ChartFields
 parent: {38214845-54A5-4A1C-8509-4796933967B7}
 name: ChartFields
 master: {00000000-0000-0000-0000-000000000000}

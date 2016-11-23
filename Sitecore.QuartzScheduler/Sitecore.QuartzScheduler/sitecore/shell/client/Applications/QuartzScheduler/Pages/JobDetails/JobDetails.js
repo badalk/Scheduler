@@ -108,6 +108,7 @@ define(["sitecore", "jquery", "underscore", "entityService"], function (Sitecore
                     if (!canSave) { return; }
 
                     jobDetail.JobKey = self.txtJobKey.viewModel.text();
+                    jobDetail.ItemName = self.txtJobKey.viewModel.text();
                     jobDetail.Description = self.txtareaDescription.viewModel.text();
                     jobDetail.Group = self.txtGroup.viewModel.text();
                     jobDetail.Type = self.txtJobType.viewModel.text();
@@ -119,7 +120,10 @@ define(["sitecore", "jquery", "underscore", "entityService"], function (Sitecore
                         self.UpdateSuccessful(self);
                     });
 
-                    jobDetail.save().execute();
+                    jobDetail.save().then(function (savedJob) {
+                        savedJob.ItemName.should.eql(jobDetail.ItemName);
+                        done();
+                    });
                 }
                 catch (error) {
                     console.log('Error occured while updating the JobDetail: ' + error.message);
@@ -165,8 +169,9 @@ define(["sitecore", "jquery", "underscore", "entityService"], function (Sitecore
 
         SaveJobDetails: function () {
             var jobId = this.selectedJobGuid.viewModel.text();
+            console.log("Job ID available in query string : " + jobId);
 
-            if (jobId != "") {
+            if ((typeof jobId != 'undefined') && (jobId != "")) {
                 console.log('calling update function for job id: ' + jobId);
                 this.UpdateJobDetail(jobId);
             }

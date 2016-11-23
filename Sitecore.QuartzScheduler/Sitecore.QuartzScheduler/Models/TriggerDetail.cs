@@ -1,4 +1,6 @@
-﻿using Sitecore.Data.Items;
+﻿using Sitecore.Configuration;
+using Sitecore.Data;
+using Sitecore.Data.Items;
 using Sitecore.QuartzScheduler.Validators;
 using Sitecore.Services.Core.Model;
 using System;
@@ -22,6 +24,7 @@ namespace Sitecore.QuartzScheduler.Models
 
         public string ParentItemId { get; set; }
 
+        private string _scheduleTypeValue;
         /// <summary>
         /// User friendly name to identify the trigger name. For example: EveryHrReportingSchedule
         /// </summary>
@@ -34,7 +37,10 @@ namespace Sitecore.QuartzScheduler.Models
         /// At what time the schedule should start
         /// </summary>
         [Required(ErrorMessage = "Start Date Time is required")]
-        public DateTime StartTime { get; set; }
+        public DateTime StartTime {
+            get;
+            set;
+        }
 
         /// <summary>
         /// At what time scheduler should stop executing the trigger. This is useful if you want to run a job only between specified duration.
@@ -47,7 +53,19 @@ namespace Sitecore.QuartzScheduler.Models
         [Required(ErrorMessage = "Schedule Type is required. Please select valid Schedule Type.")]
         public string ScheduleType { get; set; }
 
-        public string ScheduleTypeValue { get; set; }
+        public string ScheduleTypeValue
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(_scheduleTypeValue))
+                {
+                    Database masterDb = Factory.GetDatabase("master");
+                    _scheduleTypeValue = masterDb.GetItem(new ID(this.ScheduleType)).Name;
+                }
+
+                return _scheduleTypeValue;
+            }
+        }
 
         /// <summary>
         /// Days Of the Week when this schedule should be applied if Schedule Type is Weekly (e.g. To indicate that this Job Runs only on Sat & Sunday)
@@ -86,7 +104,7 @@ namespace Sitecore.QuartzScheduler.Models
         /// <summary>
         /// A custom cron expression instead of UI based schedule. Cron expression can be defined based on Quartz Cron expression guidelines.
         /// </summary>
-        [CronExpression(ErrorMessage = "{0} is not a valid Cron Expression.")]
+        [CronExpression(ErrorMessage = "Not a valid Cron Expression.")]
 
         public string CronExpression { get; set; }
 

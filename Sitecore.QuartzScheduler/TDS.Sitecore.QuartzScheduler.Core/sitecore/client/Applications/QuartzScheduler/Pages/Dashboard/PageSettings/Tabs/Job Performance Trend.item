@@ -2,9 +2,9 @@
 version: 1
 id: {E51B7976-7CA1-4CB5-8497-9038481C0DE4}
 database: core
-path: /sitecore/client/Applications/QuartzScheduler/Pages/Dashboard/PageSettings/Tabs/Job Performance Data
+path: /sitecore/client/Applications/QuartzScheduler/Pages/Dashboard/PageSettings/Tabs/Job Performance Trend
 parent: {DDE6EB9C-51D4-4C5E-BBA0-11927F422E4B}
-name: Job Performance Data
+name: Job Performance Trend
 master: {00000000-0000-0000-0000-000000000000}
 template: {F62B4CD7-754C-4461-810F-2B6BD2C92A0D}
 templatekey: Tab
@@ -41,7 +41,7 @@ content-length: 2663
 ----version----
 language: en
 version: 1
-revision: 69c9a5f4-3037-402c-9441-17693aeb3eba
+revision: e6da2a22-db35-4de3-b3ff-d7b71b1c5b73
 
 ----field----
 field: {3C386BCC-A573-4589-B1BD-EDACE83DD69D}
@@ -70,14 +70,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-69c9a5f4-3037-402c-9441-17693aeb3eba
+e6da2a22-db35-4de3-b3ff-d7b71b1c5b73
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20161116T164724Z
+20161122T132447Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by

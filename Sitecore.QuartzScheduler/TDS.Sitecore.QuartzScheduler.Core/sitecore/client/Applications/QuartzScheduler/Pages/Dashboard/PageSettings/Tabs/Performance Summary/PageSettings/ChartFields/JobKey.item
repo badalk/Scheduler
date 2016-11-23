@@ -2,7 +2,7 @@
 version: 1
 id: {BA574590-BF1A-41B6-AF1D-5E800768ED5F}
 database: core
-path: /sitecore/client/Applications/QuartzScheduler/Pages/Dashboard/PageSettings/Tabs/Summary/PageSettings/ChartFields/JobKey
+path: /sitecore/client/Applications/QuartzScheduler/Pages/Dashboard/PageSettings/Tabs/Performance Summary/PageSettings/ChartFields/JobKey
 parent: {AF96A58D-EBF2-4420-8E16-E58678558019}
 name: JobKey
 master: {00000000-0000-0000-0000-000000000000}

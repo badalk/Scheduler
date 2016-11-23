@@ -194,35 +194,35 @@
       <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
     </SitecoreItem>
-    <SitecoreItem Include="sitecore\client\Applications\QuartzScheduler\Pages\Dashboard\PageSettings\Tabs\Archived Data.item">
+    <SitecoreItem Include="sitecore\client\Applications\QuartzScheduler\Pages\Dashboard\PageSettings\Tabs\Job Execution Status.item">
       <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
     </SitecoreItem>
-    <SitecoreItem Include="sitecore\client\Applications\QuartzScheduler\Pages\Dashboard\PageSettings\Tabs\Job Performance Data.item">
+    <SitecoreItem Include="sitecore\client\Applications\QuartzScheduler\Pages\Dashboard\PageSettings\Tabs\Job Performance Trend.item">
       <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
     </SitecoreItem>
-    <SitecoreItem Include="sitecore\client\Applications\QuartzScheduler\Pages\Dashboard\PageSettings\Tabs\Summary.item">
+    <SitecoreItem Include="sitecore\client\Applications\QuartzScheduler\Pages\Dashboard\PageSettings\Tabs\Performance Summary.item">
       <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
     </SitecoreItem>
-    <SitecoreItem Include="sitecore\client\Applications\QuartzScheduler\Pages\Dashboard\PageSettings\Tabs\Summary\PageSettings.item">
+    <SitecoreItem Include="sitecore\client\Applications\QuartzScheduler\Pages\Dashboard\PageSettings\Tabs\Performance Summary\PageSettings.item">
       <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
     </SitecoreItem>
-    <SitecoreItem Include="sitecore\client\Applications\QuartzScheduler\Pages\Dashboard\PageSettings\Tabs\Summary\PageSettings\ChartFields.item">
+    <SitecoreItem Include="sitecore\client\Applications\QuartzScheduler\Pages\Dashboard\PageSettings\Tabs\Performance Summary\PageSettings\ChartFields.item">
       <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
     </SitecoreItem>
-    <SitecoreItem Include="sitecore\client\Applications\QuartzScheduler\Pages\Dashboard\PageSettings\Tabs\Summary\PageSettings\ChartFields\Duration.item">
+    <SitecoreItem Include="sitecore\client\Applications\QuartzScheduler\Pages\Dashboard\PageSettings\Tabs\Performance Summary\PageSettings\ChartFields\Duration.item">
       <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
     </SitecoreItem>
-    <SitecoreItem Include="sitecore\client\Applications\QuartzScheduler\Pages\Dashboard\PageSettings\Tabs\Summary\PageSettings\ChartFields\DurationType.item">
+    <SitecoreItem Include="sitecore\client\Applications\QuartzScheduler\Pages\Dashboard\PageSettings\Tabs\Performance Summary\PageSettings\ChartFields\DurationType.item">
       <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
     </SitecoreItem>
-    <SitecoreItem Include="sitecore\client\Applications\QuartzScheduler\Pages\Dashboard\PageSettings\Tabs\Summary\PageSettings\ChartFields\JobKey.item">
+    <SitecoreItem Include="sitecore\client\Applications\QuartzScheduler\Pages\Dashboard\PageSettings\Tabs\Performance Summary\PageSettings\ChartFields\JobKey.item">
       <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
     </SitecoreItem>

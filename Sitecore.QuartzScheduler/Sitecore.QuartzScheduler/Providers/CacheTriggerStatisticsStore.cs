@@ -125,34 +125,38 @@ namespace Sitecore.QuartzScheduler.Providers
                 if (!Directory.Exists(archivePath))
                     Directory.CreateDirectory(archivePath);
 
-                var triggerStatsToArchive = from stats in (List<TriggerStatistic>)cache[Common.Constants.PerformanceDataCacheKey]
-                                            where stats.StartTime < DateTime.Now.Add(TimeSpan.FromDays(-1 * DaysToKeep))
-                                            select stats;
-
-                var triggerStatsToKeep = from stats in (List<TriggerStatistic>)cache[Common.Constants.PerformanceDataCacheKey]
-                                         where stats.StartTime >= DateTime.Now.Add(TimeSpan.FromDays(-1 * DaysToKeep))
-                                         select stats;
-
-                string jsonDataToArchive = HelperUtility.GetJsonSerializedData(triggerStatsToArchive.ToList<TriggerStatistic>());
-                jsonDataToArchive = HelperUtility.AddJsonHeader(jsonDataToArchive);
-
-                string fileName = "JobPerformanceData-" + DateTime.Now.Ticks.ToString() + ".json";
-                string filePath = Path.Combine(archivePath, fileName);
-
-                if (triggerStatsToArchive != null && triggerStatsToArchive.Count() > 0)
+                var cacheData = cache[Common.Constants.PerformanceDataCacheKey];
+                if (cacheData != null)
                 {
-                    using (FileStream fs = File.Create(filePath))
+                    var triggerStatsToArchive = from stats in (List<TriggerStatistic>) cacheData
+                                                where stats.StartTime < DateTime.Now.Add(TimeSpan.FromDays(-1 * DaysToKeep))
+                                                select stats;
+
+                    var triggerStatsToKeep = from stats in (List<TriggerStatistic>) cacheData
+                                             where stats.StartTime >= DateTime.Now.Add(TimeSpan.FromDays(-1 * DaysToKeep))
+                                             select stats;
+
+                    string jsonDataToArchive = HelperUtility.GetJsonSerializedData(triggerStatsToArchive.ToList<TriggerStatistic>());
+                    jsonDataToArchive = HelperUtility.AddJsonHeader(jsonDataToArchive);
+
+                    string fileName = "JobPerformanceData-" + DateTime.Now.Ticks.ToString() + ".json";
+                    string filePath = Path.Combine(archivePath, fileName);
+
+                    if (triggerStatsToArchive != null && triggerStatsToArchive.Count() > 0)
                     {
-                        byte[] data = new UTF8Encoding().GetBytes(jsonDataToArchive);
-                        fs.Write(data, 0, data.Length);
-                        cache[Common.Constants.PerformanceDataCacheKey] = triggerStatsToKeep.ToList<TriggerStatistic>();
+                        using (FileStream fs = File.Create(filePath))
+                        {
+                            byte[] data = new UTF8Encoding().GetBytes(jsonDataToArchive);
+                            fs.Write(data, 0, data.Length);
+                            cache[Common.Constants.PerformanceDataCacheKey] = triggerStatsToKeep.ToList<TriggerStatistic>();
 
-                        Diagnostics.Log.Info(String.Format("Performance Data Archived at {0} location in file {1}", archivePath, fileName), this);
+                            Diagnostics.Log.Info(String.Format("Performance Data Archived at {0} location in file {1}", archivePath, fileName), this);
+                        }
                     }
-                }
-                else
-                {
-                    Diagnostics.Log.Info(String.Format("No Job performance data to Archive at {0}", DateTime.Now), this);
+                    else
+                    {
+                        Diagnostics.Log.Info(String.Format("No Job performance data to Archive at {0}", DateTime.Now), this);
+                    }
                 }
             }
             catch(Exception ex)
