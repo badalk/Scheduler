@@ -17,7 +17,8 @@ define(["sitecore", "jquery", "underscore", "entityService"], function (Sitecore
             console.log('Job ID retrieved : ' + selectedJobID);
 
             if (selectedJobID && selectedJobID.length > 0) {
-                this.LoadJobDetails(selectedJobID, app);
+                this.LoadJobDetails(selectedJobID);
+                this.LoadTriggersForJob(selectedJobID);
             }
 
             this.lcJobDataMap.on('change:selectedItemId', function (component, value) {
@@ -25,7 +26,8 @@ define(["sitecore", "jquery", "underscore", "entityService"], function (Sitecore
             });
         },
 
-        LoadJobDetails: function (selectedJobID, app) {
+        LoadJobDetails: function (selectedJobID) {
+            var app = this;
             var jobDetailService = this.GetJobDetailEntityService();
 
             console.log('loading job details screen..');
@@ -45,12 +47,53 @@ define(["sitecore", "jquery", "underscore", "entityService"], function (Sitecore
                     var jsonJobDataMap = app.GetJobDataMapJson(jobDetail.JobData);
                     console.log('jsonjobDataMap' + jsonJobDataMap);
                     app.lcJobDataMap.set("items", jsonJobDataMap);
-                    app.lcJobDataMap.viewModel.set("selectedItemId", jsonJobDataMap[0].ItemId);
+                    //app.lcJobDataMap.viewModel.set("selectedItemId", jsonJobDataMap[0].ItemId);
                 });
 
             }
 
         },
+
+        LoadTriggersForJob: function(jobID){
+                var app = this;
+                console.log('pupulating triggers list ')
+                // get the selected Item Id
+                //that.srchDSTriggers.set('rootItemId', selectedGuid);
+                var triggersList = app.GetTriggersForJob(jobID);
+                if (triggersList != "") {
+                    app.lcTriggers.set("items", JSON.parse(triggersList));
+                    console.log('Triggers Populated for Job ' + jobID);
+                }
+        },
+
+        GetTriggersForJob: function (jobId) {
+            var app = this;
+            var triggers = "";
+            console.log('Getting triggers for job  : ' + jobId);
+            $.ajax({
+                url: '/api/sitecore/ReportData/GetJobTriggerList',
+                type: 'GET',
+                async: false,
+                cache: false,
+                data: {
+                    'jobId': jobId
+                },
+                success: function (data) {
+                    console.log('Job Triggers returned : ' + data);
+                    if (!data) {
+                        app.msgNotifications.addMessage("error", { text: "No triggers defined for the job.", actions: [], closable: true, temporary: false })
+                        console.log('No triggers returned for a job..');
+                    }
+                    triggers = data;
+                },
+                error: function () {
+                    console.log("There was error while retrieving the triggers for a job " + jobId);
+                }
+            });
+
+            return triggers;
+        },
+
 
         CreateJobDetail: function () {
             var self = this;
@@ -115,10 +158,10 @@ define(["sitecore", "jquery", "underscore", "entityService"], function (Sitecore
                     jobDetail.JobData = jobDataMapString;
                     console.log('updated entity (ready to save) : ' + jobDetail.toString());
 
-                    jobDetail.on('save', function () {
-                        console.log('save function on entity service called');
-                        self.UpdateSuccessful(self);
-                    });
+                    //jobDetail.on('save', function () {
+                    //    console.log('save function on entity service called');
+                    //    self.UpdateSuccessful(self);
+                    //});
 
                     jobDetail.save().then(function (savedJob) {
                         savedJob.ItemName.should.eql(jobDetail.ItemName);
@@ -224,6 +267,12 @@ define(["sitecore", "jquery", "underscore", "entityService"], function (Sitecore
             return jobDetailService;
         },
 
+        GetTriggerDetailEntityService: function () {
+            var triggerDetailService = new entityService({
+                url: "/sitecore/api/ssc/sitecore-quartzscheduler-controllers/triggerdetail"
+            });
+            return triggerDetailService;
+        },
         onGoBack: function () {
             console.log('Going back to previous page');
             window.location.replace('/sitecore/client/Applications/QuartzScheduler/Pages/JobList');
@@ -322,14 +371,24 @@ define(["sitecore", "jquery", "underscore", "entityService"], function (Sitecore
         },
 
         onAddTriggerDetail: function () {
-
-            try{
-                var app = this;
                 console.log("Launching Trigger Detail Dialog");
-                var jd = Sitecore.Helpers.url.getQueryParameters(window.location.href)['jd'];
-                var td = "{68975F6D-9C5B-4C26-99AF-5537A87244C7}";
+                this.showTriggerDetailDialog();
+        },
 
-                var url = "TriggerDetails?jd=" + jd + "&td=" + td;
+        onEditTriggerDetail: function() {
+            var app = this;
+            var td = app.lcTriggers.get("selectedItemId");
+            app.showTriggerDetailDialog(td);
+        },
+
+        showTriggerDetailDialog: function (td) {
+            try {
+                td = td || 0;
+                var app = this;
+                var jd = Sitecore.Helpers.url.getQueryParameters(window.location.href)['jd'];
+                var url = "TriggerDetails?jd=" + jd
+                if (td != 0)
+                    url = url + "&td=" + td;
 
                 app.Frame1.set("sourceUrl", url);
                 app.DialogWindow1.set("isModal", true);

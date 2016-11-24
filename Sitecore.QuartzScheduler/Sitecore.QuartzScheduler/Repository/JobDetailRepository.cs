@@ -105,40 +105,8 @@ namespace Sitecore.QuartzScheduler.Repository
 
         public JobDetail FindById(string id)
         {
-            Log.Info("Calling FindById on JobDetail Entity Service Repository with Job Id : " + id, this);
-
-            var jobDetail = Sitecore.Data.Database.GetDatabase("master").GetItem(new ID(id));
-
-            if (jobDetail != null)
-            {
-                JobDetail jd = new JobDetail()
-                {
-                    Id = jobDetail.ID.ToString(),
-                    Description = jobDetail["Description"],
-                    JobKey = jobDetail["Job Key"],
-                    Type = jobDetail["Type"],
-                    Group = jobDetail["Group"],
-                    JobData = jobDetail["Job Data Map"]
-                };
-
-                ////Get Job Data Map
-                //NameValueCollection jobData = Sitecore.Web.WebUtil.ParseUrlParameters(jobDetail["Job Data Map"]);
-
-                //if (jobData != null)
-                //{
-                //    jd.JobData = new JobDataMap();
-                //    foreach (string key in jobData.Keys)
-                //    {
-                //        jd.JobData.Add(key, jobData[key]);
-                //    }
-                //}
-
-                return jd;
-            }
-            else
-            {
-                return null;
-            }
+            var jobManager = new JobManager();
+            return jobManager.GetJobDetails(id);
         }
 
         public IQueryable<JobDetail> GetAll()

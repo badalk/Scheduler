@@ -146,5 +146,20 @@ namespace Sitecore.QuartzScheduler.Controllers
             return triggerStatsStore;
 
         }
+
+
+        public ActionResult GetJobTriggerList(string jobId)
+        {
+            var returnValue = new JsonResult();
+            returnValue.JsonRequestBehavior = JsonRequestBehavior.AllowGet;
+
+            JobManager jm = new JobManager();
+            var jobDetail = jm.GetJobDetails(jobId);
+            var triggerList = jm.GetTriggersForJob(jobDetail);
+            var jsonData = HelperUtility.GetJsonSerializedData(triggerList, false);
+            returnValue.Data = jsonData;
+
+            return returnValue;
+        }
     }
 }

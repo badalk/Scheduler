@@ -34,6 +34,45 @@ namespace Sitecore.QuartzScheduler
 
         }
 
+        public JobDetail GetJobDetails(string jobID)
+        {
+            Log.Info("Calling FindById on JobDetail Entity Service Repository with Job Id : " + jobID, this);
+
+            var jobDetail = Sitecore.Data.Database.GetDatabase("master").GetItem(new ID(jobID));
+
+            if (jobDetail != null)
+            {
+                JobDetail jd = new JobDetail()
+                {
+                    Id = jobDetail.ID.ToString(),
+                    Description = jobDetail["Description"],
+                    JobKey = jobDetail["Job Key"],
+                    Type = jobDetail["Type"],
+                    Group = jobDetail["Group"],
+                    JobData = jobDetail["Job Data Map"]
+                };
+
+                ////Get Job Data Map
+                //NameValueCollection jobData = Sitecore.Web.WebUtil.ParseUrlParameters(jobDetail["Job Data Map"]);
+
+                //if (jobData != null)
+                //{
+                //    jd.JobData = new JobDataMap();
+                //    foreach (string key in jobData.Keys)
+                //    {
+                //        jd.JobData.Add(key, jobData[key]);
+                //    }
+                //}
+
+                return jd;
+            }
+            else
+            {
+                return null;
+            }
+
+        }
+
         public void ScheduleJobs()
         {
             try
@@ -294,7 +333,7 @@ namespace Sitecore.QuartzScheduler
                 foreach (Item jobItem in quartzJobs)
                 {
                     JobDetail jd = new JobDetail();
-                    jd.ItemId = jobItem.ID.ToString();
+                    jd.Id = jobItem.ID.ToString();
                     jd.ItemName = jobItem.Name;
                     jd.Type = jobItem["Type"];
                     jd.Description = jobItem["Description"];
@@ -321,13 +360,13 @@ namespace Sitecore.QuartzScheduler
             return sitecoreJobDefinitionLocation;
         }
 
-        private List<TriggerDetail> GetTriggersForJob(JobDetail jobDetail)
+        public List<TriggerDetail> GetTriggersForJob(JobDetail jobDetail)
         {
             Database masterDb = Factory.GetDatabase("master");
 
             //Get the trigger definitions for this job
             string quartzJobTriggersQuery =
-                "fast://" + GetJobDefinitionLocation() + "//*[@@parentid='" + jobDetail.ItemId + "']//*[@@templateid='" + Common.Constants.TriggerDetailTempalteID + "']";
+                "fast://" + GetJobDefinitionLocation() + "//*[@@parentid='" + jobDetail.Id + "']//*[@@templateid='" + Common.Constants.TriggerDetailTempalteID + "']";
 
             Item[] quartzJobTriggers = masterDb.SelectItems(quartzJobTriggersQuery);
             List<TriggerDetail> lstTriggers = new List<TriggerDetail>();
@@ -338,6 +377,8 @@ namespace Sitecore.QuartzScheduler
                 foreach (Item triggerItem in quartzJobTriggers)
                 {
                     TriggerDetail triggerDetail = new TriggerDetail();
+                    triggerDetail.Id = triggerItem.ID.ToString();
+                    triggerDetail.ParentItemId = jobDetail.Id;
                     triggerDetail.TriggerKey = triggerItem["Trigger Key"];
                     if (!String.IsNullOrEmpty(triggerItem.Fields["Start Time"].Value))
                     {
@@ -422,21 +463,6 @@ namespace Sitecore.QuartzScheduler
             return jobList;
         }
 
-        public List<TriggerDetail> GetJobTriggers(string jobKey)
-        {
-            var triggers = scheduler.GetTriggersOfJob(new JobKey(jobKey));
-            List<TriggerDetail> triggerDetailList = new List<TriggerDetail>();
-
-            foreach (ITrigger t in triggers)
-            {
-                TriggerDetail trigger = new TriggerDetail();
-                trigger.TriggerKey = t.Key.Name;
-                triggerDetailList.Add(trigger);
-            }
-
-            return triggerDetailList;
-
-        }
 
         public void ExecuteJob(string jobKey, string group)
         {

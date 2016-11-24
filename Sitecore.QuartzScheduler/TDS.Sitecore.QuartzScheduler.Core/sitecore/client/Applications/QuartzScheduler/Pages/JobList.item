@@ -34,14 +34,14 @@ content-length: 0
 field: {F1A1FE9E-A60C-4DDB-A3A0-BB5B29FE732E}
 name: __Renderings
 key: __renderings
-content-length: 9749
+content-length: 9428
 
 <r>
   <d id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}" l="{4F72A793-BDBC-4262-9523-6AADD8FEA487}">
     <r id="{DAFAFFB8-74AF-4141-A96A-70B16834CEC6}" par="PageCodeScriptFileName=%2fsitecore%2fshell%2fclient%2fApplications%2fQuartzScheduler%2fPages%2fJobList%2fJobList.js" ph="Page.Code" uid="{237256AA-9D30-463E-9ED1-90CFF092FCF6}" />
     <r id="{225B55AC-0270-44F9-842B-96D89F9C20A9}" ph="Page.Body" uid="{822F45CF-5E38-4827-B56F-55773F468ADE}" />
     <r id="{5AE97C0C-EE88-4564-A363-4FA11C01C90A}" ph="GlobalHeader" uid="{532C7DCD-29E7-4C34-9910-FC283D61A026}" />
-    <r id="{7A69C522-7E99-4630-A25A-5D571505862A}" par="ImageUrl=%252525252525252525252525252fsitecore%252525252525252525252525252fshell%252525252525252525252525252fclient%252525252525252525252525252fSpeak%252525252525252525252525252fAssets%252525252525252525252525252fimg%252525252525252525252525252fspeak-logo.png&amp;Id=GlobalLogo" ph="GlobalHeader.StartButton" uid="{A340B9F2-9FD0-4767-9B0B-62D7C8B0E5C7}" />
+    <r id="{7A69C522-7E99-4630-A25A-5D571505862A}" par="ImageUrl=%25252525252525252525252525252fsitecore%25252525252525252525252525252fshell%25252525252525252525252525252fclient%25252525252525252525252525252fSpeak%25252525252525252525252525252fAssets%25252525252525252525252525252fimg%25252525252525252525252525252fspeak-logo.png&amp;Id=GlobalLogo" ph="GlobalHeader.StartButton" uid="{A340B9F2-9FD0-4767-9B0B-62D7C8B0E5C7}" />
     <r id="{EA28ED83-0F59-4BB9-AA95-6FAC9C3385D6}" par="Id=NavigationToggler" ph="GlobalHeader.NavigationToggler" uid="{FDD98D93-DE19-46DF-B209-44FFEA5E43ED}" />
     <r id="{EC86834B-890C-405C-BB36-CA25044909E1}" ph="GlobalFooter" uid="{C01DD5BD-DFC2-425B-A301-43AE8363B443}" />
     <r id="{93CEEFCD-2DE1-40AF-AE9A-EBBFBCCC522F}" ph="ApplicationHeader" uid="{1E240370-226C-40E4-9C54-7FE8630DF74A}" />
@@ -75,10 +75,9 @@ content-length: 9749
     <r id="{913AB005-2527-4C2D-9827-FB3A8DFB135C}" par="Click=javascript%3aapp.onExecuteJob()&amp;Id=btnExecuteJob&amp;ButtonType=Primary&amp;Text=Execute+Job" ph="spnlAddnlJobDetails.Buttons" uid="{E65D3A78-B35B-49BC-B78C-F3C54C12CDAE}" />
     <r id="{F6C9F461-FCAF-47DC-AA01-C8C64C2EFFB8}" par="Id=JobsAndTriggersSeparator&amp;UsePadding=1&amp;ShowBorder=0" ph="expanderList.Body" uid="{DA8D3071-66FA-4B60-B5A5-CBBD3E52DED6}" />
     <r id="{7717EB6C-9F90-4C58-826D-5E87722A0318}" par="Id=txtTriggerListHeader&amp;IsVisible=%7bBinding+lcTriggers.IsVisible%7d&amp;TextType=LargeTitle&amp;Text=Triggers+Defined+For+Selected+Job" ph="expanderList.Body" uid="{3E52D364-F9FD-466A-BF7E-0485B2414179}" />
-    <r ds="{2A166F4E-6396-44FC-BAC0-A7D10F13822B}" id="{ACE0AFD6-3DE0-42CF-8E62-4E68CD810A8D}" par="Id=lcTriggers&amp;IsVisible=%7bBinding+lcJobs.HasSelectedItem%7d&amp;Items=%7bBinding+srchDSTriggers.Items%7d&amp;TileHtmlFileName=%2fsitecore%2fshell%2fclient%2fBusiness+Component+Library%2fLayouts%2fRenderings%2fListsAndGrids%2fListControls%2fDefaultTile.cshtml" ph="expanderList.Body" uid="{B1D54887-BA73-4CE7-B0C1-FFDCAC908968}" />
+    <r ds="{2A166F4E-6396-44FC-BAC0-A7D10F13822B}" id="{ACE0AFD6-3DE0-42CF-8E62-4E68CD810A8D}" par="Id=lcTriggers&amp;IsVisible=%7bBinding+lcJobs.HasSelectedItem%7d&amp;TileHtmlFileName=%2fsitecore%2fshell%2fclient%2fBusiness+Component+Library%2fLayouts%2fRenderings%2fListsAndGrids%2fListControls%2fDefaultTile.cshtml" ph="expanderList.Body" uid="{B1D54887-BA73-4CE7-B0C1-FFDCAC908968}" />
     <r id="{054CA6D7-125D-46D0-957C-D38A26190274}" par="Id=smPnlAddnlTriggerDetails" ph="Page.Body" uid="{B373B6F3-735A-4E1C-95F6-1727F45C9185}" />
     <r id="{D47D6BFD-4F1F-4715-9FD1-5957EC0259F5}" par="FacetsRootItemId=%7b01E56AFA-FB38-4F21-AEF4-403E839DCBFC%7d&amp;Id=srchDSJobs&amp;Database=%24context_contentdatabase&amp;SearchConfigItemId=%7b53A1A170-C5FB-4B53-B076-6B9CC1468554%7d&amp;SelectedFacets=%7bBinding+fcJobs.SelectedFacets%7d&amp;Sorting=%7bBinding+lcJobs.Sorting%7d&amp;RootItemId=%7b0DA9CC1D-45EE-4B45-922D-700039CEC5A2%7d" ph="Page.Body" uid="{6820A512-9A24-4063-B829-2ED0F4C57392}" />
-    <r id="{D47D6BFD-4F1F-4715-9FD1-5957EC0259F5}" par="Id=srchDSTriggers&amp;Database=%24context_contentdatabase&amp;SearchConfigItemId=%7b5DCF33B5-1FEC-4271-BED6-99FAD3F0BE47%7d&amp;Sorting=%7bBinding+lcTriggers.Sorting%7d" ph="Page.Body" uid="{5FAB7D0D-0E0E-4B46-B15D-147088C09204}" />
     <r id="{913AB005-2527-4C2D-9827-FB3A8DFB135C}" par="Id=Button1&amp;IsVisible=0&amp;Text=Trigger+a+Rule" ph="ApplicationContent.Main" uid="{D2CB457A-0EA1-4E2F-9532-EB967A7A6B40}" />
     <r id="{7717EB6C-9F90-4C58-826D-5E87722A0318}" par="Id=Text1&amp;IsVisible=0&amp;Text=false" ph="ApplicationContent.Main" uid="{B4D1E02A-9FD6-4EEB-A705-7AE850397686}" />
     <r id="{1169C5EF-E49C-4B59-848D-9C9204E40D12}" par="RuleItemId=%7b823D5016-9969-452C-AAFC-478C6A9832E3%7d&amp;Id=Rule1&amp;LoadMode=Inline&amp;Trigger=window%3aresize&amp;Field=Rule" ph="Page.Body" uid="{2BDDBBD8-5F8B-4E01-8CB6-C31037B04BA1}" />
@@ -87,7 +86,7 @@ content-length: 9749
 ----version----
 language: en
 version: 1
-revision: d64102c1-d9ed-4912-9b10-d94c6be1405f
+revision: c04c4059-3dc6-43b5-9790-0e7e50ce8376
 
 ----field----
 field: {7205A57F-93B4-413A-AA9A-6B16BBC59565}
@@ -109,14 +108,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-d64102c1-d9ed-4912-9b10-d94c6be1405f
+c04c4059-3dc6-43b5-9790-0e7e50ce8376
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20161117T230341Z
+20161123T201000Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by

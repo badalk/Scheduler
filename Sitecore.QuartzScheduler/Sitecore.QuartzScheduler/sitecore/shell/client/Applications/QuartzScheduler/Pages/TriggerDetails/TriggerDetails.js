@@ -191,7 +191,7 @@ define(["sitecore", "jquery", "underscore", "entityService"], function (Sitecore
             }
             catch (exception) {
                 console.log("Error in PopulateTriggerDetails : " + exception);
-                return (exception);
+                //return (exception);
             }
 
         },
@@ -249,7 +249,7 @@ define(["sitecore", "jquery", "underscore", "entityService"], function (Sitecore
                          console.log('updated entity (ready to save) : ' + trigger.toString());
 
                         trigger.on('save', function () {
-                            console.log('save function on entity service called');
+                            console.log('Trigger details are being saved');
                             self.UpdateSuccessful(self);
                         });
 
@@ -265,6 +265,11 @@ define(["sitecore", "jquery", "underscore", "entityService"], function (Sitecore
             });
         },
 
+        UpdateSuccessful: function (self) {
+            console.log('update successful.');
+            self.msgNotifications.addMessage("notification", { text: "Trigger Details updated successfully !", actions: [], closable: true, temporary: true });
+
+        },
         CreateTriggerDetail: function(jobId){
             var self = this;
             var triggerDetailService = self.GetTriggerDetailEntityService();

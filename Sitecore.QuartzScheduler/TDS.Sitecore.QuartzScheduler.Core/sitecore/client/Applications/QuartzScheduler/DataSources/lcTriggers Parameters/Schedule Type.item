@@ -13,9 +13,9 @@ templatekey: ColumnField
 field: {E67F1B1F-3488-4CF4-80AE-BE285C918C2E}
 name: DataField
 key: datafield
-content-length: 13
+content-length: 17
 
-Schedule Type
+ScheduleTypeValue
 ----field----
 field: {B2A46AE4-38F9-4538-A2B3-8021083E0E40}
 name: Sortable
@@ -26,7 +26,7 @@ content-length: 1
 ----version----
 language: en
 version: 1
-revision: 774808cf-ccf7-46ab-b8b2-063831f23deb
+revision: c3690b41-39be-486c-8951-4e6a1a3410d2
 
 ----field----
 field: {2E9FD749-0F47-4397-8BA2-C56C65366BF0}
@@ -62,14 +62,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-774808cf-ccf7-46ab-b8b2-063831f23deb
+c3690b41-39be-486c-8951-4e6a1a3410d2
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20151229T233809Z
+20161123T192121Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by

@@ -9,14 +9,15 @@ namespace Sitecore.QuartzScheduler.Common
 {
     public class HelperUtility
     {
-        public static string GetJsonSerializedData(object data)
+        public static string GetJsonSerializedData(object data, bool isStructureRequired = true)
         {
             string jsonData = JsonConvert.SerializeObject(data, Formatting.None, new IsoDateTimeConverter() { DateTimeFormat = "yyyy-MM-dd HH:mm:ss" });
-            string requiredStructure = "{" +
-                                    "\"data\": ";
+            string requiredStructure = "";
+            if (isStructureRequired)
+                requiredStructure = "{\"data\": ";
             jsonData = jsonData.Insert(0, requiredStructure);
-            jsonData = jsonData.Insert(jsonData.Length, "}");
-
+            if (isStructureRequired)
+                jsonData = jsonData.Insert(jsonData.Length, "}");
             return jsonData;
         }
         public static string AddJsonHeader(string jsonData)

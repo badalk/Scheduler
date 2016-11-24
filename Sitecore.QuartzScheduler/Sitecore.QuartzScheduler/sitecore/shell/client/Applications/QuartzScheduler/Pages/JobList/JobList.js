@@ -25,11 +25,14 @@
             }, this);
 
             function populateTriggers(that, listControl) {
+                var app = that;
                 console.log('pupulating triggers list ')
-                // get the selected Item Id
                 var selectedGuid = listControl.get("selectedItemId");
-                that.srchDSTriggers.set('rootItemId', selectedGuid);
-                console.log('Triggers Populated for Job ' + selectedGuid);
+                var triggersList = app.GetTriggersForJob(selectedGuid);
+                if (triggersList != "") {
+                    app.lcTriggers.set("items", JSON.parse(triggersList));
+                    console.log('Triggers Populated for Job ' + selectedGuid);
+                }
             }
 
             function populateSmartPanel(that, listControl, smartPanel) {
@@ -58,6 +61,34 @@
                     smartPanel.set("isOpen", false);
                 }
             }
+        },
+
+        GetTriggersForJob: function (jobId) {
+            var self = this;
+            var triggers = "";
+            console.log('Getting triggers for job  : ' + jobId);
+            $.ajax({
+                url: '/api/sitecore/ReportData/GetJobTriggerList',
+                type: 'GET',
+                async: false,
+                cache: false,
+                data: {
+                    'jobId': jobId
+                },
+                success: function (data) {
+                    console.log('Job Triggers returned : ' + data);
+                    if (!data) {
+                        self.msgNotifications.addMessage("error", { text: "No triggers defined for the job.", actions: [], closable: true, temporary: false })
+                        console.log('No triggers returned for a job..');
+                    }
+                    triggers = data;
+                },
+                error: function () {
+                    console.log("There was error while retrieving the triggers for a job " + jobId);
+                }
+            });
+
+            return triggers;
         },
 
         GetJobDataMapJson: function (jobDataMap) {

@@ -172,6 +172,7 @@ namespace Sitecore.QuartzScheduler.Repository
                     td.RepeatInterval = (String.IsNullOrEmpty(t.Fields["Repeat Interval"].Value) ? 0 : int.Parse(t.Fields["Repeat Interval"].Value));
                     td.RepeatCount = (String.IsNullOrEmpty(t.Fields["Repeat Count"].Value) ? 0 : int.Parse(t.Fields["Repeat Count"].Value));
                     td.DayOfMonth = (String.IsNullOrEmpty(t.Fields["Day of Month"].Value) ? 0 : int.Parse(t.Fields["Day of Month"].Value));
+                    td.CronExpression = t.Fields["Cron Expression"].Value;
                     td.DaysOfWeeks = GetDaysOfWeek(t.Fields["Days of Week"]);
 
                     lstTriggers.Add(td);

@@ -13,9 +13,9 @@ templatekey: ColumnField
 field: {E67F1B1F-3488-4CF4-80AE-BE285C918C2E}
 name: DataField
 key: datafield
-content-length: 11
+content-length: 10
 
-Trigger Key
+TriggerKey
 ----field----
 field: {B2A46AE4-38F9-4538-A2B3-8021083E0E40}
 name: Sortable
@@ -33,7 +33,7 @@ content-length: 1
 ----version----
 language: en
 version: 1
-revision: 38bc82e1-c70f-4714-8d3a-e07a7ab4a76e
+revision: f0b276cf-57a1-4933-adde-1babf179054c
 
 ----field----
 field: {2E9FD749-0F47-4397-8BA2-C56C65366BF0}
@@ -69,14 +69,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-38bc82e1-c70f-4714-8d3a-e07a7ab4a76e
+f0b276cf-57a1-4933-adde-1babf179054c
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20151229T233809Z
+20161123T192122Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by

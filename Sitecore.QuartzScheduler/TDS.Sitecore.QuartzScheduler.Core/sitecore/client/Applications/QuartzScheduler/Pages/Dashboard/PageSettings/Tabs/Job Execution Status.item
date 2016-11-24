@@ -20,24 +20,17 @@ Load Archive Data
 field: {F1A1FE9E-A60C-4DDB-A3A0-BB5B29FE732E}
 name: __Renderings
 key: __renderings
-content-length: 1597
+content-length: 222
 
 <r>
   <d id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
     <r id="{F6C9F461-FCAF-47DC-AA01-C8C64C2EFFB8}" par="Id=Border1&amp;PaddingType=All&amp;UsePadding=1" uid="{0BE11113-FE14-4E77-98E2-518B41C50CC9}" />
-    <r id="{C4393722-39FA-4869-9582-3A8EB8983A0D}" par="Id=RowPanel1" ph="Border1.Content" uid="{F07234FF-CC16-4FF5-9300-308F57298ADD}" />
-    <r id="{5CB208F6-1860-426B-8221-FAA85B329848}" par="Id=ColumnPanel1&amp;GridColumns=3&amp;ContentAlign=Right" ph="RowPanel1.Content" uid="{E8B7095B-A52E-4356-BC44-33D471BFF766}" />
-    <r id="{5CB208F6-1860-426B-8221-FAA85B329848}" par="Id=ColumnPanel2&amp;GridColumns=7&amp;ContentAlign=Center" ph="RowPanel1.Content" uid="{CA69542D-3B9E-4C62-B96A-1E178B2D73F7}" />
-    <r id="{5CB208F6-1860-426B-8221-FAA85B329848}" par="Id=ColumnPanel3&amp;GridColumns=2" ph="RowPanel1.Content" uid="{C0FDED4B-D3CF-4802-9DFA-A1511BDAB7CC}" />
-    <r id="{98316BB6-F3F5-4E6F-81F0-79F173D151D8}" par="Id=Label1&amp;Text=Path+to+Archived+Data+File%3a" ph="ColumnPanel1.Content" uid="{A7D8F792-3C4A-48EB-8981-7D6C49467B91}" />
-    <r id="{57F86E9A-1844-45CE-BF8A-62900AE17A92}" par="IsEnabled=1&amp;WidthPolicy=%7b10E1CB3E-660F-4C5E-9F25-F67C4637D463%7d&amp;Id=txtJsonPath&amp;IsVisible=1&amp;Watermark=Enter+path+to+Archived+Json+file" ph="ColumnPanel2.Content" uid="{0A85C083-2CBE-4F3A-B44B-876AE5D3E8FE}" />
-    <r id="{913AB005-2527-4C2D-9827-FB3A8DFB135C}" par="Click=javascript%3aapp.loadChartData()%3b&amp;Id=Button1&amp;ButtonType=Primary&amp;Text=Show+Charts" ph="ColumnPanel3.Content" uid="{FD3E3A01-3D1E-45AB-A827-3C0E84493B88}" />
   </d>
 </r>
 ----version----
 language: en
 version: 1
-revision: e9669702-ff68-42e9-9e31-d35a0ea59d0c
+revision: 32cc68c3-efde-4876-ab95-d7993ed02d0f
 
 ----field----
 field: {AEA872FB-AA91-4D1A-B877-3CA6FBBB4FD4}
@@ -59,14 +52,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-e9669702-ff68-42e9-9e31-d35a0ea59d0c
+32cc68c3-efde-4876-ab95-d7993ed02d0f
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20161122T132536Z
+20161123T212903Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
