@@ -20,17 +20,17 @@ JobPerformanceData.Content
 field: {F1A1FE9E-A60C-4DDB-A3A0-BB5B29FE732E}
 name: __Renderings
 key: __renderings
-content-length: 2663
+content-length: 2719
 
 <r>
   <d id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
-    <r id="{F6C9F461-FCAF-47DC-AA01-C8C64C2EFFB8}" par="Id=Border1" uid="{211034EB-8E50-4A63-B446-0413ED92CB56}" />
+    <r id="{F6C9F461-FCAF-47DC-AA01-C8C64C2EFFB8}" par="Id=Border1&amp;ContentAlignment=Center" uid="{211034EB-8E50-4A63-B446-0413ED92CB56}" />
     <r id="{C4393722-39FA-4869-9582-3A8EB8983A0D}" par="UsePadding=1&amp;Id=RowPanel2&amp;PaddingType=All" ph="Border1.Content" uid="{B9CDBC73-94F7-4FC2-9625-03A47E7B6CD3}" />
     <r id="{5CB208F6-1860-426B-8221-FAA85B329848}" par="Id=ColumnPanel2&amp;GridColumns=8&amp;ContentAlign=Center" ph="RowPanel2.Content" uid="{1742595C-D3AB-4019-9B6F-E6442EC6D08C}" />
     <r id="{7717EB6C-9F90-4C58-826D-5E87722A0318}" par="Id=Text1&amp;TextType=LargeLabel&amp;Text=Job+Performance+Data" ph="ColumnPanel2.Content" uid="{A37A6E06-F066-4AA0-ADE3-3C6A04553A9C}" />
     <r id="{5CB208F6-1860-426B-8221-FAA85B329848}" par="Id=ColumnPanel3&amp;GridColumns=4&amp;ContentAlign=Right" ph="RowPanel2.Content" uid="{AEE36FC2-50A6-4713-8591-F8D29DF69F10}" />
     <r id="{913AB005-2527-4C2D-9827-FB3A8DFB135C}" par="Click=javascript%3aapp.getJobPerformanceData()%3b&amp;Id=Button1&amp;IsEnabled=%7bBinding+ChartDataProviderJobPerformance.HasData%7d&amp;ButtonType=Primary&amp;Text=Download+Data" ph="ColumnPanel3.Content" uid="{54D9D9A0-565B-4658-B3CB-DFB9E3F48392}" />
-    <r id="{F6C9F461-FCAF-47DC-AA01-C8C64C2EFFB8}" par="Id=Border2&amp;PaddingType=All&amp;IsVisible=1&amp;UsePadding=1&amp;ShowBorder=0" ph="Border1.Content" uid="{13ED170F-10E9-4545-802A-A33E628B03A5}" />
+    <r id="{F6C9F461-FCAF-47DC-AA01-C8C64C2EFFB8}" par="Id=Border2&amp;PaddingType=All&amp;IsVisible=1&amp;ContentAlignment=Center&amp;UsePadding=1&amp;ShowBorder=0" ph="Border1.Content" uid="{13ED170F-10E9-4545-802A-A33E628B03A5}" />
     <r id="{5E3B31F7-FE96-40FB-BE38-94418E4B789A}" par="Id=ChartDataProviderJobPerformance&amp;DataURL=%2fapi%2fsitecore%2fReportData%2fGetJobWisePerformanceData" ph="Border2.Content" uid="{13FEABBF-9A32-4242-BCB6-76633BACB572}" />
     <r id="{FE9723FC-56E4-4CA8-9C64-CB34F29462A5}" par="Id=ProgressIndicator1&amp;AutoShowTimeout=1000&amp;TargetControl=LineChart1" ph="Border2.Content" uid="{E7B16ED5-803A-450B-91A7-E6C094FAAA29}" />
     <r id="{C4393722-39FA-4869-9582-3A8EB8983A0D}" par="Id=RowPanel1" ph="Border2.Content" uid="{63CE4BDC-B9C6-4CFA-AB5E-86C90CB3F1A9}" />
@@ -41,7 +41,7 @@ content-length: 2663
 ----version----
 language: en
 version: 1
-revision: e6da2a22-db35-4de3-b3ff-d7b71b1c5b73
+revision: cfb957ea-66a1-4b3c-a195-0d0a7a2372f2
 
 ----field----
 field: {3C386BCC-A573-4589-B1BD-EDACE83DD69D}
@@ -70,14 +70,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-e6da2a22-db35-4de3-b3ff-d7b71b1c5b73
+cfb957ea-66a1-4b3c-a195-0d0a7a2372f2
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20161122T132447Z
+20161124T172106Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by

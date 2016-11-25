@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Quartz;
 using Sitecore.Diagnostics;
+using Sitecore.Configuration;
 
 namespace Sitecore.QuartzScheduler.Repository
 {
@@ -26,7 +27,7 @@ namespace Sitecore.QuartzScheduler.Repository
             {
                 using (new SecurityDisabler())
                 {
-                    string sitecoreJobDefinitionLocation = ConfigurationManager.AppSettings.Get("Sitecore.QuartzScheduler.JobLocation");
+                    string sitecoreJobDefinitionLocation = Settings.GetSetting("Sitecore.QuartzScheduler.JobLocation");
 
                     if (!String.IsNullOrEmpty(sitecoreJobDefinitionLocation))
                     {

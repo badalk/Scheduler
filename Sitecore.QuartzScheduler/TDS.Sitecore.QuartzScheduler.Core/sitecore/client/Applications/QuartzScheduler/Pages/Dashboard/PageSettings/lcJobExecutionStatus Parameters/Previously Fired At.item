@@ -1,0 +1,79 @@
+----item----
+version: 1
+id: {0A8FBB70-7D9B-47D1-B882-D687D7309978}
+database: core
+path: /sitecore/client/Applications/QuartzScheduler/Pages/Dashboard/PageSettings/lcJobExecutionStatus Parameters/Previously Fired At
+parent: {0BBC460B-6C2F-46B6-A5B2-7EE91420BD57}
+name: Previously Fired At
+master: {00000000-0000-0000-0000-000000000000}
+template: {D3CEFE6E-E51B-4A84-B92E-AAF8AA8E8DC8}
+templatekey: ColumnField
+
+----field----
+field: {E67F1B1F-3488-4CF4-80AE-BE285C918C2E}
+name: DataField
+key: datafield
+content-length: 16
+
+PreviousFireTime
+----field----
+field: {BA3F86A2-4A1C-4D78-B63D-91C2779C1B5E}
+name: __Sortorder
+key: __sortorder
+content-length: 1
+
+5
+----version----
+language: en
+version: 1
+revision: 5d547684-5232-4a5e-b8f8-4d2fd00cf75b
+
+----field----
+field: {2E9FD749-0F47-4397-8BA2-C56C65366BF0}
+name: HeaderText
+key: headertext
+content-length: 19
+
+Previously Fired At
+----field----
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 14
+
+sitecore\admin
+----field----
+field: {25BED78C-4957-4165-998A-CA1B52F67497}
+name: __Created
+key: __created
+content-length: 16
+
+20161124T165948Z
+----field----
+field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
+name: __Created by
+key: __created by
+content-length: 14
+
+sitecore\admin
+----field----
+field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
+name: __Revision
+key: __revision
+content-length: 36
+
+5d547684-5232-4a5e-b8f8-4d2fd00cf75b
+----field----
+field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
+name: __Updated
+key: __updated
+content-length: 16
+
+20161124T170610Z
+----field----
+field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
+name: __Updated by
+key: __updated by
+content-length: 14
+
+sitecore\admin

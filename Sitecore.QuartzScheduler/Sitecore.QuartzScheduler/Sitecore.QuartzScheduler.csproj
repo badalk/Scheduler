@@ -136,6 +136,7 @@
     </Content>
     <Content Include="sitecore\shell\client\Applications\QuartzScheduler\Pages\TriggerDetails\TriggerDetails.js" />
     <Content Include="sitecore\shell\client\Services\Assets\lib\extensions\validators\validCronExpression.js" />
+    <Content Include="App_Config\Include\quartz.config" />
     <None Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -156,6 +157,7 @@
     <Compile Include="Listeners\SchedulerTriggerListener.cs" />
     <Compile Include="Models\DayOfWeek.cs" />
     <Compile Include="Models\JobDetail.cs" />
+    <Compile Include="Models\JobExecutionStatus.cs" />
     <Compile Include="Models\TriggerDetail.cs" />
     <Compile Include="Models\TriggerStatistic.cs" />
     <Compile Include="Models\TriggerStatSummary.cs" />

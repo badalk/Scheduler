@@ -79,8 +79,16 @@ namespace Sitecore.QuartzScheduler
             {
 
                 //start a scheduler
-                scheduler.Start();
+                var schedulerMetaData = scheduler.GetMetaData();
+                Log.Info("Scheduler Metadata Summary =>", this);
+                Log.Info(schedulerMetaData.GetSummary(), this);
+                Log.Info("SchedulerInstanceId : " + schedulerMetaData.SchedulerInstanceId, this);
+                Log.Info("SchedulerName : " + schedulerMetaData.SchedulerName, this);
+                Log.Info("ThreadPoolSize : " + schedulerMetaData.ThreadPoolSize, this);
+                Log.Info("ThreadPoolType: " + schedulerMetaData.ThreadPoolType.ToString(), this);
+                Log.Info("JobStoreType: " + schedulerMetaData.JobStoreType.ToString(), this);
 
+                scheduler.Start();
 
                 //Create Job Definitions and add it to the collection to simulate this is what we will get from Sitecore
                 Log.Info("Getting Job Definitions", this);
@@ -161,7 +169,7 @@ namespace Sitecore.QuartzScheduler
             trigger.WithIdentity(td.TriggerKey, jd.Group);
             trigger.ForJob(jd.JobKey);
             trigger.WithPriority(td.Priority);
-            trigger.StartAt(td.StartTime.AddDays((int)(DateTime.Now - td.StartTime).TotalDays));
+            trigger.StartAt(td.StartTime); 
             if (td.EndTime != null && !td.EndTime.Equals(DateTime.MinValue))
                 trigger.EndAt(td.EndTime);
 
@@ -350,7 +358,7 @@ namespace Sitecore.QuartzScheduler
 
         private static string GetJobDefinitionLocation()
         {
-            string sitecoreJobDefinitionLocation = ConfigurationManager.AppSettings.Get("Sitecore.QuartzScheduler.JobLocation");
+            string sitecoreJobDefinitionLocation = Settings.GetSetting("Sitecore.QuartzScheduler.JobLocation");
 
             if (String.IsNullOrEmpty(sitecoreJobDefinitionLocation))
             {
@@ -508,6 +516,65 @@ namespace Sitecore.QuartzScheduler
             return scheduler.GetTriggerState(new TriggerKey(triggerKey, group)).ToString();
         }
 
+        private DateTime? GetLocalDateTime(DateTimeOffset? fireTime)
+        {
+            if (fireTime.HasValue)
+                return fireTime.Value.LocalDateTime;
+            else
+                return null;
+        }
+
+        public List<JobExecutionStatus> GetCurrentJobStatus()
+        {
+            var executingJobs = scheduler.GetCurrentlyExecutingJobs();
+            List<JobExecutionStatus> jobStatusList = new List<JobExecutionStatus>();
+
+            foreach(var exJob in executingJobs)
+            {
+                var jobStatus = new JobExecutionStatus();
+
+                jobStatus.JobKey = exJob.JobDetail.Key.Name;
+                jobStatus.TriggerName = exJob.Trigger.Key.Name;
+                jobStatus.FireTime = GetLocalDateTime(exJob.FireTimeUtc);
+                jobStatus.PreviousFireTime = GetLocalDateTime(exJob.PreviousFireTimeUtc);
+                jobStatus.ScheduledFireTime = GetLocalDateTime(exJob.ScheduledFireTimeUtc);
+                jobStatus.NextFireTime = GetLocalDateTime(exJob.NextFireTimeUtc);
+                jobStatus.JobRunTime = exJob.JobRunTime.TotalSeconds;
+                jobStatus.State = scheduler.GetTriggerState(exJob.Trigger.Key).ToString();
+
+                jobStatusList.Add(jobStatus);
+            }
+
+
+            return jobStatusList;
+        }
+
+        public List<JobExecutionStatus> GetJobFireTimes()
+        {
+            //TODO: Get next fire time for jobs which are not currently running
+            List<JobExecutionStatus> jobStatusList = new List<JobExecutionStatus>();
+            var jobKeys = scheduler.GetJobKeys(GroupMatcher<JobKey>.AnyGroup());
+            foreach (var job in jobKeys)
+            {
+                var triggers = scheduler.GetTriggersOfJob(job);
+
+                foreach (var trigger in triggers)
+                {
+                    var jobStatus = new JobExecutionStatus();
+                    jobStatus.JobKey = job.Name;
+                    jobStatus.TriggerName = trigger.Key.Name;
+                    jobStatus.PreviousFireTime = GetLocalDateTime(trigger.GetPreviousFireTimeUtc());
+                    jobStatus.NextFireTime = GetLocalDateTime(trigger.GetNextFireTimeUtc());
+
+                    jobStatusList.Add(jobStatus);
+                }
+            }
+
+            return jobStatusList;
+
+        }
 
     }
+
+
 }

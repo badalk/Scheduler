@@ -34,7 +34,7 @@ content-length: 0
 field: {F1A1FE9E-A60C-4DDB-A3A0-BB5B29FE732E}
 name: __Renderings
 key: __renderings
-content-length: 9428
+content-length: 4635
 
 <r>
   <d id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}" l="{4F72A793-BDBC-4262-9523-6AADD8FEA487}">
@@ -50,43 +50,20 @@ content-length: 9428
     <r ds="{86DF1575-0725-435E-BC18-C34F4DF22FA3}" id="{DDF19992-89DB-4F29-82EC-F16A8C8D15B9}" par="Id=hbtnGrpQuartzScheduler&amp;SelectedItemId=%7b9E61160A-E034-46F3-A49B-5E44D9549728%7d" ph="ApplicationContent.Navigation" uid="{0A6D95F8-D6C5-4B18-A24F-B4A916339A00}" />
     <r id="{ED5C3BA8-17E3-4F82-89C2-1496E8D61434}" par="Id=srchPnl" ph="ApplicationContent.Main" uid="{F153F347-C25F-40E0-B82F-C9FC763B6E9D}" />
     <r id="{26B2B002-BCA0-4968-99E4-01573338B6A9}" par="Click=javascript%3aapp.fcJobs.toggle()&amp;ShowArrow=1&amp;Id=tbtnJobFilter&amp;IsEnabled=%7bBinding+srchDSJobs.HasItems%7d&amp;ButtonType=Default&amp;Text=Filters" ph="srchPnl.Filters" uid="{5F146D1C-B968-4C6A-A83A-D5713EE1B1D2}" />
-    <r id="{913AB005-2527-4C2D-9827-FB3A8DFB135C}" par="Click=javascript%3aapp.onEditJobDetails()%3b&amp;Id=btnEditJobDetails&amp;IsEnabled=%7bBinding+lcJobs.HasSelectedItem%7d&amp;ButtonType=Primary&amp;Text=Edit+Job+Details" ph="srchPnl.Filters" uid="{7AF26C68-D12D-467B-9579-A4BD4959B074}" />
     <r id="{F6C9F461-FCAF-47DC-AA01-C8C64C2EFFB8}" par="Id=Main&amp;UsePadding=1&amp;ShowBorder=0" ph="ApplicationContent.Main" uid="{8EC02FDB-51E9-4983-9AD3-FAD2210E5BAC}" />
     <r id="{9B00BB85-3894-4FBD-8522-3C467FDEB050}" par="Id=fcJobs&amp;IsVisible=0&amp;Facets=%7bBinding+srchDSJobs.Facets%7d" ph="ApplicationContent.Main" uid="{BE5AA473-0A08-4148-9F05-7463D9DA4F06}" />
     <r id="{73C16115-8B56-43AF-8EA3-4D704FCDA127}" par="Id=SeparatorBetnFCandLCForJobs&amp;IsVisible=%7bBinding+fcJobs.IsVisible%7d" ph="ApplicationContent.Main" uid="{BA96EA5C-6609-40F0-832F-857BD635CC69}" />
-    <r id="{CA84FBFF-B3A0-4AEC-9C2C-7DDBBF7DA102}" par="Id=expanderList&amp;Text=Job+List" ph="ApplicationContent.Main" uid="{00D3918D-76F5-4808-A30B-B60C3F194999}" />
-    <r ds="{5EEFB338-BF80-42EB-AABE-1D7B43F55A05}" id="{ACE0AFD6-3DE0-42CF-8E62-4E68CD810A8D}" par="Id=lcJobs&amp;Items=%7bBinding+srchDSJobs.Items%7d&amp;TileHtmlFileName=%2fsitecore%2fshell%2fclient%2fBusiness+Component+Library%2fLayouts%2fRenderings%2fListsAndGrids%2fListControls%2fDefaultTile.cshtml" ph="expanderList.Body" uid="{45185BE3-B799-406E-97E9-2FCF13AFB080}" />
-    <r id="{054CA6D7-125D-46D0-957C-D38A26190274}" par="Id=spnlAddnlJobDetails&amp;OffsetBottom=100&amp;OffsetTop=100&amp;Dimensions=Normal" ph="Page.Body" uid="{95BA2D47-44BD-4930-A335-C40F3F5917DF}" />
-    <r id="{7717EB6C-9F90-4C58-826D-5E87722A0318}" par="Id=AddnJobDetailsTitle&amp;TextType=LargeTitle&amp;Text=Additional+Job+Details" ph="spnlAddnlJobDetails.Header" uid="{F4B1F05B-ADA5-4029-864A-3A8A87073150}" />
-    <r id="{7717EB6C-9F90-4C58-826D-5E87722A0318}" par="Id=selectedJobGuid&amp;IsVisible=0" ph="spnlAddnlJobDetails.Content" uid="{C34484B4-2C15-420C-9EA5-6F502F25FA35}" />
-    <r id="{C4393722-39FA-4869-9582-3A8EB8983A0D}" par="Id=rPnlLastRunDateTime" ph="spnlAddnlJobDetails.Content" uid="{D8FCA65E-A071-4FD1-B2B5-193A71DC620E}" />
-    <r id="{5CB208F6-1860-426B-8221-FAA85B329848}" par="Id=cPnlLastRunDateTimeLabel&amp;GridColumns=3&amp;ContentAlign=Left" ph="rPnlLastRunDateTime.Content" uid="{7DDDF129-455A-4B63-9F79-890402B420D3}" />
-    <r id="{5CB208F6-1860-426B-8221-FAA85B329848}" par="Id=cPnlLastRunDateTimeValue&amp;GridColumns=9&amp;ContentAlign=Left" ph="rPnlLastRunDateTime.Content" uid="{3A1A00A0-EC2A-4DF0-B1A6-43F8B0A47BBE}" />
-    <r id="{7717EB6C-9F90-4C58-826D-5E87722A0318}" par="Id=txtLastRunDateLabel&amp;TextType=Title&amp;Text=Last+Run" ph="cPnlLastRunDateTimeLabel.Content" uid="{D95AB894-3DB6-4801-9EC6-4D79B8AB54AB}" />
-    <r id="{7717EB6C-9F90-4C58-826D-5E87722A0318}" par="Id=txtLastRunDateValue" ph="cPnlLastRunDateTimeValue.Content" uid="{D46C56C7-CD38-4E71-B697-279AD4BE4105}" />
-    <r id="{C4393722-39FA-4869-9582-3A8EB8983A0D}" par="Id=rPnlNextRunDateTime" ph="spnlAddnlJobDetails.Content" uid="{039E31FF-866B-4ACB-9606-B60B68858995}" />
-    <r id="{5CB208F6-1860-426B-8221-FAA85B329848}" par="Id=cPnlNextRunDateTimeLabel&amp;GridColumns=3&amp;ContentAlign=Left" ph="rPnlNextRunDateTime.Content" uid="{2A4AAEED-2B56-4D3E-ACFA-B77199CB7F67}" />
-    <r id="{5CB208F6-1860-426B-8221-FAA85B329848}" par="Id=cPnlNextRunDateTimeValue&amp;GridColumns=9&amp;ContentAlign=Left" ph="rPnlNextRunDateTime.Content" uid="{4A27B4C2-CBDD-428D-9B49-FCD9A9E24F47}" />
-    <r id="{7717EB6C-9F90-4C58-826D-5E87722A0318}" par="Id=txtNextRunDateLabel&amp;TextType=Title&amp;Text=Next+Run" ph="cPnlNextRunDateTimeLabel.Content" uid="{CD2B0AC6-92D1-4CC3-8B36-5E542DFA0376}" />
-    <r id="{7717EB6C-9F90-4C58-826D-5E87722A0318}" par="Id=txtNextRunDateValue" ph="cPnlNextRunDateTimeValue.Content" uid="{3328C24B-2508-4841-8721-683D40C85848}" />
-    <r id="{F6C9F461-FCAF-47DC-AA01-C8C64C2EFFB8}" par="Id=borderBetnJobDetailsAndJobDataMap&amp;UsePadding=1&amp;ShowBorder=0" ph="spnlAddnlJobDetails.Content" uid="{B6C24C29-B156-4A2B-A0FC-55B2ABDB3E4B}" />
-    <r id="{CA84FBFF-B3A0-4AEC-9C2C-7DDBBF7DA102}" par="Id=jobDataExpander&amp;Text=Job+Data+Map+(Parameters)" ph="spnlAddnlJobDetails.Content" uid="{4F2432E7-57DC-4C60-B718-B894DD13D39B}" />
-    <r ds="{80D6F555-34CD-4A03-9B42-19B436FE11BD}" id="{ACE0AFD6-3DE0-42CF-8E62-4E68CD810A8D}" par="Id=lcJobDataMap&amp;TileHtmlFileName=%2fsitecore%2fshell%2fclient%2fBusiness+Component+Library%2fLayouts%2fRenderings%2fListsAndGrids%2fListControls%2fDefaultTile.cshtml" ph="jobDataExpander.Body" uid="{FCF6E222-B9C1-42D7-AB64-84A7C18C19BA}" />
-    <r id="{913AB005-2527-4C2D-9827-FB3A8DFB135C}" par="Click=javascript%3aapp.onExecuteJob()&amp;Id=btnExecuteJob&amp;ButtonType=Primary&amp;Text=Execute+Job" ph="spnlAddnlJobDetails.Buttons" uid="{E65D3A78-B35B-49BC-B78C-F3C54C12CDAE}" />
-    <r id="{F6C9F461-FCAF-47DC-AA01-C8C64C2EFFB8}" par="Id=JobsAndTriggersSeparator&amp;UsePadding=1&amp;ShowBorder=0" ph="expanderList.Body" uid="{DA8D3071-66FA-4B60-B5A5-CBBD3E52DED6}" />
-    <r id="{7717EB6C-9F90-4C58-826D-5E87722A0318}" par="Id=txtTriggerListHeader&amp;IsVisible=%7bBinding+lcTriggers.IsVisible%7d&amp;TextType=LargeTitle&amp;Text=Triggers+Defined+For+Selected+Job" ph="expanderList.Body" uid="{3E52D364-F9FD-466A-BF7E-0485B2414179}" />
-    <r ds="{2A166F4E-6396-44FC-BAC0-A7D10F13822B}" id="{ACE0AFD6-3DE0-42CF-8E62-4E68CD810A8D}" par="Id=lcTriggers&amp;IsVisible=%7bBinding+lcJobs.HasSelectedItem%7d&amp;TileHtmlFileName=%2fsitecore%2fshell%2fclient%2fBusiness+Component+Library%2fLayouts%2fRenderings%2fListsAndGrids%2fListControls%2fDefaultTile.cshtml" ph="expanderList.Body" uid="{B1D54887-BA73-4CE7-B0C1-FFDCAC908968}" />
-    <r id="{054CA6D7-125D-46D0-957C-D38A26190274}" par="Id=smPnlAddnlTriggerDetails" ph="Page.Body" uid="{B373B6F3-735A-4E1C-95F6-1727F45C9185}" />
+    <r id="{442BD093-FBAD-4E36-BC08-489E16C82D08}" par="Id=advExpJobList&amp;Header=Job+List" ph="ApplicationContent.Main" uid="{4C14B3FB-5510-4E92-9023-7CD914466F90}" />
+    <r ds="{5EEFB338-BF80-42EB-AABE-1D7B43F55A05}" id="{ACE0AFD6-3DE0-42CF-8E62-4E68CD810A8D}" par="Id=lcJobs&amp;Items=%7bBinding+srchDSJobs.Items%7d&amp;TileHtmlFileName=%2fsitecore%2fshell%2fclient%2fBusiness+Component+Library%2fLayouts%2fRenderings%2fListsAndGrids%2fListControls%2fDefaultTile.cshtml" ph="advExpJobList.Body" uid="{45185BE3-B799-406E-97E9-2FCF13AFB080}" />
+    <r id="{913AB005-2527-4C2D-9827-FB3A8DFB135C}" par="Click=javascript%3aapp.onEditJobDetails()%3b&amp;Id=btnEditJobDetails&amp;IsEnabled=%7bBinding+lcJobs.HasSelectedItem%7d&amp;ButtonType=Primary&amp;Text=Edit+Job+Details" ph="advExpJobList.ActionBar" uid="{7AF26C68-D12D-467B-9579-A4BD4959B074}" />
+    <r id="{913AB005-2527-4C2D-9827-FB3A8DFB135C}" par="Click=javascript%3aapp.onExecuteJob()&amp;Id=btnExecuteJob&amp;IsEnabled=%7bBinding+lcJobs.HasSelectedItem%7d&amp;ButtonType=Default&amp;Text=Execute+Job" ph="advExpJobList.ActionBar" uid="{E65D3A78-B35B-49BC-B78C-F3C54C12CDAE}" />
     <r id="{D47D6BFD-4F1F-4715-9FD1-5957EC0259F5}" par="FacetsRootItemId=%7b01E56AFA-FB38-4F21-AEF4-403E839DCBFC%7d&amp;Id=srchDSJobs&amp;Database=%24context_contentdatabase&amp;SearchConfigItemId=%7b53A1A170-C5FB-4B53-B076-6B9CC1468554%7d&amp;SelectedFacets=%7bBinding+fcJobs.SelectedFacets%7d&amp;Sorting=%7bBinding+lcJobs.Sorting%7d&amp;RootItemId=%7b0DA9CC1D-45EE-4B45-922D-700039CEC5A2%7d" ph="Page.Body" uid="{6820A512-9A24-4063-B829-2ED0F4C57392}" />
-    <r id="{913AB005-2527-4C2D-9827-FB3A8DFB135C}" par="Id=Button1&amp;IsVisible=0&amp;Text=Trigger+a+Rule" ph="ApplicationContent.Main" uid="{D2CB457A-0EA1-4E2F-9532-EB967A7A6B40}" />
-    <r id="{7717EB6C-9F90-4C58-826D-5E87722A0318}" par="Id=Text1&amp;IsVisible=0&amp;Text=false" ph="ApplicationContent.Main" uid="{B4D1E02A-9FD6-4EEB-A705-7AE850397686}" />
-    <r id="{1169C5EF-E49C-4B59-848D-9C9204E40D12}" par="RuleItemId=%7b823D5016-9969-452C-AAFC-478C6A9832E3%7d&amp;Id=Rule1&amp;LoadMode=Inline&amp;Trigger=window%3aresize&amp;Field=Rule" ph="Page.Body" uid="{2BDDBBD8-5F8B-4E01-8CB6-C31037B04BA1}" />
   </d>
 </r>
 ----version----
 language: en
 version: 1
-revision: c04c4059-3dc6-43b5-9790-0e7e50ce8376
+revision: a24db21d-5b30-4fe3-b057-92026dd1d06e
 
 ----field----
 field: {7205A57F-93B4-413A-AA9A-6B16BBC59565}
@@ -108,14 +85,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-c04c4059-3dc6-43b5-9790-0e7e50ce8376
+a24db21d-5b30-4fe3-b057-92026dd1d06e
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20161123T201000Z
+20161124T015459Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by

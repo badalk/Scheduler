@@ -34,14 +34,14 @@ namespace Sitecore.QuartzScheduler.Models
         //    }
         //}
 
-        public string State
-        {
-            get
-            {
-                JobManager jobMgr = new JobManager();
-                return jobMgr.GetTriggerState(TriggerKey, Group);
-            }
-        }
+        //public string State
+        //{
+        //    get
+        //    {
+        //        JobManager jobMgr = new JobManager();
+        //        return jobMgr.GetTriggerState(TriggerKey, Group);
+        //    }
+        //}
 
         public double ExecutionDurationInSeconds { get; set; }
 

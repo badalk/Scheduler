@@ -20,17 +20,26 @@ Load Archive Data
 field: {F1A1FE9E-A60C-4DDB-A3A0-BB5B29FE732E}
 name: __Renderings
 key: __renderings
-content-length: 222
+content-length: 2140
 
 <r>
   <d id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
-    <r id="{F6C9F461-FCAF-47DC-AA01-C8C64C2EFFB8}" par="Id=Border1&amp;PaddingType=All&amp;UsePadding=1" uid="{0BE11113-FE14-4E77-98E2-518B41C50CC9}" />
+    <r id="{F6C9F461-FCAF-47DC-AA01-C8C64C2EFFB8}" par="Id=Border1&amp;PaddingType=All&amp;ContentAlignment=Center&amp;UsePadding=1" uid="{0BE11113-FE14-4E77-98E2-518B41C50CC9}" />
+    <r id="{7717EB6C-9F90-4C58-826D-5E87722A0318}" par="Id=txtHeading&amp;TextType=LargeLabel&amp;Text=Current+Job+Execution+Status" ph="Border1.Content" uid="{692F856F-481C-4BDA-BEAF-59F3C6B29300}" />
+    <r id="{910155C7-3881-4A56-90FB-D126490EDE55}" par="Id=MessageBar1" ph="Border1.Content" uid="{3AD29242-7ADD-4E8F-85CF-6D2B396AAFC2}" />
+    <r id="{F6C9F461-FCAF-47DC-AA01-C8C64C2EFFB8}" par="Id=Border2&amp;ContentAlignment=Center&amp;UsePadding=0" ph="Border1.Content" uid="{F0EC8136-0672-4718-B4E3-C921C388ABCB}" />
+    <r ds="{0BBC460B-6C2F-46B6-A5B2-7EE91420BD57}" id="{ACE0AFD6-3DE0-42CF-8E62-4E68CD810A8D}" par="Id=lcJobExecutionStatus&amp;TileHtmlFileName=%2fsitecore%2fshell%2fclient%2fBusiness+Component+Library%2fLayouts%2fRenderings%2fListsAndGrids%2fListControls%2fDefaultTile.cshtml" ph="Border2.Content" uid="{66752456-4899-46B5-8701-A0C1C34DA237}" />
+    <r id="{73C16115-8B56-43AF-8EA3-4D704FCDA127}" par="Id=Separator1&amp;IsVisible=1" ph="Border1.Content" uid="{287E1B8E-E833-44CC-8411-7B550C288692}" />
+    <r id="{F6C9F461-FCAF-47DC-AA01-C8C64C2EFFB8}" par="Id=Border3&amp;ContentAlignment=Center" ph="Border1.Content" uid="{3C60655A-D439-4ACB-9363-AED0F5C36793}" />
+    <r id="{7717EB6C-9F90-4C58-826D-5E87722A0318}" par="Id=txtFireTimeHeading&amp;TextType=LargeLabel&amp;Text=Job+%2f+Trigger+Fire+Times" ph="Border3.Content" uid="{9CBDADB7-0998-4BA9-90DD-5BA9277C1DDA}" />
+    <r id="{F6C9F461-FCAF-47DC-AA01-C8C64C2EFFB8}" par="Id=Border4" ph="Border3.Content" uid="{B6B473E8-2148-4A5A-980D-2EF2087F44D3}" />
+    <r ds="{CA5EA002-EEFF-42FB-95C4-FE3D2F512421}" id="{ACE0AFD6-3DE0-42CF-8E62-4E68CD810A8D}" par="Id=lcJobFireTimes&amp;TileHtmlFileName=%2fsitecore%2fshell%2fclient%2fBusiness+Component+Library%2fLayouts%2fRenderings%2fListsAndGrids%2fListControls%2fDefaultTile.cshtml" ph="Border4.Content" uid="{88BD9775-B653-4811-8CF4-7FD08B8AB31C}" />
   </d>
 </r>
 ----version----
 language: en
 version: 1
-revision: 32cc68c3-efde-4876-ab95-d7993ed02d0f
+revision: e8955ffe-da42-420e-91cf-779972908dac
 
 ----field----
 field: {AEA872FB-AA91-4D1A-B877-3CA6FBBB4FD4}
@@ -52,14 +61,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-32cc68c3-efde-4876-ab95-d7993ed02d0f
+e8955ffe-da42-420e-91cf-779972908dac
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20161123T212903Z
+20161125T195739Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by

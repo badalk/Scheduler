@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.Configuration;
 using Sitecore.QuartzScheduler.Providers;
 using Sitecore.QuartzScheduler.Models;
+using Sitecore.Configuration;
 
 namespace Sitecore.QuartzScheduler.Listeners
 {
@@ -19,13 +20,14 @@ namespace Sitecore.QuartzScheduler.Listeners
         {
             try
             {
-                var executationDuration = (DateTime.UtcNow - trigger.GetPreviousFireTimeUtc()).Value.TotalSeconds;
+                //var executationDuration = (DateTime.UtcNow - trigger.GetPreviousFireTimeUtc()).Value.TotalSeconds;
+                var executionDuration = context.JobRunTime.TotalSeconds;
                 TriggerStatistic triggerStat = new TriggerStatistic()
                 {
                     Group = trigger.Key.Group,
                     JobKey = trigger.JobKey.Name,
                     TriggerKey = trigger.Key.Name,
-                    ExecutionDurationInSeconds = executationDuration,
+                    ExecutionDurationInSeconds = executionDuration,
                     StartTime = trigger.GetPreviousFireTimeUtc().Value.DateTime.ToLocalTime(),
                     FinishTime = DateTime.Now
                 };
@@ -33,7 +35,7 @@ namespace Sitecore.QuartzScheduler.Listeners
 
                 Sitecore.Diagnostics.Log.Info(String.Format("Job {0} with trigger {1} Completed @ {2} and it took {3} seconds ", triggerStat.JobKey, triggerStat.TriggerKey, DateTime.Now, triggerStat.ExecutionDurationInSeconds), this);
                 
-                string triggerStatProviderType = ConfigurationManager.AppSettings.Get("Sitecore.QuartzScheduler.TriggerStatisticsStoreProvider");
+                string triggerStatProviderType = Settings.GetSetting("Sitecore.QuartzScheduler.TriggerStatisticsStoreProvider");
 
                 if (!String.IsNullOrEmpty(triggerStatProviderType))
                 {

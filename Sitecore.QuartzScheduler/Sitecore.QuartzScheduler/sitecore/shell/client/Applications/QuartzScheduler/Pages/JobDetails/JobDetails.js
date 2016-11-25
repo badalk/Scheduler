@@ -158,10 +158,10 @@ define(["sitecore", "jquery", "underscore", "entityService"], function (Sitecore
                     jobDetail.JobData = jobDataMapString;
                     console.log('updated entity (ready to save) : ' + jobDetail.toString());
 
-                    //jobDetail.on('save', function () {
-                    //    console.log('save function on entity service called');
-                    //    self.UpdateSuccessful(self);
-                    //});
+                    jobDetail.on('save', function () {
+                        console.log('save function on entity service called');
+                        self.UpdateSuccessful(self);
+                    });
 
                     jobDetail.save().then(function (savedJob) {
                         savedJob.ItemName.should.eql(jobDetail.ItemName);

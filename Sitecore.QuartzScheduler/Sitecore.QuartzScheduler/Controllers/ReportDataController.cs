@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using Sitecore.Configuration;
 using Sitecore.QuartzScheduler.Common;
 using Sitecore.QuartzScheduler.Models;
 using Sitecore.QuartzScheduler.Providers;
@@ -16,7 +17,6 @@ namespace Sitecore.QuartzScheduler.Controllers
 {
     public class ReportDataController : Controller
     {
-        // GET: ReportData
         public FileResult GetJobPerformanceData()
         {
             string jsonData = "{}";
@@ -81,7 +81,7 @@ namespace Sitecore.QuartzScheduler.Controllers
                             }
                             else
                             {
-                                Diagnostics.Log.Warn("No chart data retrieved from configured Sitecore.QuartzScheduler.TriggerStatisticsStoreProvider when GetAllTriggerStatistics is called!", this);
+                                Diagnostics.Log.Warn("No chart data retrieved from configured Sitecore.QuartzScheduler.TriggerStatisticsStoreProvider when GetTriggerStatisticsForJob is called!", this);
                             }
                         }
 
@@ -91,7 +91,7 @@ namespace Sitecore.QuartzScheduler.Controllers
             }
             catch (Exception ex)
             {
-                Diagnostics.Log.Error(ex.Message + Environment.NewLine + ex.StackTrace, this);
+                Diagnostics.Log.Error("Error in GetJobWisePerformanceData : " + ex.Message + Environment.NewLine + ex.StackTrace, this);
                 throw ex;
             }
             return (FileResult)this.File(new UTF8Encoding().GetBytes(finalJsonReportData), "text/json", "data.json"); ;
@@ -132,7 +132,7 @@ namespace Sitecore.QuartzScheduler.Controllers
 
         private ITriggerStatisticsStore GetConfiguredTriggerStatStore()
         {
-            string triggerStatProviderType = ConfigurationManager.AppSettings.Get("Sitecore.QuartzScheduler.TriggerStatisticsStoreProvider");
+            string triggerStatProviderType = Settings.GetSetting("Sitecore.QuartzScheduler.TriggerStatisticsStoreProvider");
             ITriggerStatisticsStore triggerStatsStore = null;
 
             if (!String.IsNullOrEmpty(triggerStatProviderType))
@@ -156,10 +156,49 @@ namespace Sitecore.QuartzScheduler.Controllers
             JobManager jm = new JobManager();
             var jobDetail = jm.GetJobDetails(jobId);
             var triggerList = jm.GetTriggersForJob(jobDetail);
-            var jsonData = HelperUtility.GetJsonSerializedData(triggerList, false);
-            returnValue.Data = jsonData;
+            returnValue.Data = HelperUtility.GetJsonSerializedData(triggerList, false); 
 
             return returnValue;
+        }
+
+        public ActionResult GetCurrentJobExecutionStatus()
+        {
+            var returnValue = new JsonResult();
+            returnValue.JsonRequestBehavior = JsonRequestBehavior.AllowGet;
+
+            try
+            {
+                JobManager jm = new JobManager();
+                var currentJobList = jm.GetCurrentJobStatus();
+                returnValue.Data = HelperUtility.GetJsonSerializedData(currentJobList, false);
+            }
+            catch (Exception ex)
+            {
+                Diagnostics.Log.Error("Error in GetCurrentJobExecutionStatus: " + ex.Message + Environment.NewLine + ex.StackTrace, this);
+                throw ex;
+            }
+            return returnValue;
+
+        }
+
+        public ActionResult GetJobFireTimes()
+        {
+            var returnValue = new JsonResult();
+            returnValue.JsonRequestBehavior = JsonRequestBehavior.AllowGet;
+
+            try
+            {
+                JobManager jm = new JobManager();
+                var currentJobList = jm.GetJobFireTimes();
+                returnValue.Data = HelperUtility.GetJsonSerializedData(currentJobList, false);
+            }
+            catch (Exception ex)
+            {
+                Diagnostics.Log.Error("Error in GetJobFireTimes : " + ex.Message + Environment.NewLine + ex.StackTrace, this);
+                throw ex;
+            }
+            return returnValue;
+
         }
     }
 }

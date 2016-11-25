@@ -137,7 +137,7 @@ namespace Sitecore.QuartzScheduler.Repository
         }
         private static string GetJobDefinitionLocation()
         {
-            string sitecoreJobDefinitionLocation = ConfigurationManager.AppSettings.Get("Sitecore.QuartzScheduler.JobLocation");
+            string sitecoreJobDefinitionLocation = Settings.GetSetting("Sitecore.QuartzScheduler.JobLocation");
 
             if (String.IsNullOrEmpty(sitecoreJobDefinitionLocation))
             {
@@ -244,7 +244,7 @@ namespace Sitecore.QuartzScheduler.Repository
                 startTimeField.Value = Sitecore.DateUtil.ToIsoDate(entity.StartTime);
             }
             triggerItem.Fields["Start Time"].Value = DateUtil.ToIsoDate(entity.StartTime);
-            if (entity.EndTime != null)
+            if (entity.EndTime != null || entity.EndTime != DateTime.MinValue)
                 triggerItem.Fields["End Time"].Value = DateUtil.ToIsoDate(entity.EndTime);
             else
                 triggerItem.Fields["End Time"].Value = "";

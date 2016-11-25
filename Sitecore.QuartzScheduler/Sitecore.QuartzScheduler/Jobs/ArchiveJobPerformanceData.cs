@@ -12,6 +12,7 @@ using System.Runtime.Caching;
 using System.Reflection;
 using System.Configuration;
 using Sitecore.QuartzScheduler.Providers;
+using Sitecore.Configuration;
 
 namespace Sitecore.QuartzScheduler.Jobs
 {
@@ -28,7 +29,7 @@ namespace Sitecore.QuartzScheduler.Jobs
                 int daysToKeep = dataMap.GetIntValue("DaysToKeep");
                 string archivePath = dataMap.GetString("Archive_Path");
 
-                string triggerStatProviderType = ConfigurationManager.AppSettings.Get("Sitecore.QuartzScheduler.TriggerStatisticsStoreProvider");
+                string triggerStatProviderType = Settings.GetSetting("Sitecore.QuartzScheduler.TriggerStatisticsStoreProvider");
                 ITriggerStatisticsStore triggerStatsStore = null;
 
                 if (!String.IsNullOrEmpty(triggerStatProviderType))
