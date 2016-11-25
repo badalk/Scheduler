@@ -136,7 +136,8 @@
     </Content>
     <Content Include="sitecore\shell\client\Applications\QuartzScheduler\Pages\TriggerDetails\TriggerDetails.js" />
     <Content Include="sitecore\shell\client\Services\Assets\lib\extensions\validators\validCronExpression.js" />
-    <Content Include="App_Config\Include\quartz.config" />
+    <Content Include="App_Config\quartz.config" />
+    <None Include="Properties\PublishProfiles\Release.pubxml" />
     <None Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
