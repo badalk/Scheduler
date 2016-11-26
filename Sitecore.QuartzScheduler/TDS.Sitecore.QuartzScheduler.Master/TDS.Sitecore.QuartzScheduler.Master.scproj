@@ -270,6 +270,7 @@
     </SitecoreItem>
     <SitecoreItem Include="sitecore\system\Modules\QuartzScheduler\Site Jobs.item">
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
+      <ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization>
     </SitecoreItem>
     <SitecoreItem Include="sitecore\templates.item">
       <ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization>
