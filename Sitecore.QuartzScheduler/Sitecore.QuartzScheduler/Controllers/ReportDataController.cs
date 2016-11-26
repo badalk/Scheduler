@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Sitecore.Configuration;
+using Sitecore.Diagnostics;
 using Sitecore.QuartzScheduler.Common;
 using Sitecore.QuartzScheduler.Models;
 using Sitecore.QuartzScheduler.Providers;
@@ -147,6 +148,30 @@ namespace Sitecore.QuartzScheduler.Controllers
 
         }
 
+        public ActionResult GetJobDefinitions()
+        {
+
+            var returnValue = new JsonResult();
+            returnValue.JsonRequestBehavior = JsonRequestBehavior.AllowGet;
+
+            List<JobDetail> jobList = new List<JobDetail>();
+            JobManager jm = new JobManager();
+
+            try
+            {
+
+                jobList = jm.GetConfiguredJobs();
+
+                returnValue.Data = HelperUtility.GetJsonSerializedData(jobList, false);
+            }
+            catch(Exception ex)
+            {
+                Log.Error("Error Occured in JobManager.GetConfiguredJobs : " + ex.Message + Environment.NewLine + ex.StackTrace, this);
+                throw ex;
+            }
+
+            return returnValue;
+        }
 
         public ActionResult GetJobTriggerList(string jobId)
         {

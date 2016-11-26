@@ -85,7 +85,7 @@ define(["sitecore", "jquery", "underscore", "entityService"], function (Sitecore
                 triggerDetailService.fetchEntity(triggerID).execute().then(function (triggerDetail) {
                     console.log('Trigger Detail received from entity service: ' + triggerDetail);
                     app.PopulateTriggerDetails(triggerDetail, app);
-                }).fail(done);
+                }).fail();
             }
         },
 

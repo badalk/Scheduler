@@ -145,8 +145,8 @@ define(["sitecore", "jquery", "underscore", "entityService"], function (Sitecore
                         console.log('Job key is needed..');
                         canSave = false;
                     }
-                    else {
-                        canSave = self.IsValidJobType(self.txtJobType.viewModel.text().trim())
+                    else if (!self.IsValidJobType(self.txtJobType.viewModel.text().trim())) {
+                            canSave = false;
                     }
                     if (!canSave) { return; }
 

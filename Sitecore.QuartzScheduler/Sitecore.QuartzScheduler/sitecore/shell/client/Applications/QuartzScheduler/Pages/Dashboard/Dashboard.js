@@ -26,11 +26,11 @@
           });
 
           this.ChartDataProviderJobPerformance.on("error", function (errorObject) {
-              console.log('Error in ChartDataProviderJobPerformance: ' + console.dir(error));
+              console.log('Error in ChartDataProviderJobPerformance: ' + console.dir(errorObject));
           });
 
           this.ChartDataProviderSummary.on("error", function (errorObject) {
-              console.log('Error in ChartDataProviderSummary: ' + console.dir(error));
+              console.log('Error in ChartDataProviderSummary: ' + console.dir(errorObject));
           });
 
           console.log('Getting Job Performance Summary...');

@@ -35,6 +35,8 @@ namespace Sitecore.QuartzScheduler.Repository
                         Item parentItem = masterDB.GetItem(@"/" + sitecoreJobDefinitionLocation + @"/");
                         TemplateItem jdTemplate = masterDB.GetTemplate(ID.Parse(Common.Constants.JobDetailTemplateID));
                         //"/sitecore/templates/modules/quartzscheduler/jobdetail");
+                        if (parentItem == null)
+                            Log.Info("Sitecore.QuartzScheduler.JobDefinitionLocation does not exist", this);
                         Item jdItem = parentItem.Add(entity.JobKey, jdTemplate);
                         jdItem.Editing.BeginEdit();
                         try

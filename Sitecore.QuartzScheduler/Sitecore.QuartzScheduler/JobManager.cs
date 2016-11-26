@@ -52,18 +52,6 @@ namespace Sitecore.QuartzScheduler
                     JobData = jobDetail["Job Data Map"]
                 };
 
-                ////Get Job Data Map
-                //NameValueCollection jobData = Sitecore.Web.WebUtil.ParseUrlParameters(jobDetail["Job Data Map"]);
-
-                //if (jobData != null)
-                //{
-                //    jd.JobData = new JobDataMap();
-                //    foreach (string key in jobData.Keys)
-                //    {
-                //        jd.JobData.Add(key, jobData[key]);
-                //    }
-                //}
-
                 return jd;
             }
             else
@@ -100,52 +88,59 @@ namespace Sitecore.QuartzScheduler
                 Log.Info("Clearing existing scheduled Jobs before we set it up agin !", this);
                 scheduler.Clear();
 
-                foreach (JobDetail jd in jobDefinitions)
+                if (jobDefinitions != null && jobDefinitions.Count > 0)
                 {
-                    //if (jd.JobKey.Equals("Cleanup Publish Queue"))
-                    //{
-
-                    JobDataMap jobDataMap = new JobDataMap();
-
-                    //Get Job Data Map
-                    NameValueCollection jobDataCollection = Sitecore.Web.WebUtil.ParseUrlParameters(jd.JobData);
-                    foreach (string key in jobDataCollection.Keys)
+                    foreach (JobDetail jd in jobDefinitions)
                     {
-                        jobDataMap.Add(key, jobDataCollection[key]);
+                        //if (jd.JobKey.Equals("Cleanup Publish Queue"))
+                        //{
+
+                        JobDataMap jobDataMap = new JobDataMap();
+
+                        //Get Job Data Map
+                        NameValueCollection jobDataCollection = Sitecore.Web.WebUtil.ParseUrlParameters(jd.JobData);
+                        foreach (string key in jobDataCollection.Keys)
+                        {
+                            jobDataMap.Add(key, jobDataCollection[key]);
+                        }
+
+                        // define the job and tie it to our HelloJob class
+                        var job = JobBuilder.Create(Type.GetType(jd.Type, true, true))
+                            .WithIdentity(jd.JobKey, jd.Group)
+                            .WithDescription(jd.Description)
+                            .UsingJobData(jobDataMap)
+                            .Build();
+
+                        Log.Info(String.Format("Job {0} created", jd.JobKey), this);
+                        Log.Info(String.Format("Getting triggers for job {0}", jd.JobKey), this);
+
+                        var triggersForJob = GetTriggersForJob(jd);
+
+                        Quartz.Collection.HashSet<ITrigger> triggers = new Quartz.Collection.HashSet<ITrigger>();
+
+                        ITriggerListener trigListener = new SchedulerTriggerListener();
+
+                        #region "Looping through trigger Details"
+
+                        foreach (TriggerDetail td in triggersForJob)
+                        {
+                            TriggerBuilder trigger = GetTriggerBuilder(jd, td);
+                            //Add Job and Trigger listeners
+                            Log.Info("Registering Trigger Listener", this);
+                            scheduler.ListenerManager.AddTriggerListener(trigListener, EverythingMatcher<JobKey>.AllTriggers());
+                            triggers.Add(trigger.Build());
+                            Log.Info(String.Format("Job {0} is scheduled with trigger {1}.", jd.JobKey, td.TriggerKey), this);
+
+
+                        }
+                        #endregion
+
+                        scheduler.ScheduleJob(job, triggers, true);
                     }
-
-                    // define the job and tie it to our HelloJob class
-                    var job = JobBuilder.Create(Type.GetType(jd.Type, true, true))
-                        .WithIdentity(jd.JobKey, jd.Group)
-                        .WithDescription(jd.Description)
-                        .UsingJobData(jobDataMap)
-                        .Build();
-
-                    Log.Info(String.Format("Job {0} created", jd.JobKey), this);
-                    Log.Info(String.Format("Getting triggers for job {0}", jd.JobKey), this);
-
-                    var triggersForJob = GetTriggersForJob(jd);
-
-                    Quartz.Collection.HashSet<ITrigger> triggers = new Quartz.Collection.HashSet<ITrigger>();
-
-                    ITriggerListener trigListener = new SchedulerTriggerListener();
-
-                    #region "Looping through trigger Details"
-
-                    foreach (TriggerDetail td in triggersForJob)
-                    {
-                        TriggerBuilder trigger = GetTriggerBuilder(jd, td);
-                        //Add Job and Trigger listeners
-                        Log.Info("Registering Trigger Listener", this);
-                        scheduler.ListenerManager.AddTriggerListener(trigListener, EverythingMatcher<JobKey>.AllTriggers());
-                        triggers.Add(trigger.Build());
-                        Log.Info(String.Format("Job {0} is scheduled with trigger {1}.", jd.JobKey, td.TriggerKey), this);
-
-
-                    }
-                    #endregion
-
-                    scheduler.ScheduleJob(job, triggers, true);
+                }
+                else
+                {
+                    Log.Info("No Jobs found. No jobs will be scheduled.", this);
                 }
                 //}
             }
@@ -295,65 +290,72 @@ namespace Sitecore.QuartzScheduler
             return trigger;
         }
 
-        private List<JobDetail> GetConfiguredJobs()
+        public List<JobDetail> GetConfiguredJobs()
         {
+            List<JobDetail> lstJobs = new List<JobDetail>();
             //get a list of all Quartz Scheduler Items including JobDetails and Triggers
             string jobsDefinitionsQuery = "fast://" + GetJobDefinitionLocation() + "//*[@@templateid='" + Common.Constants.JobDetailTemplateID + "']";
 
-            Database masterDb = Factory.GetDatabase("master");
-            Item[] quartzJobs = masterDb.SelectItems(jobsDefinitionsQuery);
-
-
-            List<JobDetail> lstJobs = new List<JobDetail>();
-
-            #region Old Code
-            //JobDetail jd = new JobDetail()
-            //{
-            //    JobKey = "myJob",
-            //    Group = "Group1",
-            //    Description = "Hello World Job",
-            //    Type = "Scheduler.HelloJob, Scheduler"
-            //};
-
-            //var jobData = new Dictionary<string, Object>();
-            //jobData.Add("path",@"D:\Test" );
-            //jobData.Add("tablestoclean", "Log, ContentStatistics");
-            //jobData.Add("value", 2);
-
-            //JobDataMap jdMap = new JobDataMap((IDictionary<string, Object>) jobData);
-            //jd.JobData = jdMap;
-
-            //List<TriggerDetail> lstTriggers = new List<TriggerDetail>();
-
-            /////TODO: Need to change this to set actual shedule
-            //TriggerDetail td = new TriggerDetail()
-            //{
-            //    triggerKey = "Every10Seconds",
-            //    RepeatFrequency = 10,
-            //    IntervalUnit = RecurringInterval.Seconds,
-            //    Interval = 5,
-            //    StartTime = DateTime.Now
-            //};
-            #endregion
-
-            if (quartzJobs != null && quartzJobs.Length > 0)
+            try
             {
-                foreach (Item jobItem in quartzJobs)
+                Database masterDb = Factory.GetDatabase("master");
+                Item[] quartzJobs = masterDb.SelectItems(jobsDefinitionsQuery);
+
+
+
+                #region Old Code
+                //JobDetail jd = new JobDetail()
+                //{
+                //    JobKey = "myJob",
+                //    Group = "Group1",
+                //    Description = "Hello World Job",
+                //    Type = "Scheduler.HelloJob, Scheduler"
+                //};
+
+                //var jobData = new Dictionary<string, Object>();
+                //jobData.Add("path",@"D:\Test" );
+                //jobData.Add("tablestoclean", "Log, ContentStatistics");
+                //jobData.Add("value", 2);
+
+                //JobDataMap jdMap = new JobDataMap((IDictionary<string, Object>) jobData);
+                //jd.JobData = jdMap;
+
+                //List<TriggerDetail> lstTriggers = new List<TriggerDetail>();
+
+                /////TODO: Need to change this to set actual shedule
+                //TriggerDetail td = new TriggerDetail()
+                //{
+                //    triggerKey = "Every10Seconds",
+                //    RepeatFrequency = 10,
+                //    IntervalUnit = RecurringInterval.Seconds,
+                //    Interval = 5,
+                //    StartTime = DateTime.Now
+                //};
+                #endregion
+
+                if (quartzJobs != null && quartzJobs.Length > 0)
                 {
-                    JobDetail jd = new JobDetail();
-                    jd.Id = jobItem.ID.ToString();
-                    jd.ItemName = jobItem.Name;
-                    jd.Type = jobItem["Type"];
-                    jd.Description = jobItem["Description"];
-                    jd.JobKey = jobItem["Job Key"];
-                    jd.Group = jobItem["Group"];
-                    jd.JobData = jobItem["Job Data Map"];
+                    foreach (Item jobItem in quartzJobs)
+                    {
+                        JobDetail jd = new JobDetail();
+                        jd.Id = jobItem.ID.ToString();
+                        jd.ItemName = jobItem.Name;
+                        jd.Type = jobItem["Type"];
+                        jd.Description = jobItem["Description"];
+                        jd.JobKey = jobItem["Job Key"];
+                        jd.Group = jobItem["Group"];
+                        jd.JobData = jobItem["Job Data Map"];
 
-                    lstJobs.Add(jd);
-                } //end for loop for jobs
-            }//end if
-
-            return lstJobs;
+                        lstJobs.Add(jd);
+                    } //end for loop for jobs
+                }//end if
+            }
+            catch(Exception ex)
+            {
+                Log.Error("Error Occured in JobManager.GetConfiguredJobs : " + ex.Message + Environment.NewLine + ex.StackTrace, this);
+                throw ex;
+            }
+            return lstJobs.OrderBy(x => x.Group).ThenBy(x => x.JobKey).ToList();
         }
 
         private static string GetJobDefinitionLocation()
