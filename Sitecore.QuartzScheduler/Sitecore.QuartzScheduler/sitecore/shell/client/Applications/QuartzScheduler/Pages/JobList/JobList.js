@@ -47,10 +47,10 @@
         onExecuteJob: function () {
 
             var app = this;
-            var rawItem =  app.lcJobs.get("selectedItem").get("$fields")[0].item;
-            console.log("Executing Job: ID = '" + this.lcJobs.get('selectedItemId') + "' and JobName: " + rawItem["Job Key"]);
-            var jobKey = rawItem["Job Key"];
-            var group = rawItem["Group"];
+            var rawItem = app.lcJobs.get("selectedItem").viewModel;
+            console.log("Executing Job: ID = '" + app.lcJobs.get('selectedItemId') + "' and JobName: " + rawItem.ItemName());
+            var jobKey = rawItem.ItemName();
+            var group = rawItem.Group();
 
             if (confirm("Are you sure you want to execute - \"" + jobKey + "\" ?")) {
 
