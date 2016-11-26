@@ -52,45 +52,48 @@ namespace Sitecore.QuartzScheduler.Providers
             var triggerStats = (List<TriggerStatistic>)cache[Common.Constants.PerformanceDataCacheKey];
             List<TriggerStatSummary> summaryStat = new List<TriggerStatSummary>();
 
-            var triggerAvgDurationList = (from ts in triggerStats
-                                          group ts by ts.JobKey into grp
-                                          select new
-                                          {
-                                              JobKey = grp.Key,
-                                              DurationType = "Avg",
-                                              Duration = grp.Average(p => p.ExecutionDurationInSeconds)
-                                          }).ToList();
-            foreach (var tss in triggerAvgDurationList)
+            if (triggerStats != null && triggerStats.Count > 0)
             {
-                var trigStatSummary = new TriggerStatSummary()
+                var triggerAvgDurationList = (from ts in triggerStats
+                                              group ts by ts.JobKey into grp
+                                              select new
+                                              {
+                                                  JobKey = grp.Key,
+                                                  DurationType = "Avg",
+                                                  Duration = grp.Average(p => p.ExecutionDurationInSeconds)
+                                              }).ToList();
+                foreach (var tss in triggerAvgDurationList)
                 {
-                    JobKey = tss.JobKey,
-                    DurationType = tss.DurationType,
-                    Duration = tss.Duration
-                };
+                    var trigStatSummary = new TriggerStatSummary()
+                    {
+                        JobKey = tss.JobKey,
+                        DurationType = tss.DurationType,
+                        Duration = tss.Duration
+                    };
 
-                summaryStat.Add(trigStatSummary);
-            }
+                    summaryStat.Add(trigStatSummary);
+                }
 
-            var triggerMaxDurationList = (from ts in triggerStats
-                                          group ts by ts.JobKey into grp
-                                          select new
-                                          {
-                                              JobKey = grp.Key,
-                                              DurationType = "Max",
-                                              Duration = grp.Max(p => p.ExecutionDurationInSeconds)
-                                          }).ToList();
+                var triggerMaxDurationList = (from ts in triggerStats
+                                              group ts by ts.JobKey into grp
+                                              select new
+                                              {
+                                                  JobKey = grp.Key,
+                                                  DurationType = "Max",
+                                                  Duration = grp.Max(p => p.ExecutionDurationInSeconds)
+                                              }).ToList();
 
-            foreach (var tss in triggerMaxDurationList)
-            {
-                var trigStatSummary = new TriggerStatSummary()
+                foreach (var tss in triggerMaxDurationList)
                 {
-                    JobKey = tss.JobKey,
-                    DurationType = tss.DurationType,
-                    Duration = tss.Duration
-                };
+                    var trigStatSummary = new TriggerStatSummary()
+                    {
+                        JobKey = tss.JobKey,
+                        DurationType = tss.DurationType,
+                        Duration = tss.Duration
+                    };
 
-                summaryStat.Add(trigStatSummary);
+                    summaryStat.Add(trigStatSummary);
+                }
             }
             return summaryStat;
         }

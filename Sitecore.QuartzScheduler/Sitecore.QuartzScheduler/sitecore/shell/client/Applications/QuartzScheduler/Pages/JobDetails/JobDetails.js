@@ -39,6 +39,7 @@ define(["sitecore", "jquery", "underscore", "entityService"], function (Sitecore
                 // remember the selectedGuid in the hidden SelectedGuid text control
                 console.log('calling JobDetail entity service...');
                 app.selectedJobGuid.set("text", selectedJobID);
+                app.advExpTriggerDetails.set("isVisible", true);
 
                 jobDetailService.fetchEntity(selectedJobID).execute().then(function (jobDetail) {
                     console.log('Job Detail received from entity service: ' + jobDetail);
@@ -119,7 +120,8 @@ define(["sitecore", "jquery", "underscore", "entityService"], function (Sitecore
 
             jobDetailService.create(jobDetail).execute().then(function (newJobDetail) {
                 console.log('entity returned: ' + newJobDetail.toString());
-                self.msgNotifications.addMessage("notification", { text: "Job Details created successfully !", actions: [], closable: true, temporary: true });
+                self.msgNotifications.addMessage("notification", { text: "Job Details created successfully ! To edit job details again close this page and open it in edit mode.", actions: [], closable: true, temporary: true });
+                self.btnSave.set("isEnabled", false)
             }).fail(function (error) {
                 self.msgNotifications.addMessage("error", { text: "Error in Job Detail Creation: " + error.message, actions: [], closable: true, temporary: true });
             });

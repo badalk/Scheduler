@@ -27,7 +27,7 @@ content-length: 3
 field: {F1A1FE9E-A60C-4DDB-A3A0-BB5B29FE732E}
 name: __Renderings
 key: __renderings
-content-length: 12181
+content-length: 12197
 
 <r>
   <d id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}" l="{4F72A793-BDBC-4262-9523-6AADD8FEA487}">
@@ -87,7 +87,7 @@ content-length: 12181
     <r id="{57F86E9A-1844-45CE-BF8A-62900AE17A92}" par="IsEnabled=1&amp;Id=txtJobDataMapValue&amp;IsVisible=1" ph="ColumnPanel4.Content" uid="{E08D4E17-0E0C-46DC-BBCC-5A4311BE91C8}" />
     <r id="{913AB005-2527-4C2D-9827-FB3A8DFB135C}" par="Click=javascript%3aapp.onSaveJobDataMap()%3b&amp;Id=btnSaveJobDataMap&amp;ButtonType=Primary&amp;Text=Save" ph="smPnlJobDataMap.Buttons" uid="{07469FA1-D0D2-4F92-B925-C130AE52DD49}" />
     <r id="{F6C9F461-FCAF-47DC-AA01-C8C64C2EFFB8}" par="Id=Border2&amp;UsePadding=1" ph="ApplicationContent.Main" uid="{9BD5F84C-3E2A-4885-AF49-54A9A3081514}" />
-    <r id="{442BD093-FBAD-4E36-BC08-489E16C82D08}" par="Id=advExpTriggerDetails&amp;Header=Trigger+Details" ph="ApplicationContent.Main" uid="{8C495AB6-E5D8-4205-A040-C29A816E31CF}" />
+    <r id="{442BD093-FBAD-4E36-BC08-489E16C82D08}" par="Id=advExpTriggerDetails&amp;Header=Trigger+Details&amp;IsVisible=0" ph="ApplicationContent.Main" uid="{8C495AB6-E5D8-4205-A040-C29A816E31CF}" />
     <r id="{7426CD5B-A534-4462-ABEE-D700D78ECF6A}" par="Id=tabScheduleType&amp;TabType=Normal" ph="advExpTriggerDetails.Body" uid="{04FB1635-2D62-4A1D-8CA6-EB2C6C65C31A}" />
     <r id="{913AB005-2527-4C2D-9827-FB3A8DFB135C}" par="Click=javascript%3aapp.onAddTriggerDetail()%3b&amp;Id=btnAddTrigger&amp;ButtonType=Primary&amp;Text=Add+Trigger" ph="advExpTriggerDetails.ActionBar" uid="{8BEBA07D-10F3-41DA-9C8C-2F69F56ED2DA}" />
     <r id="{913AB005-2527-4C2D-9827-FB3A8DFB135C}" par="Click=javascript%3aapp.onEditTriggerDetail()%3b&amp;Id=btnEditTrigger&amp;IsEnabled=%7bBinding+lcTriggers.HasSelectedItem%7d&amp;Text=Edit+Trigger" ph="advExpTriggerDetails.ActionBar" uid="{D7D84BB7-8BD4-40B6-9B12-CB4FDCF1F067}" />
@@ -99,7 +99,7 @@ content-length: 12181
 ----version----
 language: en
 version: 1
-revision: 89842cbe-1980-4436-b7b6-64a246b15c5e
+revision: e089c28f-0e93-4da7-9e20-bb3bc45119db
 
 ----field----
 field: {7205A57F-93B4-413A-AA9A-6B16BBC59565}
@@ -121,14 +121,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-89842cbe-1980-4436-b7b6-64a246b15c5e
+e089c28f-0e93-4da7-9e20-bb3bc45119db
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20161123T210730Z
+20161126T192255Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
