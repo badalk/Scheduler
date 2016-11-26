@@ -2,7 +2,7 @@
 version: 1
 id: {96200D6B-E7A6-4E0D-8A7A-5C6C9F4F7A26}
 database: master
-path: /sitecore/system/Modules/QuartzScheduler/Site Jobs/DB Cleanup Job/Triggers/Every 17 seconds
+path: /sitecore/system/Modules/QuartzScheduler/Site Jobs/HelloWorld/Triggers/Every 17 seconds
 parent: {80879FA4-B991-4AE1-ADF4-1DFE4FB40EB3}
 name: Every 17 seconds
 master: {00000000-0000-0000-0000-000000000000}

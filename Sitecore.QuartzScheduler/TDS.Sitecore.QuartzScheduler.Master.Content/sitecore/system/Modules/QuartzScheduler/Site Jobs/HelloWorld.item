@@ -12,15 +12,15 @@ templatekey: JobDetail
 ----version----
 language: en
 version: 1
-revision: 55dac11e-fd47-4cb7-a566-7c4cf14b6c6a
+revision: 0f698659-34d6-44cb-bf20-7c067a075444
 
 ----field----
 field: {ED56086A-99FE-47A4-9746-6F60767A3C98}
 name: Type
 key: type
-content-length: 69
+content-length: 68
 
-Sitecore.QuartzScheduler.Jobs.HelloWorldJob,Scheduler.QuartzScheduler
+Sitecore.QuartzScheduler.Jobs.HelloWorldJob,Sitecore.QuartzScheduler
 ----field----
 field: {330C6D38-A9FA-4BF6-A4D2-F63439B69199}
 name: Job Key
@@ -62,14 +62,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-55dac11e-fd47-4cb7-a566-7c4cf14b6c6a
+0f698659-34d6-44cb-bf20-7c067a075444
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20161126T173832Z
+20161126T180423Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
