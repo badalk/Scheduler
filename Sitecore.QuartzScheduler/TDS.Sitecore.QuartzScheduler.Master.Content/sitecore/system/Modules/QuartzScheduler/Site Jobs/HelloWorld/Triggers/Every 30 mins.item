@@ -2,9 +2,9 @@
 version: 1
 id: {E7CEA038-BA7F-4FA9-901F-F39E91265707}
 database: master
-path: /sitecore/system/Modules/QuartzScheduler/Site Jobs/DB Cleanup Job/Triggers/Every 1 mins
+path: /sitecore/system/Modules/QuartzScheduler/Site Jobs/HelloWorld/Triggers/Every 30 mins
 parent: {80879FA4-B991-4AE1-ADF4-1DFE4FB40EB3}
-name: Every 1 mins
+name: Every 30 mins
 master: {00000000-0000-0000-0000-000000000000}
 template: {822F8EF2-16CE-4B31-AD36-4F2132D81A39}
 templatekey: Trigger
@@ -12,15 +12,15 @@ templatekey: Trigger
 ----version----
 language: en
 version: 1
-revision: 38910a9f-5405-45fe-8648-b8a92fc066ed
+revision: e4073273-e7d5-4ca7-9999-bc8510d63f7b
 
 ----field----
 field: {FE4851AA-D51A-4F20-A5EE-47CD52D0A886}
 name: Trigger Key
 key: trigger key
-content-length: 12
+content-length: 13
 
-Every 1 mins
+Every 30 mins
 ----field----
 field: {B28EEECF-D30B-453A-9726-45665AE22AE7}
 name: Start Time
@@ -29,6 +29,13 @@ content-length: 16
 
 20161108T200000Z
 ----field----
+field: {1D9A31BA-36CB-4ABE-9E46-F3EF8FE3CA5D}
+name: End Time
+key: end time
+content-length: 15
+
+00010101T000000
+----field----
 field: {B7E09575-3017-4A4B-9467-BCCBA023458F}
 name: Schedule Type
 key: schedule type
@@ -36,12 +43,26 @@ content-length: 38
 
 {D39CE392-E22D-4CC7-9C1E-70E13A15F7E6}
 ----field----
+field: {B85439F5-E22F-405E-987F-32BB404CDD18}
+name: Day of Month
+key: day of month
+content-length: 1
+
+0
+----field----
+field: {2CE16E63-C2E0-4E65-BF37-4BEC798A6188}
+name: Repeat Count
+key: repeat count
+content-length: 1
+
+0
+----field----
 field: {93E8DA28-EF9E-46B0-834E-18E319C06C35}
 name: Repeat Interval
 key: repeat interval
-content-length: 1
+content-length: 2
 
-1
+30
 ----field----
 field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
 name: __Owner
@@ -69,14 +90,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-38910a9f-5405-45fe-8648-b8a92fc066ed
+e4073273-e7d5-4ca7-9999-bc8510d63f7b
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20161113T195841Z
+20161125T183514Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by

@@ -128,35 +128,35 @@
       <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
     </SitecoreItem>
-    <SitecoreItem Include="sitecore\system\Modules\QuartzScheduler\Site Jobs\DB Cleanup Job.item">
+    <SitecoreItem Include="sitecore\system\Modules\QuartzScheduler\Site Jobs\HelloWorld.item">
       <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
     </SitecoreItem>
-    <SitecoreItem Include="sitecore\system\Modules\QuartzScheduler\Site Jobs\DB Cleanup Job\Triggers.item">
+    <SitecoreItem Include="sitecore\system\Modules\QuartzScheduler\Site Jobs\HelloWorld\Triggers.item">
       <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
     </SitecoreItem>
-    <SitecoreItem Include="sitecore\system\Modules\QuartzScheduler\Site Jobs\DB Cleanup Job\Triggers\24th of Every Month.item">
+    <SitecoreItem Include="sitecore\system\Modules\QuartzScheduler\Site Jobs\HelloWorld\Triggers\24th of Every Month.item">
       <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
     </SitecoreItem>
-    <SitecoreItem Include="sitecore\system\Modules\QuartzScheduler\Site Jobs\DB Cleanup Job\Triggers\Daily.item">
+    <SitecoreItem Include="sitecore\system\Modules\QuartzScheduler\Site Jobs\HelloWorld\Triggers\Daily.item">
       <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
     </SitecoreItem>
-    <SitecoreItem Include="sitecore\system\Modules\QuartzScheduler\Site Jobs\DB Cleanup Job\Triggers\Every 1 mins.item">
+    <SitecoreItem Include="sitecore\system\Modules\QuartzScheduler\Site Jobs\HelloWorld\Triggers\Every 17 seconds.item">
       <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
     </SitecoreItem>
-    <SitecoreItem Include="sitecore\system\Modules\QuartzScheduler\Site Jobs\DB Cleanup Job\Triggers\Every 17 seconds.item">
+    <SitecoreItem Include="sitecore\system\Modules\QuartzScheduler\Site Jobs\HelloWorld\Triggers\Every 30 mins.item">
       <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
     </SitecoreItem>
-    <SitecoreItem Include="sitecore\system\Modules\QuartzScheduler\Site Jobs\DB Cleanup Job\Triggers\Every 4 hours.item">
+    <SitecoreItem Include="sitecore\system\Modules\QuartzScheduler\Site Jobs\HelloWorld\Triggers\Every 4 hours.item">
       <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
     </SitecoreItem>
-    <SitecoreItem Include="sitecore\system\Modules\QuartzScheduler\Site Jobs\DB Cleanup Job\Triggers\Weekly.item">
+    <SitecoreItem Include="sitecore\system\Modules\QuartzScheduler\Site Jobs\HelloWorld\Triggers\Weekly.item">
       <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
     </SitecoreItem>

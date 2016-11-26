@@ -129,13 +129,28 @@ namespace Sitecore.QuartzScheduler
                             Log.Info("Registering Trigger Listener", this);
                             scheduler.ListenerManager.AddTriggerListener(trigListener, EverythingMatcher<JobKey>.AllTriggers());
                             triggers.Add(trigger.Build());
-                            Log.Info(String.Format("Job {0} is scheduled with trigger {1}.", jd.JobKey, td.TriggerKey), this);
+                            Log.Info(String.Format("Job {0} is being scheduled with trigger {1}.", jd.JobKey, td.TriggerKey), this);
 
 
                         }
                         #endregion
-
-                        scheduler.ScheduleJob(job, triggers, true);
+                        try
+                        {
+                            scheduler.ScheduleJob(job, triggers, true);
+                        }
+                        catch (JobExecutionException jobExeEX)
+                        {
+                            Log.Error(String.Format("Error Occured in {0}", jobExeEX.Source) + jobExeEX.Message + Environment.NewLine + jobExeEX.StackTrace, this);
+                        }
+                        catch (SchedulerException schedulerEx)
+                        {
+                            Log.Error(String.Format("Error Occured in {0}", schedulerEx.Source) + schedulerEx.Message + Environment.NewLine + schedulerEx.StackTrace, this);
+                        }
+                        catch (Exception ex)
+                        {
+                            Log.Error(String.Format("Error occured while schedule job {0}", jd.JobKey), this);
+                            Log.Error(ex.Message + Environment.NewLine + ex.StackTrace, this);
+                        }
                     }
                 }
                 else
@@ -144,14 +159,7 @@ namespace Sitecore.QuartzScheduler
                 }
                 //}
             }
-            catch (JobExecutionException jobExeEX)
-            {
-                Log.Error(String.Format("Error Occured in {0}", jobExeEX.Source) + jobExeEX.Message + Environment.NewLine + jobExeEX.StackTrace, this);
-            }
-            catch (SchedulerException schedulerEx)
-            {
-                Log.Error(String.Format("Error Occured in {0}", schedulerEx.Source) + schedulerEx.Message + Environment.NewLine + schedulerEx.StackTrace, this);
-            }
+
             catch (Exception ex)
             {
                 Log.Error(ex.Message + Environment.NewLine + ex.StackTrace, this);

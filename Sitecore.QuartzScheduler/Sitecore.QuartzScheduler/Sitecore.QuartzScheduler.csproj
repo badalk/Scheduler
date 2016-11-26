@@ -161,6 +161,7 @@
     <Compile Include="Jobs\CleanupEventQueue.cs" />
     <Compile Include="Jobs\CleanupHistory.cs" />
     <Compile Include="Jobs\CleanupPublishQueue.cs" />
+    <Compile Include="Jobs\HelloWorldJob.cs" />
     <Compile Include="Listeners\SchedulerJobListener.cs" />
     <Compile Include="Listeners\SchedulerListener.cs" />
     <Compile Include="Listeners\SchedulerTriggerListener.cs" />

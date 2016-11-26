@@ -5,8 +5,6 @@ VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sitecore.QuartzScheduler", "Sitecore.QuartzScheduler\Sitecore.QuartzScheduler.csproj", "{861A2D32-4025-4E5F-BADD-BDA4A129281E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scheduler", "Scheduler\Scheduler.csproj", "{3F58CDE3-F2E7-4E34-B71A-EC369E3B5C84}"
-EndProject
 Project("{CAA73BB0-EF22-4D79-A57E-DF67B3BA9C80}") = "TDS.Sitecore.QuartzScheduler.Core", "TDS.Sitecore.QuartzScheduler.Core\TDS.Sitecore.QuartzScheduler.Core.scproj", "{A0A61613-E690-4DF5-B7B9-4CE035CDBB5F}"
 EndProject
 Project("{CAA73BB0-EF22-4D79-A57E-DF67B3BA9C80}") = "TDS.Sitecore.QuartzScheduler.Master", "TDS.Sitecore.QuartzScheduler.Master\TDS.Sitecore.QuartzScheduler.Master.scproj", "{C9F6B852-156A-46A5-90DC-C491F80C585A}"
@@ -23,10 +21,6 @@ Global
 		{861A2D32-4025-4E5F-BADD-BDA4A129281E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{861A2D32-4025-4E5F-BADD-BDA4A129281E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{861A2D32-4025-4E5F-BADD-BDA4A129281E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3F58CDE3-F2E7-4E34-B71A-EC369E3B5C84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3F58CDE3-F2E7-4E34-B71A-EC369E3B5C84}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3F58CDE3-F2E7-4E34-B71A-EC369E3B5C84}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3F58CDE3-F2E7-4E34-B71A-EC369E3B5C84}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A0A61613-E690-4DF5-B7B9-4CE035CDBB5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A0A61613-E690-4DF5-B7B9-4CE035CDBB5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A0A61613-E690-4DF5-B7B9-4CE035CDBB5F}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
