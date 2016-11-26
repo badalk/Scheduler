@@ -54,8 +54,8 @@ namespace Sitecore.QuartzScheduler.Controllers
             }
             catch(Exception ex)
             {
-                Diagnostics.Log.Error(String.Format("Error occured while exedcuting job {0} at {1} on demand by {2}", JobKey, DateTime.Now, Context.User.Name), this);
-                Diagnostics.Log.Error(ex.Message + Environment.NewLine + ex.StackTrace, this);
+                Diagnostics.Log.Error(String.Format("Sitecore.QuartzScheuler: Sitecore.QuartzScheuler: Error occured while exedcuting job {0} at {1} on demand by {2}", JobKey, DateTime.Now, Context.User.Name), this);
+                Diagnostics.Log.Error("Sitecore.QuartzScheuler: " + ex.Message + Environment.NewLine + ex.StackTrace, this);
                 throw ex;
             }
         }

@@ -50,7 +50,7 @@ namespace Sitecore.QuartzScheduler.Listeners
 
         public void SchedulerError(string msg, SchedulerException cause)
         {
-            Sitecore.Diagnostics.Log.Error(String.Format("SchedulerListener.SchedulerError with Message: \"{0}\" with exception: {1} at {2}", 
+            Sitecore.Diagnostics.Log.Error(String.Format("Sitecore.QuartzScheuler: SchedulerListener.SchedulerError with Message: \"{0}\" with exception: {1} at {2}", 
                                             msg, cause.Message + Environment.NewLine + cause.StackTrace, DateTime.Now), this);
         }
 

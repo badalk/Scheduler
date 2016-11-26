@@ -32,7 +32,7 @@ namespace Sitecore.QuartzScheduler.Listeners
             Sitecore.Diagnostics.Log.Info(String.Format("JobWasExecuted {0}", context.JobDetail.Key.Name), this);
 
             if (jobException != null)
-                Sitecore.Diagnostics.Log.Error(String.Format("JobWasExecuted {0} with Error : {1}", 
+                Sitecore.Diagnostics.Log.Error(String.Format("Sitecore.QuartzScheuler: JobWasExecuted {0} with Error : {1}", 
                                                             context.JobDetail.Key.Name, 
                                                             jobException.Message + Environment.NewLine + jobException.StackTrace), 
                                                 this);

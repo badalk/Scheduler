@@ -140,16 +140,16 @@ namespace Sitecore.QuartzScheduler
                         }
                         catch (JobExecutionException jobExeEX)
                         {
-                            Log.Error(String.Format("Error Occured in {0}", jobExeEX.Source) + jobExeEX.Message + Environment.NewLine + jobExeEX.StackTrace, this);
+                            Log.Error(String.Format("Sitecore.QuartzScheuler: Error Occured in {0}", jobExeEX.Source) + jobExeEX.Message + Environment.NewLine + jobExeEX.StackTrace, this);
                         }
                         catch (SchedulerException schedulerEx)
                         {
-                            Log.Error(String.Format("Error Occured in {0}", schedulerEx.Source) + schedulerEx.Message + Environment.NewLine + schedulerEx.StackTrace, this);
+                            Log.Error(String.Format("Sitecore.QuartzScheuler: Error Occured in {0}", schedulerEx.Source) + schedulerEx.Message + Environment.NewLine + schedulerEx.StackTrace, this);
                         }
                         catch (Exception ex)
                         {
-                            Log.Error(String.Format("Error occured while schedule job {0}", jd.JobKey), this);
-                            Log.Error(ex.Message + Environment.NewLine + ex.StackTrace, this);
+                            Log.Error(String.Format("Sitecore.QuartzScheuler: Error occured while schedule job {0}", jd.JobKey), this);
+                            Log.Error("Sitecore.QuartzScheuler: " + ex.Message + Environment.NewLine + ex.StackTrace, this);
                         }
                     }
                 }
@@ -162,7 +162,7 @@ namespace Sitecore.QuartzScheduler
 
             catch (Exception ex)
             {
-                Log.Error(ex.Message + Environment.NewLine + ex.StackTrace, this);
+                Log.Error("Sitecore.QuartzScheuler: " + ex.Message + Environment.NewLine + ex.StackTrace, this);
             }
         }
 
@@ -360,7 +360,7 @@ namespace Sitecore.QuartzScheduler
             }
             catch(Exception ex)
             {
-                Log.Error("Error Occured in JobManager.GetConfiguredJobs : " + ex.Message + Environment.NewLine + ex.StackTrace, this);
+                Log.Error("Sitecore.QuartzScheuler: Error Occured in JobManager.GetConfiguredJobs : " + ex.Message + Environment.NewLine + ex.StackTrace, this);
                 throw ex;
             }
             return lstJobs.OrderBy(x => x.Group).ThenBy(x => x.JobKey).ToList();
@@ -494,8 +494,8 @@ namespace Sitecore.QuartzScheduler
             }
             catch(Exception ex)
             {
-                Log.Error(String.Format("Error occured while executing Job \"{0}\" at {1} triggered by user {2} on demand", jobKey, DateTime.Now, Sitecore.Context.User.Name), this);
-                Log.Error(ex.Message + Environment.NewLine + ex.StackTrace, this);
+                Log.Error(String.Format("Sitecore.QuartzScheuler: Error occured while executing Job \"{0}\" at {1} triggered by user {2} on demand", jobKey, DateTime.Now, Sitecore.Context.User.Name), this);
+                Log.Error("Sitecore.QuartzScheuler: " + ex.Message + Environment.NewLine + ex.StackTrace, this);
                 throw ex;
             }
         }

@@ -20,7 +20,7 @@ namespace Sitecore.QuartzScheduler.Jobs
             }
             catch(Exception ex)
             {
-                Log.Error("Error in CleanupHistory Job: " + ex.Message + Environment.NewLine + ex.StackTrace, this);
+                Log.Error("Sitecore.QuartzScheuler: Error in CleanupHistory Job: " + ex.Message + Environment.NewLine + ex.StackTrace, this);
                 throw ex;
             }
         }

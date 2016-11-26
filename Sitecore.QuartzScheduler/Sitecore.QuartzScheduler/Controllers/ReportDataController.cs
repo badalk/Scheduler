@@ -40,11 +40,11 @@ namespace Sitecore.QuartzScheduler.Controllers
                     }
                 }
 
-                Diagnostics.Log.Info(String.Format("Job performance data being returned from the controller action ReportDataController.GetJobPerformanceData: {0}", jsonData), this);
+                Diagnostics.Log.Info(String.Format("Sitecore.QuartzScheuler: Job performance data being returned from the controller action ReportDataController.GetJobPerformanceData: {0}", jsonData), this);
             }
             catch (Exception ex)
             {
-                Diagnostics.Log.Error(ex.Message + Environment.NewLine + ex.StackTrace, this);
+                Diagnostics.Log.Error("Sitecore.QuartzScheuler: " + ex.Message + Environment.NewLine + ex.StackTrace, this);
                 throw ex;
             }
             return (FileResult)this.File(new UTF8Encoding().GetBytes(jsonData), "text/json", "data.json"); ;
@@ -92,7 +92,7 @@ namespace Sitecore.QuartzScheduler.Controllers
             }
             catch (Exception ex)
             {
-                Diagnostics.Log.Error("Error in GetJobWisePerformanceData : " + ex.Message + Environment.NewLine + ex.StackTrace, this);
+                Diagnostics.Log.Error("Sitecore.QuartzScheuler: Error in GetJobWisePerformanceData : " + ex.Message + Environment.NewLine + ex.StackTrace, this);
                 throw ex;
             }
             return (FileResult)this.File(new UTF8Encoding().GetBytes(finalJsonReportData), "text/json", "data.json"); ;
@@ -125,7 +125,7 @@ namespace Sitecore.QuartzScheduler.Controllers
             }
             catch (Exception ex)
             {
-                Diagnostics.Log.Error(ex.Message + Environment.NewLine + ex.StackTrace, this);
+                Diagnostics.Log.Error("Sitecore.QuartzScheuler: " + ex.Message + Environment.NewLine + ex.StackTrace, this);
                 throw ex;
             }
             return (FileResult)this.File(new UTF8Encoding().GetBytes(jsonData), "text/json", "data.json"); ;
@@ -166,7 +166,7 @@ namespace Sitecore.QuartzScheduler.Controllers
             }
             catch(Exception ex)
             {
-                Log.Error("Error Occured in JobManager.GetConfiguredJobs : " + ex.Message + Environment.NewLine + ex.StackTrace, this);
+                Log.Error("Sitecore.QuartzScheuler: Error Occured in JobManager.GetConfiguredJobs : " + ex.Message + Environment.NewLine + ex.StackTrace, this);
                 throw ex;
             }
 
@@ -199,7 +199,7 @@ namespace Sitecore.QuartzScheduler.Controllers
             }
             catch (Exception ex)
             {
-                Diagnostics.Log.Error("Error in GetCurrentJobExecutionStatus: " + ex.Message + Environment.NewLine + ex.StackTrace, this);
+                Diagnostics.Log.Error("Sitecore.QuartzScheuler: Error in GetCurrentJobExecutionStatus: " + ex.Message + Environment.NewLine + ex.StackTrace, this);
                 throw ex;
             }
             return returnValue;
@@ -219,7 +219,7 @@ namespace Sitecore.QuartzScheduler.Controllers
             }
             catch (Exception ex)
             {
-                Diagnostics.Log.Error("Error in GetJobFireTimes : " + ex.Message + Environment.NewLine + ex.StackTrace, this);
+                Diagnostics.Log.Error("Sitecore.QuartzScheuler: Error in GetJobFireTimes : " + ex.Message + Environment.NewLine + ex.StackTrace, this);
                 throw ex;
             }
             return returnValue;

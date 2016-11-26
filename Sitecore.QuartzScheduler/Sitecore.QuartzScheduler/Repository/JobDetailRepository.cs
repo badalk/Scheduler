@@ -46,7 +46,7 @@ namespace Sitecore.QuartzScheduler.Repository
                         catch (Exception ex)
                         {
                             Sitecore.Diagnostics.Log.Info(String.Format("Error adding Job information for {0}", String.IsNullOrEmpty(entity.JobKey)), this);
-                            Sitecore.Diagnostics.Log.Error(ex.Message + Environment.NewLine + ex.StackTrace, this);
+                            Sitecore.Diagnostics.Log.Error("Sitecore.QuartzScheuler: " + ex.Message + Environment.NewLine + ex.StackTrace, this);
 
                         }
                         finally
@@ -89,8 +89,8 @@ namespace Sitecore.QuartzScheduler.Repository
             }
             catch(Exception ex)
             {
-                Sitecore.Diagnostics.Log.Error(String.Format("Could not find an item to delete. Item {0} does not exist", entity.itemId), this);
-                Sitecore.Diagnostics.Log.Error(ex.Message + Environment.NewLine + ex.StackTrace, this);
+                Sitecore.Diagnostics.Log.Error(String.Format("Sitecore.QuartzScheuler: Could not find an item to delete. Item {0} does not exist", entity.itemId), this);
+                Sitecore.Diagnostics.Log.Error("Sitecore.QuartzScheuler: " + ex.Message + Environment.NewLine + ex.StackTrace, this);
             }
        }
 
@@ -136,8 +136,8 @@ namespace Sitecore.QuartzScheduler.Repository
                     }
                     catch (Exception ex)
                     {
-                        Sitecore.Diagnostics.Log.Info(String.Format("Error updating Job information for {0}", entity.JobKey), this);
-                        Sitecore.Diagnostics.Log.Error(ex.Message + Environment.NewLine + ex.StackTrace, this);
+                        Sitecore.Diagnostics.Log.Info(String.Format("Sitecore.QuartzScheuler: Error updating Job information for {0}", entity.JobKey), this);
+                        Sitecore.Diagnostics.Log.Error("Sitecore.QuartzScheuler: " + ex.Message + Environment.NewLine + ex.StackTrace, this);
 
                     }
                     finally

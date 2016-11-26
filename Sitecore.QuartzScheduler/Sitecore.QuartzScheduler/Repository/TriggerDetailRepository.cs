@@ -36,7 +36,7 @@ namespace Sitecore.QuartzScheduler.Repository
                 catch (Exception ex)
                 {
                     Sitecore.Diagnostics.Log.Info(String.Format("Error adding Trigger information for {0}", String.IsNullOrEmpty(entity.TriggerKey)), this);
-                    Sitecore.Diagnostics.Log.Error(ex.Message + Environment.NewLine + ex.StackTrace, this);
+                    Sitecore.Diagnostics.Log.Error("Sitecore.QuartzScheuler: " + ex.Message + Environment.NewLine + ex.StackTrace, this);
                 }
                 finally
                 {
@@ -63,7 +63,7 @@ namespace Sitecore.QuartzScheduler.Repository
             }
             catch (Exception ex) // this means there is no triggers folder - so create one
             {
-                Sitecore.Diagnostics.Log.Error("Error occured while creating Triggers folder : " + ex.Message + Environment.NewLine + ex.StackTrace, this);
+                Sitecore.Diagnostics.Log.Error("Sitecore.QuartzScheuler: Error occured while creating Triggers folder : " + ex.Message + Environment.NewLine + ex.StackTrace, this);
             }
             return triggersFolderItem;
         }
@@ -78,8 +78,8 @@ namespace Sitecore.QuartzScheduler.Repository
             }
             catch (Exception ex)
             {
-                Sitecore.Diagnostics.Log.Error(String.Format("Could not find an item to delete. Item {0} does not exist", entity.itemId), this);
-                Sitecore.Diagnostics.Log.Error(ex.Message + Environment.NewLine + ex.StackTrace, this);
+                Sitecore.Diagnostics.Log.Error(String.Format("Sitecore.QuartzScheuler: Could not find an item to delete. Item {0} does not exist", entity.itemId), this);
+                Sitecore.Diagnostics.Log.Error("Sitecore.QuartzScheuler: " + ex.Message + Environment.NewLine + ex.StackTrace, this);
             }
         }
 
@@ -224,8 +224,8 @@ namespace Sitecore.QuartzScheduler.Repository
                 }
                 catch (Exception ex)
                 {
-                    Sitecore.Diagnostics.Log.Info(String.Format("Error updating Trigger information for {0}", String.IsNullOrEmpty(entity.TriggerKey)), this);
-                    Sitecore.Diagnostics.Log.Error(ex.Message + Environment.NewLine + ex.StackTrace, this);
+                    Sitecore.Diagnostics.Log.Info(String.Format("Sitecore.QuartzScheuler: Error updating Trigger information for {0}", String.IsNullOrEmpty(entity.TriggerKey)), this);
+                    Sitecore.Diagnostics.Log.Error("Sitecore.QuartzScheuler: " + ex.Message + Environment.NewLine + ex.StackTrace, this);
                 }
                 finally
                 {

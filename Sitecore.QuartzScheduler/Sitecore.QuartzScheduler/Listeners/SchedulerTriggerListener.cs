@@ -44,7 +44,7 @@ namespace Sitecore.QuartzScheduler.Listeners
                 }
                 else
                 {
-                    Sitecore.Diagnostics.Log.Warn("Missing App Setting value for Sitecore.QuartzScheduler.TriggerStatisticsStoreProvider", this);
+                    Sitecore.Diagnostics.Log.Warn("Sitecore.QuartzScheuler: Missing App Setting value for Sitecore.QuartzScheduler.TriggerStatisticsStoreProvider", this);
                 }
                 
             }

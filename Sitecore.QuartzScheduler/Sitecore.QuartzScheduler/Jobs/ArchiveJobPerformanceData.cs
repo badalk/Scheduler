@@ -44,7 +44,7 @@ namespace Sitecore.QuartzScheduler.Jobs
             }
             catch (Exception ex)
             {
-                Diagnostics.Log.Error(ex.Message + Environment.NewLine + ex.StackTrace, this);
+                Diagnostics.Log.Error("Sitecore.QuartzScheuler: " + ex.Message + Environment.NewLine + ex.StackTrace, this);
                 throw ex;
             }
 
