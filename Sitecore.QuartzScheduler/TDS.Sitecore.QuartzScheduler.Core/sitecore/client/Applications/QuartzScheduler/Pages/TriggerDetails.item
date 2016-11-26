@@ -13,7 +13,7 @@ templatekey: Speak-DialogPage
 field: {F1A1FE9E-A60C-4DDB-A3A0-BB5B29FE732E}
 name: __Renderings
 key: __renderings
-content-length: 14416
+content-length: 14432
 
 <r>
   <d id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}" l="{4F72A793-BDBC-4262-9523-6AADD8FEA487}">
@@ -62,7 +62,7 @@ content-length: 14416
     <r id="{5CB208F6-1860-426B-8221-FAA85B329848}" par="Id=ColumnPanel7&amp;GridColumns=2&amp;ContentAlign=Right" ph="RowPanel2.Content" uid="{0FB25BB2-9D53-4ADB-B683-BAF559C6A0E9}" />
     <r id="{5CB208F6-1860-426B-8221-FAA85B329848}" par="Id=ColumnPanel8&amp;GridColumns=10" ph="RowPanel2.Content" uid="{3CD953F9-B8D6-4C2C-BE62-C0CD2FEC426E}" />
     <r id="{7717EB6C-9F90-4C58-826D-5E87722A0318}" par="Id=Text4&amp;TextType=LargeLabel&amp;Text=Schedule+Type" ph="ColumnPanel7.Content" uid="{247B337D-4625-4BB6-A84A-D536E5CBDFE2}" />
-    <r id="{D47D6BFD-4F1F-4715-9FD1-5957EC0259F5}" par="Id=dsScheduleType&amp;Database=%24context_contentdatabase&amp;RootItemId=%7b14126F4B-CB96-4038-A199-B46681530C00%7d" ph="Page.Body" uid="{D20F1810-1AF6-4707-BAEB-3888B292FA71}" />
+    <r id="{D47D6BFD-4F1F-4715-9FD1-5957EC0259F5}" par="Language=en&amp;Id=dsScheduleType&amp;Database=%24context_contentdatabase&amp;RootItemId=%7b14126F4B-CB96-4038-A199-B46681530C00%7d" ph="Page.Body" uid="{D20F1810-1AF6-4707-BAEB-3888B292FA71}" />
     <r id="{25D357D3-3648-4336-9B53-55EED7CFA078}" par="Id=cmbScheduleType&amp;DisplayFieldName=itemName&amp;WidthPolicy=%7b10E1CB3E-660F-4C5E-9F25-F67C4637D463%7d&amp;Items=%7bBinding+dsScheduleType.Items%7d&amp;ValueFieldName=itemId" ph="ColumnPanel8.Content" uid="{3164BAEB-75D2-47CC-A616-27679AEF4050}" />
     <r id="{F6C9F461-FCAF-47DC-AA01-C8C64C2EFFB8}" par="Id=Border3&amp;PaddingType=Bottom&amp;UsePadding=1" ph="ApplicationContent.Main" uid="{BEF7ED24-B50B-4EE3-9CC3-9D74E91D0F7B}" />
     <r id="{CA84FBFF-B3A0-4AEC-9C2C-7DDBBF7DA102}" par="Id=durationExpander&amp;IsVisible=0&amp;Text=Configure+Duration" ph="ApplicationContent.Main" uid="{64EB5922-D1C6-42C0-AA8A-8D6DDEA44203}" />
@@ -97,7 +97,7 @@ content-length: 14416
 ----version----
 language: en
 version: 1
-revision: 4d1e7f0f-6cb2-4d2b-bac5-908d9ecc07a2
+revision: f02b9d71-3472-4cc3-ae22-b828d1846363
 
 ----field----
 field: {7205A57F-93B4-413A-AA9A-6B16BBC59565}
@@ -119,14 +119,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-4d1e7f0f-6cb2-4d2b-bac5-908d9ecc07a2
+f02b9d71-3472-4cc3-ae22-b828d1846363
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20161126T044633Z
+20161126T144137Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by

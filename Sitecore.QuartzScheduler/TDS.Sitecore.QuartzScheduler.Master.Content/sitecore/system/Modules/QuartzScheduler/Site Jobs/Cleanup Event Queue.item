@@ -12,7 +12,7 @@ templatekey: JobDetail
 ----version----
 language: en
 version: 1
-revision: 3e301a38-cb08-4cbe-b188-f7e7548a70bf
+revision: 7afe293d-9504-4b36-96c6-b660574e0e7c
 
 ----field----
 field: {ED56086A-99FE-47A4-9746-6F60767A3C98}
@@ -46,9 +46,9 @@ HouseKeeping
 field: {A9E21D13-4459-42BD-BD11-7618A80EA283}
 name: Job Data Map
 key: job data map
-content-length: 12
+content-length: 39
 
-DaysToKeep=1
+DaysToKeep=1&IntervalToKeep (hh:mm:ss)=
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
@@ -62,14 +62,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-3e301a38-cb08-4cbe-b188-f7e7548a70bf
+7afe293d-9504-4b36-96c6-b660574e0e7c
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20161118T012813Z
+20161126T145310Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by

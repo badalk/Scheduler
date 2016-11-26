@@ -12,7 +12,7 @@ templatekey: Trigger
 ----version----
 language: en
 version: 1
-revision: aa8b85d4-0790-4db4-af61-7475d65ae5de
+revision: 5992ebea-1c33-4456-baa7-5b33d3044974
 
 ----field----
 field: {FE4851AA-D51A-4F20-A5EE-47CD52D0A886}
@@ -29,6 +29,13 @@ content-length: 16
 
 20161116T123000Z
 ----field----
+field: {1D9A31BA-36CB-4ABE-9E46-F3EF8FE3CA5D}
+name: End Time
+key: end time
+content-length: 15
+
+00010101T000000
+----field----
 field: {174D400E-5337-4ADB-B62B-2E8E40201B85}
 name: Priority
 key: priority
@@ -42,6 +49,20 @@ key: schedule type
 content-length: 38
 
 {FFF17848-BE0E-4F33-8DA4-F3782E313011}
+----field----
+field: {B85439F5-E22F-405E-987F-32BB404CDD18}
+name: Day of Month
+key: day of month
+content-length: 1
+
+0
+----field----
+field: {2CE16E63-C2E0-4E65-BF37-4BEC798A6188}
+name: Repeat Count
+key: repeat count
+content-length: 1
+
+0
 ----field----
 field: {93E8DA28-EF9E-46B0-834E-18E319C06C35}
 name: Repeat Interval
@@ -62,14 +83,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-aa8b85d4-0790-4db4-af61-7475d65ae5de
+5992ebea-1c33-4456-baa7-5b33d3044974
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20161117T212412Z
+20161126T153226Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by

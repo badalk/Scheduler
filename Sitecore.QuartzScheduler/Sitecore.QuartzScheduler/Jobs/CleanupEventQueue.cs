@@ -15,9 +15,11 @@ namespace Sitecore.QuartzScheduler.Jobs
                 JobDataMap dataMap = context.MergedJobDataMap;
 
                 var daysToKeep = dataMap.GetIntValue("DaysToKeep");
+                var intervalToKeep = dataMap.GetString("IntervalToKeep (hh:mm:ss)");
 
                 Tasks.CleanupEventQueue cleanEventQ = new Tasks.CleanupEventQueue();
                 cleanEventQ.DaysToKeep = (uint) daysToKeep;
+                cleanEventQ.IntervalToKeep = intervalToKeep;
                 cleanEventQ.Run();
 
 

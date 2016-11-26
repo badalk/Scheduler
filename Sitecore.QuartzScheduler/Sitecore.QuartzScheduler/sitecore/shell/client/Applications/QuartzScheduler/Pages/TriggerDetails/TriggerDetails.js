@@ -32,7 +32,10 @@ define(["sitecore", "jquery", "underscore", "entityService"], function (Sitecore
                 }
             });
 
-
+            app.dsScheduleType.on("error", function (error) {
+                console.log("Error occured while getting schedule types");
+                console.dir(error);
+            });
 
         },
 

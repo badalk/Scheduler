@@ -24,6 +24,10 @@ define(["sitecore", "jquery", "underscore", "entityService"], function (Sitecore
             this.lcJobDataMap.on('change:selectedItemId', function (component, value) {
                 app.smPnlJobDataMap.set("isOpen", false);
             });
+
+            this.lcTriggers.on("change:selectedItemId", function (component, value) {
+                console.log("Selected Trigger Id: " + value);
+            });
         },
 
         LoadJobDetails: function (selectedJobID) {
@@ -226,19 +230,22 @@ define(["sitecore", "jquery", "underscore", "entityService"], function (Sitecore
 
         GetJobDataMapJson: function (jobDataMap) {
             var jsonJobDataMap = [];
-            var arrKeyValue = jobDataMap.split("&");
+            console.log("jobDataMap = \"" + jobDataMap + "\"");
 
-            if (arrKeyValue != null && arrKeyValue.length > 0) {
-                for (i = 0; i < arrKeyValue.length; i++) {
-                    var arrKeyValuePair = arrKeyValue[i].split("=");
+            if ((typeof jobDataMap != 'undefined') && (jobDataMap != "")) {
+                var arrKeyValue = jobDataMap.split("&");
+                if (arrKeyValue != null && arrKeyValue.length > 0) {
+                    for (i = 0; i < arrKeyValue.length; i++) {
+                        var arrKeyValuePair = arrKeyValue[i].split("=");
 
-                    var newJobDataMap = {
-                        "itemId": arrKeyValuePair[0],
-                        "Key": arrKeyValuePair[0],
-                        "Value": arrKeyValuePair[1]
-                    };
+                        var newJobDataMap = {
+                            "itemId": arrKeyValuePair[0],
+                            "Key": arrKeyValuePair[0],
+                            "Value": arrKeyValuePair[1]
+                        };
 
-                    jsonJobDataMap.push(newJobDataMap);
+                        jsonJobDataMap.push(newJobDataMap);
+                    }
                 }
             }
 
