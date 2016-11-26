@@ -13,20 +13,20 @@ templatekey: ColumnField
 field: {E67F1B1F-3488-4CF4-80AE-BE285C918C2E}
 name: DataField
 key: datafield
-content-length: 7
+content-length: 6
 
-Job Key
+JobKey
 ----field----
 field: {B2A46AE4-38F9-4538-A2B3-8021083E0E40}
 name: Sortable
 key: sortable
-content-length: 1
+content-length: 0
 
-1
+
 ----version----
 language: en
 version: 1
-revision: 5170e9e9-1492-40e6-8fc1-2bafd85c1040
+revision: 88349327-f7ed-4e5f-84e7-5fb710644a3c
 
 ----field----
 field: {2E9FD749-0F47-4397-8BA2-C56C65366BF0}
@@ -62,14 +62,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-5170e9e9-1492-40e6-8fc1-2bafd85c1040
+88349327-f7ed-4e5f-84e7-5fb710644a3c
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20151229T191951Z
+20161126T032446Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by

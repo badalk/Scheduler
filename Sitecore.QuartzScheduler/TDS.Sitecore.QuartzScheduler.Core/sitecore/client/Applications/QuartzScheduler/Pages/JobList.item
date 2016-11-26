@@ -34,36 +34,31 @@ content-length: 0
 field: {F1A1FE9E-A60C-4DDB-A3A0-BB5B29FE732E}
 name: __Renderings
 key: __renderings
-content-length: 4635
+content-length: 3297
 
 <r>
   <d id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}" l="{4F72A793-BDBC-4262-9523-6AADD8FEA487}">
     <r id="{DAFAFFB8-74AF-4141-A96A-70B16834CEC6}" par="PageCodeScriptFileName=%2fsitecore%2fshell%2fclient%2fApplications%2fQuartzScheduler%2fPages%2fJobList%2fJobList.js" ph="Page.Code" uid="{237256AA-9D30-463E-9ED1-90CFF092FCF6}" />
     <r id="{225B55AC-0270-44F9-842B-96D89F9C20A9}" ph="Page.Body" uid="{822F45CF-5E38-4827-B56F-55773F468ADE}" />
     <r id="{5AE97C0C-EE88-4564-A363-4FA11C01C90A}" ph="GlobalHeader" uid="{532C7DCD-29E7-4C34-9910-FC283D61A026}" />
-    <r id="{7A69C522-7E99-4630-A25A-5D571505862A}" par="ImageUrl=%25252525252525252525252525252fsitecore%25252525252525252525252525252fshell%25252525252525252525252525252fclient%25252525252525252525252525252fSpeak%25252525252525252525252525252fAssets%25252525252525252525252525252fimg%25252525252525252525252525252fspeak-logo.png&amp;Id=GlobalLogo" ph="GlobalHeader.StartButton" uid="{A340B9F2-9FD0-4767-9B0B-62D7C8B0E5C7}" />
+    <r id="{7A69C522-7E99-4630-A25A-5D571505862A}" par="ImageUrl=%2525252525252525252525252525252fsitecore%2525252525252525252525252525252fshell%2525252525252525252525252525252fclient%2525252525252525252525252525252fSpeak%2525252525252525252525252525252fAssets%2525252525252525252525252525252fimg%2525252525252525252525252525252fspeak-logo.png&amp;Id=GlobalLogo" ph="GlobalHeader.StartButton" uid="{A340B9F2-9FD0-4767-9B0B-62D7C8B0E5C7}" />
     <r id="{EA28ED83-0F59-4BB9-AA95-6FAC9C3385D6}" par="Id=NavigationToggler" ph="GlobalHeader.NavigationToggler" uid="{FDD98D93-DE19-46DF-B209-44FFEA5E43ED}" />
     <r id="{EC86834B-890C-405C-BB36-CA25044909E1}" ph="GlobalFooter" uid="{C01DD5BD-DFC2-425B-A301-43AE8363B443}" />
     <r id="{93CEEFCD-2DE1-40AF-AE9A-EBBFBCCC522F}" ph="ApplicationHeader" uid="{1E240370-226C-40E4-9C54-7FE8630DF74A}" />
     <r id="{7717EB6C-9F90-4C58-826D-5E87722A0318}" par="Id=HeaderTitle&amp;Text=Quartz+Scheduler+Job+Definitions" ph="ApplicationHeader.Title" uid="{1DC97590-77EC-4F75-A687-D86F7D22CAAA}" />
     <r id="{EB6214BE-5687-4706-ABA6-B25C0958C85B}" ph="ApplicationContent" uid="{1726A827-9D4D-4594-A8CB-785C230C469A}" />
     <r ds="{86DF1575-0725-435E-BC18-C34F4DF22FA3}" id="{DDF19992-89DB-4F29-82EC-F16A8C8D15B9}" par="Id=hbtnGrpQuartzScheduler&amp;SelectedItemId=%7b9E61160A-E034-46F3-A49B-5E44D9549728%7d" ph="ApplicationContent.Navigation" uid="{0A6D95F8-D6C5-4B18-A24F-B4A916339A00}" />
-    <r id="{ED5C3BA8-17E3-4F82-89C2-1496E8D61434}" par="Id=srchPnl" ph="ApplicationContent.Main" uid="{F153F347-C25F-40E0-B82F-C9FC763B6E9D}" />
-    <r id="{26B2B002-BCA0-4968-99E4-01573338B6A9}" par="Click=javascript%3aapp.fcJobs.toggle()&amp;ShowArrow=1&amp;Id=tbtnJobFilter&amp;IsEnabled=%7bBinding+srchDSJobs.HasItems%7d&amp;ButtonType=Default&amp;Text=Filters" ph="srchPnl.Filters" uid="{5F146D1C-B968-4C6A-A83A-D5713EE1B1D2}" />
     <r id="{F6C9F461-FCAF-47DC-AA01-C8C64C2EFFB8}" par="Id=Main&amp;UsePadding=1&amp;ShowBorder=0" ph="ApplicationContent.Main" uid="{8EC02FDB-51E9-4983-9AD3-FAD2210E5BAC}" />
-    <r id="{9B00BB85-3894-4FBD-8522-3C467FDEB050}" par="Id=fcJobs&amp;IsVisible=0&amp;Facets=%7bBinding+srchDSJobs.Facets%7d" ph="ApplicationContent.Main" uid="{BE5AA473-0A08-4148-9F05-7463D9DA4F06}" />
-    <r id="{73C16115-8B56-43AF-8EA3-4D704FCDA127}" par="Id=SeparatorBetnFCandLCForJobs&amp;IsVisible=%7bBinding+fcJobs.IsVisible%7d" ph="ApplicationContent.Main" uid="{BA96EA5C-6609-40F0-832F-857BD635CC69}" />
     <r id="{442BD093-FBAD-4E36-BC08-489E16C82D08}" par="Id=advExpJobList&amp;Header=Job+List" ph="ApplicationContent.Main" uid="{4C14B3FB-5510-4E92-9023-7CD914466F90}" />
-    <r ds="{5EEFB338-BF80-42EB-AABE-1D7B43F55A05}" id="{ACE0AFD6-3DE0-42CF-8E62-4E68CD810A8D}" par="Id=lcJobs&amp;Items=%7bBinding+srchDSJobs.Items%7d&amp;TileHtmlFileName=%2fsitecore%2fshell%2fclient%2fBusiness+Component+Library%2fLayouts%2fRenderings%2fListsAndGrids%2fListControls%2fDefaultTile.cshtml" ph="advExpJobList.Body" uid="{45185BE3-B799-406E-97E9-2FCF13AFB080}" />
+    <r ds="{5EEFB338-BF80-42EB-AABE-1D7B43F55A05}" id="{ACE0AFD6-3DE0-42CF-8E62-4E68CD810A8D}" par="Id=lcJobs&amp;TileHtmlFileName=%2fsitecore%2fshell%2fclient%2fBusiness+Component+Library%2fLayouts%2fRenderings%2fListsAndGrids%2fListControls%2fDefaultTile.cshtml" ph="advExpJobList.Body" uid="{45185BE3-B799-406E-97E9-2FCF13AFB080}" />
     <r id="{913AB005-2527-4C2D-9827-FB3A8DFB135C}" par="Click=javascript%3aapp.onEditJobDetails()%3b&amp;Id=btnEditJobDetails&amp;IsEnabled=%7bBinding+lcJobs.HasSelectedItem%7d&amp;ButtonType=Primary&amp;Text=Edit+Job+Details" ph="advExpJobList.ActionBar" uid="{7AF26C68-D12D-467B-9579-A4BD4959B074}" />
     <r id="{913AB005-2527-4C2D-9827-FB3A8DFB135C}" par="Click=javascript%3aapp.onExecuteJob()&amp;Id=btnExecuteJob&amp;IsEnabled=%7bBinding+lcJobs.HasSelectedItem%7d&amp;ButtonType=Default&amp;Text=Execute+Job" ph="advExpJobList.ActionBar" uid="{E65D3A78-B35B-49BC-B78C-F3C54C12CDAE}" />
-    <r id="{D47D6BFD-4F1F-4715-9FD1-5957EC0259F5}" par="FacetsRootItemId=%7b01E56AFA-FB38-4F21-AEF4-403E839DCBFC%7d&amp;Id=srchDSJobs&amp;Database=%24context_contentdatabase&amp;SearchConfigItemId=%7b53A1A170-C5FB-4B53-B076-6B9CC1468554%7d&amp;SelectedFacets=%7bBinding+fcJobs.SelectedFacets%7d&amp;Sorting=%7bBinding+lcJobs.Sorting%7d&amp;RootItemId=%7b0DA9CC1D-45EE-4B45-922D-700039CEC5A2%7d" ph="Page.Body" uid="{6820A512-9A24-4063-B829-2ED0F4C57392}" />
   </d>
 </r>
 ----version----
 language: en
 version: 1
-revision: a24db21d-5b30-4fe3-b057-92026dd1d06e
+revision: 1712758c-5693-49e7-9aa3-fc3bbea90f7c
 
 ----field----
 field: {7205A57F-93B4-413A-AA9A-6B16BBC59565}
@@ -85,14 +80,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-a24db21d-5b30-4fe3-b057-92026dd1d06e
+1712758c-5693-49e7-9aa3-fc3bbea90f7c
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20161124T015459Z
+20161126T033954Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by

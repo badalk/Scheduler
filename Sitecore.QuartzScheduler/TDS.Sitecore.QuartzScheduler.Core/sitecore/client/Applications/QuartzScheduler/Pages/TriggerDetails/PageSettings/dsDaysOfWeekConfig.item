@@ -1,13 +1,20 @@
 ----item----
 version: 1
-id: {6489C63A-F0EE-44A4-BCD5-446BF30E92B0}
+id: {DCFE1FC5-5ABD-45AB-BAA7-8DC3BCBC51C3}
 database: core
-path: /sitecore/client/Applications/QuartzScheduler/Pages/TriggerDetails/PageSettings/Search Configs/SearchPanel Config
-parent: {A050489C-C83F-4DE0-84EC-8B9F3110B788}
-name: SearchPanel Config
+path: /sitecore/client/Applications/QuartzScheduler/Pages/TriggerDetails/PageSettings/dsDaysOfWeekConfig
+parent: {980FBF61-6363-4261-9E4F-05CB77ECF2E9}
+name: dsDaysOfWeekConfig
 master: {00000000-0000-0000-0000-000000000000}
 template: {83E8F3D3-065A-40E3-B17D-C4A1E9DAD6B4}
 templatekey: SearchPanel Config
+
+----field----
+field: {19E8EDB4-8D83-40D9-936E-A21B08CBBC33}
+name: Root
+key: root
+content-length: 0
+
 
 ----field----
 field: {8F92BB79-70A4-4224-BF62-E0335D0892AB}
@@ -26,7 +33,7 @@ content-length: 38
 ----version----
 language: en
 version: 1
-revision: 851e85b1-10df-488f-979c-ec9248f76113
+revision: 43225c57-fa2c-47d6-8db8-2313956ee227
 
 ----field----
 field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
@@ -41,7 +48,7 @@ name: __Created
 key: __created
 content-length: 16
 
-20160313T235040Z
+20161126T043850Z
 ----field----
 field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
 name: __Created by
@@ -55,14 +62,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-851e85b1-10df-488f-979c-ec9248f76113
+43225c57-fa2c-47d6-8db8-2313956ee227
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20160314T000508Z
+20161126T045142Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
