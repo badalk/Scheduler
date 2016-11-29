@@ -74,9 +74,11 @@ namespace Sitecore.QuartzScheduler.Controllers
                             triggerStats = triggerStatStore.GetTriggerStatisticsForJob(jd.JobKey);
                             if (triggerStats != null && triggerStats.Count > 0)
                             {
+                                if (finalJsonReportData != "")
+                                    finalJsonReportData = finalJsonReportData.Insert(finalJsonReportData.Length, ", ");
+
                                 jsonData = HelperUtility.GetJsonSerializedData(triggerStats);
-                                if (i < jobList.Count - 1)
-                                    jsonData = jsonData.Insert(jsonData.Length, ", ");
+
 
                                 finalJsonReportData = finalJsonReportData.Insert(finalJsonReportData.Length, jsonData);
                             }
