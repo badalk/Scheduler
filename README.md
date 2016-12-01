@@ -1,4 +1,4 @@
-# Scheduler
+# Sitecore QuartzScheduler (Scheduler)
 Sitecore QuartzScheduler is a framework that allows you to schedule Quartz Job through a Sitecore SPEAK app. 
 
 Here is the list of features
